@@ -25,6 +25,7 @@ hs_err_pid*
 # Mac-poop (Because Ben uses a Mac)
 ~*
 .DS_Store
+.~*
 
 # VPP Stuff
 *.bak_*
