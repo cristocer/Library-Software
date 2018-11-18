@@ -1,24 +1,63 @@
+/**
+ * Laptop.java
+ * @author Cristian Neacsu
+ * -no copyright
+ * @version 1.0
+ * Version History 1.0 
+ * Creation Date 18/11/2018
+ * Last Modified date 18/11/2018
+ */
+package main;
 
-public class Laptop {
-	private String operatingSystem;
-	private String manufacturer;
-	private String model;
+/**
+ * Laptop is a subclass of the class Resources, which holds the data and methods relevant to only
+ * laptop and no other Resources subclasses. 
+ * This class models the physical object of a real laptop owned by TaweLib.
+ */
+
+public class Laptop extends Resources {
+    //The diameter of the circle
+    private String operatingSystem;	
+    private String manufacturer;	
+    private String model;	
+    /**
+     * Creates a laptop.
+     * @param year The year when the laptop was build.
+     * @param title The title(name) of the laptop.
+     * @param thumbnailImagePath The path to the thumbnail image of the each individual laptop.
+     * @param operatingSystem The operating system of the laptop.
+     * @param manufacturer The manufacturer of the laptop.
+     * @param model The model of the laptop.
+     */
+    public Laptop (String year,String title,String thumbnailImagePath,String operatingSystem,String manufacturer,String model) {
+    	super (,title,year,thumbnailImagePath);//get resourceUID from db too call super
+    	this.operatingSystem = operatingSystem;  
+	this.manufacturer = manufacturer; 
+	this.model = model; 
+    }
+    
+    /**
+     * Method to convert a laptop to a string.(if need)
+     */    
 	
-	private Laptop(String operatingSystem, String manufacturer, String model) {
-		this.operatingSystem = operatingSystem;
-		this.manufacturer = manufacturer;
-		this.model = model;
-	}
-	
-	public String getOperatingSystem() {
+    /**
+     * @return The operating system of the laptop.
+     */
+    public String getOperatingSystem() {
         return operatingSystem;
     }
-	
-	public String getManufacturer() {
+	/**
+     * @return The manufacturer of the laptop.
+     */
+    public String getManufacturer() {
         return manufacturer;
     }
-	
-	public String getModel() {
+	/**
+     * @return The model of the laptop.
+     */
+    public String getModel() {
         return model;
     }
+
+    
 }
