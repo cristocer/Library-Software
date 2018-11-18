@@ -1,4 +1,5 @@
-public class DVD{
+public class DVD extends Resources{
+
     private String director;
     private int runTime;
     private String language;
