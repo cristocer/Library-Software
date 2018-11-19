@@ -27,5 +27,7 @@ hs_err_pid*
 .DS_Store
 .~*
 
+#inteliJ poop
+*.iml
 # VPP Stuff
 *.bak_*
