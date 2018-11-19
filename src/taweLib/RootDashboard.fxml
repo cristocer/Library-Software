@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DashboardController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="taweLib.DashboardController">
    <right>
       <VBox prefWidth="160.0" BorderPane.alignment="CENTER">
          <children>
@@ -50,8 +50,9 @@
       </HBox>
    </top>
    <bottom>
-      <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="588.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="588.0" spacing="5.0" BorderPane.alignment="CENTER">
          <children>
+            <Button mnemonicParsing="false" text="Logout" />
             <Button alignment="BOTTOM_RIGHT" contentDisplay="BOTTOM" mnemonicParsing="false" text="Librarian" />
          </children>
          <BorderPane.margin>
