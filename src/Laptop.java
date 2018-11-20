@@ -7,7 +7,7 @@
  * Creation Date 18/11/2018
  * Last Modified date 18/11/2018
  */
-package main;
+//package main;
 
 /**
  * Laptop is a subclass of the class Resources, which holds the data and methods relevant to only
@@ -30,7 +30,7 @@ public class Laptop extends Resources {
      * @param model The model of the laptop.
      */
     public Laptop (String year,String title,String thumbnailImagePath,String operatingSystem,String manufacturer,String model) {
-    	super (,title,year,thumbnailImagePath);//get resourceUID from db too call super
+    	//super (,title,year,thumbnailImagePath);//get resourceUID from db too call super
     	this.operatingSystem = operatingSystem;  
 	this.manufacturer = manufacturer; 
 	this.model = model; 

@@ -47,6 +47,9 @@ public class LoginController {
     public String getUser(){
         return username_text.getText();
     }
+    public void logout(){
+        authenticated = false;
+    }
     private void close(){
         Stage stage = (Stage) rootPane.getScene().getWindow();
         stage.close();

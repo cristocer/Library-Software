@@ -1,9 +1,11 @@
 package taweLib;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
@@ -11,18 +13,30 @@ import javafx.stage.Stage;
 
 public class DashboardController {
 
-    @FXML
-    private ListView<String> resourcesList;
+
+    private LoginController loginController;
 
     @FXML
+    private BorderPane borderPane;
+    @FXML
+    private ListView<String> resourcesList;
+    @FXML
     private Text user_id;
+
+    @FXML
+    void logoutButton(ActionEvent event) {
+        logoutHandling();
+    }
+    @FXML
+    void transactionHistoryButton(ActionEvent event) {
+        viewTransactions();
+    }
 
     public void initialize(){
         loginHandling();
         populateList();
     }
-
-    private void populateList(){
+    private void populateList(){ // Just for testing
         for(int x=0; x<1000; x++){
             resourcesList.getItems().add("lol");
         }
@@ -32,7 +46,7 @@ public class DashboardController {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LoginScreen.fxml"));
             GridPane loginRoot = (GridPane)fxmlLoader.load();
 
-            LoginController loginController = fxmlLoader.<LoginController>getController();
+            loginController = fxmlLoader.<LoginController>getController();
 
             Scene loginScene = new Scene(loginRoot, 250,250);
 
@@ -47,10 +61,15 @@ public class DashboardController {
             user_id.setText(loginController.getUser());
         }
         catch (Exception e){
-
+            System.out.println("Login failed");
         }
     }
-
+    private void logoutHandling(){
+        user_id.setText("nobody");
+        loginController.logout();
+        loginHandling();
+    }
+    private void viewTransactions(){ }
     private void close(){
         System.exit(0);
     }
