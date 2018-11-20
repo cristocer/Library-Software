@@ -41,12 +41,12 @@ public class DashboardController {
             resourcesList.getItems().add("lol");
         }
     }
-    private void loginHandling(){
+    private void loginHandling(){ // Had issues converting this to use the new Window class. Due to the close function in the loginController.
         try{
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LoginScreen.fxml"));
-            GridPane loginRoot = (GridPane)fxmlLoader.load();
+            GridPane loginRoot = fxmlLoader.load();
 
-            loginController = fxmlLoader.<LoginController>getController();
+            loginController = fxmlLoader.getController();
 
             Scene loginScene = new Scene(loginRoot, 250,250);
 
@@ -69,7 +69,11 @@ public class DashboardController {
         loginController.logout();
         loginHandling();
     }
-    private void viewTransactions(){ }
+    private void viewTransactions(){
+        Window<TransactionController> transactionWindow = new Window<>("TransactionHistory.fxml",600,600,"Transcation History");
+        transactionWindow.makeModal();
+        transactionWindow.showAndWait();
+    }
     private void close(){
         System.exit(0);
     }
