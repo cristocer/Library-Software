@@ -7,7 +7,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class LoginController {
+public class LoginController extends Controller{
     private boolean authenticated;
     @FXML
     private TextField username_text;
@@ -16,10 +16,17 @@ public class LoginController {
     @FXML
     private Text wronguser_text;
 
+    /**
+     * Initiates the variables.
+     */
     public LoginController(){
         authenticated = false;
     }
 
+    /**
+     * Handles login button press and Authenticates user.
+     * @param event button press.
+     */
     @FXML
     void loginHandling(ActionEvent event) {
         String username = username_text.getText();
@@ -41,17 +48,27 @@ public class LoginController {
         }
     }
 
+    /**
+     * Check if User is authentic
+     * @return authenticity status.
+     */
     public boolean isAuthenticated(){
         return authenticated;
     }
+
+    /**
+     * Get the username of user logging in.
+     * @return
+     */
     public String getUser(){
         return username_text.getText();
     }
+
+    /**
+     * Logout the user.
+     */
     public void logout(){
         authenticated = false;
     }
-    private void close(){
-        Stage stage = (Stage) rootPane.getScene().getWindow();
-        stage.close();
-    }
+
 }

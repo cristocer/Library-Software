@@ -2,22 +2,12 @@ package taweLib;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.ListView;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 
-public class DashboardController {
-
+public class DashboardController extends Controller{
 
     private LoginController loginController;
-
-    @FXML
-    private BorderPane borderPane;
     @FXML
     private ListView<String> resourcesList;
     @FXML
@@ -32,37 +22,31 @@ public class DashboardController {
         viewTransactions();
     }
 
+    /**
+     * Initializes the GUI, prompts user for Login...ToDO
+     */
     public void initialize(){
         loginHandling();
         populateList();
     }
+
+// Just until i can fetch from db
     private void populateList(){ // Just for testing
         for(int x=0; x<1000; x++){
             resourcesList.getItems().add("lol");
         }
     }
-    private void loginHandling(){ // Had issues converting this to use the new Window class. Due to the close function in the loginController.
-        try{
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LoginScreen.fxml"));
-            GridPane loginRoot = fxmlLoader.load();
 
-            loginController = fxmlLoader.getController();
+    private void loginHandling(){
+        Window<LoginController> loginWindow = new Window<>("LoginScreen.fxml",250,250,"Login!");
+        loginController = loginWindow.getFxmlLoader().getController();
+        loginWindow.makeModal();
+        loginWindow.showAndWait();
 
-            Scene loginScene = new Scene(loginRoot, 250,250);
-
-            Stage loginStage = new Stage();
-            loginStage.setScene(loginScene);
-            loginStage.setTitle("Login!");
-            loginStage.initModality(Modality.APPLICATION_MODAL);
-            loginStage.showAndWait();
-            if (!loginController.isAuthenticated()){
-                close();
-            }
-            user_id.setText(loginController.getUser());
+        if (!loginController.isAuthenticated()){
+            close();
         }
-        catch (Exception e){
-            System.out.println("Login failed");
-        }
+        user_id.setText(loginController.getUser());
     }
     private void logoutHandling(){
         user_id.setText("nobody");
@@ -70,11 +54,13 @@ public class DashboardController {
         loginHandling();
     }
     private void viewTransactions(){
-        Window<TransactionController> transactionWindow = new Window<>("TransactionHistory.fxml",600,600,"Transcation History");
+        Window<TransactionController> transactionWindow = new Window<>("TransactionHistory.fxml",600,400,"Transaction History");
         transactionWindow.makeModal();
         transactionWindow.showAndWait();
     }
-    private void close(){
+
+    @Override
+    public void close(){
         System.exit(0);
     }
 }
