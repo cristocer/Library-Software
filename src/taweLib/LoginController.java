@@ -1,12 +1,17 @@
-package taweLib;
-
+package tawelib;
+import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
+//there will be 2 separate dashboards each with it's own components and methods
+//I say that 2 concise smaller classes are better than 1 big cluster
+//plus it is easier to work  on a certain dashboard individually and we don't 
+//have to deal with permissions (so far)
 public class LoginController extends Controller{
     private boolean authenticated;
     @FXML
@@ -22,7 +27,6 @@ public class LoginController extends Controller{
     public LoginController(){
         authenticated = false;
     }
-
     /**
      * Handles login button press and Authenticates user.
      * @param event button press.
@@ -30,22 +34,56 @@ public class LoginController extends Controller{
     @FXML
     void loginHandling(ActionEvent event) {
         String username = username_text.getText();
-        if (authenticate(username)){
+        if (authenticate(username)=="Librarian"){
             authenticated = true;
-            close();
+            SceneController.USER_USERNAME=username;
+            openLibrarianDashboard();
         }
-        else{
+        else if(authenticate(username)=="User"){
+            authenticated = true;
+            SceneController.USER_USERNAME=username;
+            openUserDashboard();
+        }
+        else if(authenticate(username)=="User"){
             wronguser_text.setText("Error: User doesn't exist!");
         }
 
+    } 
+    void openLibrarianDashboard(){
+        try{Stage stage = (Stage) username_text.getScene().getWindow();
+            username_text.getScene();
+            stage.close();
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("RootDashboard.fxml")), 600, 600));
+            stage.show();
+            }
+        catch (IOException e) {
+			e.printStackTrace();
+			// Quit the program (with an error code)
+			System.exit(-1);
+		}
     }
-    private boolean authenticate(String username){
+    // Can be replaced with an isLibrarian flag. so Method doesnt need to duplicated.
+    void openUserDashboard(){
+        try{Stage stage = (Stage) username_text.getScene().getWindow();
+            username_text.getScene();
+            stage.close();
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("RootDashboard.fxml")), 600, 600));
+            stage.show();
+            }
+        catch (IOException e) {
+			e.printStackTrace();
+			// Quit the program (with an error code)
+			System.exit(-1);
+		}
+    }    
+    private String authenticate(String username){
         if (username.equals("admin")){
-            return true;
+            return "Librarian";//query the database for input user
         }
-        else{
-            return false;
+        else if(username.equals("user")){
+            return "User";
         }
+        return "error";
     }
 
     /**
@@ -69,6 +107,7 @@ public class LoginController extends Controller{
      */
     public void logout(){
         authenticated = false;
+        
     }
 
 }

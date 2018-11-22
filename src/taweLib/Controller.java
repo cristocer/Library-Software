@@ -1,4 +1,4 @@
-package taweLib;
+package tawelib;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.Pane;
