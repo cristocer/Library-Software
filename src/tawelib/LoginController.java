@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 //I say that 2 concise smaller classes are better than 1 big cluster
 //plus it is easier to work  on a certain dashboard individually and we don't 
 //have to deal with permissions (so far)
-public class LoginController extends Controller{
+public class LoginController extends Controller {
     private boolean authenticated;
     @FXML
     private TextField username_text;
