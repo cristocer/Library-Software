@@ -1,3 +1,18 @@
+/**
+ * DVD.java
+ * @author Ben Farrington
+ * -no copyright
+ * @version 1.1
+ * Version History 1.1
+ * Creation Date 17/11/2018
+ * Last Modified date 22/11/2018
+ */
+
+/**
+ * DVD is a subclass of the class Resources, which holds the data and methods relevant to only
+ * DVD and no other Resources subclasses. 
+ * This class models the physical object of a DVD owned by TaweLib.
+ */
 public class DVD extends Resources{
 
     private String director;
