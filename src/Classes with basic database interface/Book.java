@@ -1,41 +1,30 @@
+package com.tawelib.Lib_Tawe;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Book")
+@Table(name="Book")
+@DiscriminatorValue("Book")
+@PrimaryKeyJoinColumn(name="ResourceUID")
 public class Book extends Resources {
-
-    @Column(name = "author")
-	private String author;
-
-    @Column(name = "publisher")
-    private String publisher;
-
-    @Column(name = "isbn")
-    private int isbn;
-
-    @Column(name = "genre")
-    private String genre;
-
-    @Column(name = "language")
-    private String language;
+   
+	public String author;
+    public String publisher;
+    public int isbn;
+    public String genre;
+    public String language;
     
-    private Book(String author, String publisher, int isbn, String genre, String language, String title,
-                 String thumbnailImagePath, String year) {
-
-        this.title = title;
-        this.thumbnailImagePath = thumbnailImagePath;
-        this.year = year;
-
+    public Book(String author, String publisher, int isbn, String genre, String language, String title, 
+    		String year, String thumbnailImagePath) {
         this.author = author;
 		this.publisher = publisher;
 		this.isbn = isbn;
 		this.genre = genre;
 		this.language = language;
+		this.year = year;
+        this.title = title;
+        this.thumbnailImagePath = thumbnailImagePath;
 
-        //Update table with new entry
-        em.getTransaction().begin();
-        em.persist(this);
-        em.getTransaction().commit();
 	}
     
     public String getAuthor() {
@@ -57,4 +46,10 @@ public class Book extends Resources {
     public String getLanguage() {
         return language;
     }
+
+	@Override
+	public String toString() {
+		return "Book [author=" + author + ", publisher=" + publisher + ", isbn=" + isbn + ", genre=" + genre
+				+ ", language=" + language + "]";
+	}
 }

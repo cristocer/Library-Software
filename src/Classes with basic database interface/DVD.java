@@ -1,19 +1,15 @@
+package com.tawelib.Lib_Tawe;
 import javax.persistence.*;
 
 @Entity
 @Table(name = "DVD")
+@DiscriminatorValue("DVD")
+@PrimaryKeyJoinColumn(name="ResourceUID")
 public class DVD extends Resources{
 
-    @Column(name = "director")
     private String director;
-
-    @Column(name = "run_time")
     private int runTime;
-
-    @Column(name = "language")
     private String language;
-
-    @Column(name = "subtitle_language")
     private String subtitleLanguage;
 
     /**
@@ -23,22 +19,16 @@ public class DVD extends Resources{
      * @param language language of the DVD's audio
      * @param subtitleLanguage language of the DVD's subtitles.
      */
-    public DVD(String director, int runTime, String language, String subtitleLanguage, String title,
-               String thumbnailImagePath, String year){
-
-        this.title = title;
-        this.thumbnailImagePath = thumbnailImagePath;
-        this.year = year;
+    public DVD(String director, int runTime, String language, String subtitleLanguage, String title, String year,	
+               String thumbnailImagePath){
 
         this.director = director;
         this.runTime = runTime;
         this.language = language;
         this.subtitleLanguage = subtitleLanguage;
-
-        //Update table with new entry
-        em.getTransaction().begin();
-        em.persist(this);
-        em.getTransaction().commit();
+        this.title = title;
+        this.year = year;
+        this.thumbnailImagePath = thumbnailImagePath;
     }
 
     /**

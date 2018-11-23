@@ -1,3 +1,4 @@
+package com.tawelib.Lib_Tawe;
 import javax.persistence.*;
 
 /**
@@ -19,15 +20,12 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "Laptop")
+@DiscriminatorValue("Laptop")
+@PrimaryKeyJoinColumn(name="ResourceUID")
 public class Laptop extends Resources {
 
-    @Column(name = "operating_system")
     private String operatingSystem;
-
-    @Column(name = "manufacturer")
     private String manufacturer;
-
-    @Column(name = "model")
     private String model;
 
     /**
@@ -39,20 +37,15 @@ public class Laptop extends Resources {
      * @param manufacturer The manufacturer of the laptop.
      * @param model The model of the laptop.
      */
-    public Laptop (String year,String title,String thumbnailImagePath,String operatingSystem,String manufacturer,String model) {
-
-        this.title = title;
-        this.thumbnailImagePath = thumbnailImagePath;
-        this.year = year;
+    public Laptop (String operatingSystem,String manufacturer,String model, String title,String year, 
+    		String thumbnailImagePath) {
 
     	this.operatingSystem = operatingSystem;  
         this.manufacturer = manufacturer;
         this.model = model;
-
-        //Update table with new entry
-        em.getTransaction().begin();
-        em.persist(this);
-        em.getTransaction().commit();
+        this.title = title;
+        this.year = year;
+        this.thumbnailImagePath = thumbnailImagePath;
     }
     
     /**
