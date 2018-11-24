@@ -110,17 +110,17 @@ public class User extends AccountBaseUser {
 		//implement after database
 		return null;
 	}
-	
+
 	public int getBalance() {
 		return balance;
 	}
-	
+
 	public void setBalance(int newBalance) {
 		balance = newBalance;
 	}
-	
+
 	public void payFines(User user) {
 		//needs authority from librarian.
 	}
-	
+
 }
