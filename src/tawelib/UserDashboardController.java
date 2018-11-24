@@ -12,7 +12,7 @@ import javafx.scene.text.Text;
 
 import javafx.stage.Stage;
 
-public class DashboardController extends Controller {
+public class UserDashboardController extends Controller {
 
     @FXML
     private ListView<String> resourcesList;
