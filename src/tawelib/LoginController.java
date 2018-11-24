@@ -43,11 +43,11 @@ public class LoginController extends Controller {
 
         String dashboard, dashboardTitle;
         if (isLibrarian){ // if user is librarian.
-            dashboard = SceneController.DASHBOARD_LIBRARIAN;
+            dashboard = SceneController.DASHBOARD_LIBRARIAN_WINDOW;
             dashboardTitle = SceneController.DASHBOARD_LIBRARIAN_WINDOW_TITLE;
         }
         else{ // if normal dashboard to be opened.
-            dashboard = SceneController.DASHBOARD_USER;
+            dashboard = SceneController.DASHBOARD_USER_WINDOW;
             dashboardTitle = SceneController.DASHBOARD_USER_WINDOW_TITLE;
         }
 

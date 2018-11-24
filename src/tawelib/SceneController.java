@@ -16,8 +16,8 @@ public class SceneController {
     public static final int LOGIN_WINDOW_HEIGHT = 250;
 
     //Dashboard
-    public static final String DASHBOARD_USER = "RootDashboard.fxml";
-    public static final String DASHBOARD_LIBRARIAN = "RootDashboard.fxml";
+    public static final String DASHBOARD_USER_WINDOW = "UserDashboard.fxml";
+    public static final String DASHBOARD_LIBRARIAN_WINDOW = "UserDashboard.fxml";
     public static final int DASHBOARD_WINDOW_WIDTH = 600;
     public static final int DASHBOARD_WINDOW_HEIGHT = 600;
     public static final String DASHBOARD_USER_WINDOW_TITLE = "User Dashboard";
