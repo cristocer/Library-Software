@@ -11,22 +11,23 @@ public class App
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu");
         EntityManager em = emf.createEntityManager();
     	
-    	Book myBook = new Book("Tegg","reeeee",189,"yeet","yeet", "yeet", "yeet", "yeet");
-    
-    	em.getTransaction().begin();
-    	em.persist(myBook);
-    	em.getTransaction().commit();
-    	
-    	DVD myDVD = new DVD("Tegg",123,"Tegg","Tegg","Tegg","Tegg","Tegg");
-    
-    	em.getTransaction().begin();
-    	em.persist(myDVD);
-    	em.getTransaction().commit();
-    	
-    	Laptop myLaptop = new Laptop("Tegg","Tegg","Tegg", "Tegg","Tegg","Tegg");
-    	
+        Laptop myLaptop = new Laptop("Windows","Dell","XPS15", "BIG BOI LAPTOP","2019", 
+        		"idk");
+        
     	em.getTransaction().begin();
     	em.persist(myLaptop);
+    	em.getTransaction().commit();
+        
+        Copies myCopy = new Copies (myLaptop.getResourceUID(), 5);
+        
+    	em.getTransaction().begin();
+    	em.persist(myCopy);
+    	em.getTransaction().commit();
+    	
+        Copies myCopy2 = new Copies (myLaptop.getResourceUID(), 6);
+        
+    	em.getTransaction().begin();
+    	em.persist(myCopy2);
     	em.getTransaction().commit();
     	
     	System.out.println("NO ERRORS Lmao");

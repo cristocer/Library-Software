@@ -7,7 +7,6 @@ import javax.persistence.*;
 @DiscriminatorValue("Resources")
 public abstract class Resources {
 
-    //Setting the tables primary key to be auto generated
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int resourceUID;
@@ -21,7 +20,7 @@ public abstract class Resources {
         this.thumbnailImagePath = thumbnailImagePath;
     }
 
-    private int getResourceUID() {
+    public int getResourceUID() {
         return resourceUID;
     }
 
