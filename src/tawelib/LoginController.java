@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 //have to deal with permissions (so far)
 public class LoginController extends Controller {
     private boolean authenticated;
+    private boolean isLibrarian;
     @FXML
     private TextField username_text;
     @FXML
@@ -26,6 +27,7 @@ public class LoginController extends Controller {
      */
     public LoginController(){
         authenticated = false;
+        isLibrarian = false;
     }
     /**
      * Handles login button press and Authenticates user.
@@ -34,26 +36,28 @@ public class LoginController extends Controller {
     @FXML
     void loginHandling(ActionEvent event) {
         String username = username_text.getText();
-        if (authenticate(username)=="Librarian"){
-            authenticated = true;
-            SceneController.USER_USERNAME=username;
-            openLibrarianDashboard();
+        authenticate(username);
+        if (authenticated) {
+            openDashboard();
         }
-        else if(authenticate(username)=="User"){
-            authenticated = true;
-            SceneController.USER_USERNAME=username;
-            openUserDashboard();
+        else{
+            wronguser_text.setText("Error: No user found");
         }
-        else if(authenticate(username)=="User"){
-            wronguser_text.setText("Error: User doesn't exist!");
+    } 
+    private void openDashboard(){
+
+        String dashboard;
+        if (isLibrarian){ // if user is librarian.
+            dashboard = "RootDashboard.fxml";
+        }
+        else{ // if normal dashboard to be opened.
+            dashboard = "RootDashboard.fxml";
         }
 
-    } 
-    void openLibrarianDashboard(){
         try{Stage stage = (Stage) username_text.getScene().getWindow();
             username_text.getScene();
             stage.close();
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("RootDashboard.fxml")), 600, 600));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource(dashboard)), 600, 600));
             stage.show();
             }
         catch (IOException e) {
@@ -62,28 +66,16 @@ public class LoginController extends Controller {
 			System.exit(-1);
 		}
     }
-    // Can be replaced with an isLibrarian flag. so Method doesnt need to duplicated.
-    void openUserDashboard(){
-        try{Stage stage = (Stage) username_text.getScene().getWindow();
-            username_text.getScene();
-            stage.close();
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("RootDashboard.fxml")), 600, 600));
-            stage.show();
-            }
-        catch (IOException e) {
-			e.printStackTrace();
-			// Quit the program (with an error code)
-			System.exit(-1);
-		}
-    }    
-    private String authenticate(String username){
+    private void authenticate(String username){ // Let the authenticity of the user be decided here.
         if (username.equals("admin")){
-            return "Librarian";//query the database for input user
+            isLibrarian=true;
+            authenticated=true;
+
         }
         else if(username.equals("user")){
-            return "User";
+            isLibrarian=false;
+            authenticated=true;
         }
-        return "error";
     }
 
     /**

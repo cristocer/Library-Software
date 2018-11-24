@@ -11,7 +11,6 @@ import javafx.scene.text.Text;
 
 import javafx.stage.Stage;
 public class DashboardController extends Controller{
-    LoginController loginController;
 
     @FXML
     private ListView<String> resourcesList;
@@ -56,13 +55,7 @@ public class DashboardController extends Controller{
                     System.exit(-1);
             }
     }
-    //just to be clear so my work doesn't get immediatly deleted this time
-    //So i experinced some problems with creating new windows and make the flow of the application to work (again if you want me to explain JUST ASK)
-    //plus some annoying context and nullpointer exception (I bet you can guess why)
-    //so i decided for now to change scenes directly in the method/button/controller that actually requires the action
-    //and keep the window class for pop-up windows or let's say new temporary windows that require a selection from a list for example.
-    //like here in the example of transactionHandling.
-    //So I am open to proposals and to integrate more the window class if you want and if we can make it work propely
+
     private void transactionHandling(){
         Window<TransactionController> transactionWindow = new Window<>("TransactionHistory.fxml",600,400,"Transaction History");
         transactionWindow.makeModal();

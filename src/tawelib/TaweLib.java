@@ -11,7 +11,7 @@ public class TaweLib extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource(SceneController.LOGIN_SCREEN));
         primaryStage.setTitle(SceneController.LOGIN_WINDOW_TITLE);
-        primaryStage.setScene(new Scene(root, 600, 600));
+        primaryStage.setScene(new Scene(root, 250, 250));
         primaryStage.show();
     }
     /**
