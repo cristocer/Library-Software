@@ -2,10 +2,10 @@
  * Book.java
  * @author Keiran Hughes
  * -no copyright
- * @version 1.0
- * Version History 1.0 
+ * @version 1.1
+ * Version History 1.1
  * Creation Date 17/11/2018
- * Last Modified date 17/11/2018
+ * Last Modified date 22/11/2018
  */
 
 /**

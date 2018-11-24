@@ -2,12 +2,12 @@
  * Laptop.java
  * @author Cristian Neacsu
  * -no copyright
- * @version 1.0
- * Version History 1.0 
+ * @version 1.1
+ * Version History 1.1
  * Creation Date 18/11/2018
- * Last Modified date 18/11/2018
+ * Last Modified date 22/11/2018
  */
-//package main;
+package main;
 
 /**
  * Laptop is a subclass of the class Resources, which holds the data and methods relevant to only
@@ -16,10 +16,10 @@
  */
 
 public class Laptop extends Resources {
-    //The diameter of the circle
-    private String operatingSystem;	
-    private String manufacturer;	
-    private String model;	
+    
+    private String operatingSystem;
+    private String manufacturer;
+    private String model;
     /**
      * Creates a laptop.
      * @param year The year when the laptop was build.
@@ -30,15 +30,13 @@ public class Laptop extends Resources {
      * @param model The model of the laptop.
      */
     public Laptop (String year,String title,String thumbnailImagePath,String operatingSystem,String manufacturer,String model) {
-    	//super (,title,year,thumbnailImagePath);//get resourceUID from db too call super
-    	this.operatingSystem = operatingSystem;  
-	this.manufacturer = manufacturer; 
-	this.model = model; 
+    	super (,title,year,thumbnailImagePath);//get resourceUID from db too call super
+    	this.operatingSystem = operatingSystem;
+    	this.manufacturer = manufacturer;
+    	this.model = model;
     }
     
-    /**
-     * Method to convert a laptop to a string.(if need)
-     */    
+    //Method to convert a laptop to a string.(if need)    
 	
     /**
      * @return The operating system of the laptop.
@@ -46,18 +44,18 @@ public class Laptop extends Resources {
     public String getOperatingSystem() {
         return operatingSystem;
     }
+    
 	/**
      * @return The manufacturer of the laptop.
      */
     public String getManufacturer() {
         return manufacturer;
     }
+    
 	/**
      * @return The model of the laptop.
      */
     public String getModel() {
         return model;
     }
-
-    
 }
