@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="borderPane" maxHeight="600.0" maxWidth="600.0" minHeight="600.0" minWidth="600" prefHeight="600.0" prefWidth="600.0" scaleShape="false" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tawelib.DashboardController">
+<BorderPane fx:id="rootPane" maxHeight="600.0" maxWidth="600.0" minHeight="600.0" minWidth="600" prefHeight="600.0" prefWidth="600.0" scaleShape="false" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tawelib.DashboardController">
    <right>
       <VBox prefWidth="160.0" BorderPane.alignment="CENTER">
          <children>

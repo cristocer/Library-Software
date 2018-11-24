@@ -51,7 +51,7 @@ public class DashboardController extends Controller{
 
         Stage stage = (Stage) adminVBox.getScene().getWindow();
         stage.close();
-        try{stage.setScene(new Scene(FXMLLoader.load(getClass().getResource(SceneController.LOGIN_SCREEN)), 250, 250));
+        try{stage.setScene(new Scene(FXMLLoader.load(getClass().getResource(SceneController.LOGIN_SCREEN)), SceneController.LOGIN_WINDOW_WIDTH, SceneController.LOGIN_WINDOW_HEIGHT));
         stage.show();
         }
         catch (IOException e) {
@@ -62,11 +62,11 @@ public class DashboardController extends Controller{
     }
 
     private void viewHandling(){
-        Window<ResourceViewController> viewWindow = new Window<>("ViewResource.fxml",600,300,"View Resource");
+        Window<ResourceViewController> viewWindow = new Window<>(SceneController.RESOURCE_VIEW,SceneController.RESOURCE_VIEW_WIDTH,SceneController.RESOURCE_VIEW_HEIGHT,SceneController.RESOURCE_VIEW_TITLE);
         viewWindow.show();
     }
     private void transactionHandling(){
-        Window<TransactionController> transactionWindow = new Window<>("TransactionHistory.fxml",600,400,"Transaction History");
+        Window<TransactionController> transactionWindow = new Window<>(SceneController.TRANSACTION_WINDOW,SceneController.TRANSACTION_WINDOW_WIDTH,SceneController.TRANSACTION_WINDOW_HEIGHT,SceneController.TRANSACTION_WINDOW_TITLE);
         transactionWindow.show();
     }
     @Override

@@ -46,18 +46,21 @@ public class LoginController extends Controller {
     } 
     private void openDashboard(){
 
-        String dashboard;
+        String dashboard, dashboardTitle;
         if (isLibrarian){ // if user is librarian.
-            dashboard = "RootDashboard.fxml";
+            dashboard = SceneController.DASHBOARD_LIBRARIAN;
+            dashboardTitle = SceneController.DASHBOARD_LIBRARIAN_WINDOW_TITLE;
         }
         else{ // if normal dashboard to be opened.
-            dashboard = "RootDashboard.fxml";
+            dashboard = SceneController.DASHBOARD_USER;
+            dashboardTitle = SceneController.DASHBOARD_USER_WINDOW_TITLE;
         }
 
         try{Stage stage = (Stage) username_text.getScene().getWindow();
             username_text.getScene();
             stage.close();
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource(dashboard)), 600, 600));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource(dashboard)), SceneController.DASHBOARD_WINDOW_WIDTH, SceneController.DASHBOARD_WINDOW_HEIGHT));
+            stage.setTitle(dashboardTitle);
             stage.show();
             }
         catch (IOException e) {
