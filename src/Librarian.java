@@ -17,51 +17,7 @@ public class Librarian extends AccountBaseUser {
 		this.employmentDate = employmentDate;
 		this.staffID = staffID;
 	}
-	
-	@Override 
-	public String getUsername() {
-		return username;
-	}
 
-	@Override
-	public String getFirstName() {
-		return firstName;
-	}
-
-	@Override
-	public void setFirstName(String newFirstName) {
-		firstName = newFirstName;
-	}
-
-	@Override
-	public String getLastName() {
-		return lastName;
-	}
-
-	@Override
-	public void setLastName(String newLastName) {
-		lastName = newLastName;
-	}
-
-	@Override
-	public int getTelephone() {
-		return telephone;
-	}
-
-	@Override
-	public void setTelephone(int newTelephone) {
-		telephone = newTelephone;
-	}
-
-	@Override
-	public String getAddress() {
-		return address;
-	}
-
-	@Override
-	public void setAddress(String newAddress) {
-		address = newAddress;
-	}
 
 	@Override
 	public String chooseProfileImage() {
