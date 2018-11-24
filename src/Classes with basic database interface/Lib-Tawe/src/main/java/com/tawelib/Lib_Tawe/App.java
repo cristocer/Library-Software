@@ -10,25 +10,30 @@ public class App
     {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu");
         EntityManager em = emf.createEntityManager();
-    	
-        Laptop myLaptop = new Laptop("Windows","Dell","XPS15", "BIG BOI LAPTOP","2019", 
-        		"idk");
         
+     //   User myUser = new User(100,"big dick williams12", "ryan", "big dick", 89, "20 jones", "SSD");
+        
+     //   em.getTransaction().begin();
+    //	em.persist(myUser);
+    //	em.getTransaction().commit();  
+    
+        Book myBook = new Book("Ryan", "Ryan publishings", 420, "erotic", "Engish", "best book", 
+        		"2013", "hardrive?" );
     	em.getTransaction().begin();
-    	em.persist(myLaptop);
-    	em.getTransaction().commit();
+    	em.persist(myBook);
+    	em.getTransaction().commit();  
+        		
+        //Laptop myLaptop = new Laptop("Windows","Dell","XPS15", "BIG BOI LAPTOP","2019", 
+        	//	"idk");
+    	//em.getTransaction().begin();
+    	//em.persist(myLaptop);
+    	//em.getTransaction().commit();  
         
-        Copies myCopy = new Copies (myLaptop.getResourceUID(), 5);
+        //Copies myCopy = new Copies (myBook.getResourceUID(), 7);
         
-    	em.getTransaction().begin();
-    	em.persist(myCopy);
-    	em.getTransaction().commit();
-    	
-        Copies myCopy2 = new Copies (myLaptop.getResourceUID(), 6);
-        
-    	em.getTransaction().begin();
-    	em.persist(myCopy2);
-    	em.getTransaction().commit();
+    	//em.getTransaction().begin();
+    	//em.persist(myCopy);
+    	//em.getTransaction().commit();
     	
     	System.out.println("NO ERRORS Lmao");
     }

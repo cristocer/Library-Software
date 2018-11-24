@@ -1,15 +1,12 @@
 package com.tawelib.Lib_Tawe;
 import javax.persistence.*;
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
 
-@Entity
-@Table(name="Librarian")
-@DiscriminatorValue("Librarian")
-@PrimaryKeyJoinColumn(name="username")
+@Entity//Defining the class as a persistent entity allowing the hibernate API to interact with it 
+@PrimaryKeyJoinColumn(name="username")//Defining that this entity's primary key is imported from another class, Resources
 public class Librarian extends AccountBaseUser {
 	
 	//Instance variables:
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // specifying the type of auto-incrementation for the PK, in this case "IDENTITY" uses identifies and uses the type specified in the linked table
 	public String employmentDate;
 	public int staffID;
 	
@@ -25,90 +22,7 @@ public class Librarian extends AccountBaseUser {
 		this.address = address;
 		this.profileImagePath = profileImagePath;
 	}
-	
-	@Override 
-	public String getUsername() {
-		return username;
-	}
-
-	@Override
-	public String getFirstName() {
-		return firstName;
-	}
-
-	@Override
-	public void setFirstName(String newFirstName) {
-		firstName = newFirstName;
-	}
-
-	@Override
-	public String getLastName() {
-		return lastName;
-	}
-
-	@Override
-	public void setLastName(String newLastName) {
-		lastName = newLastName;
-	}
-
-	@Override
-	public int getTelephone() {
-		return telephone;
-	}
-
-	@Override
-	public void setTelephone(int newTelephone) {
-		telephone = newTelephone;
-	}
-
-	@Override
-	public String getAddress() {
-		return address;
-	}
-
-	@Override
-	public void setAddress(String newAddress) {
-		address = newAddress;
-	}
-
-	@Override
-	public String chooseProfileImage() {
-		// have multiple choices of 
-		// either choose an existing image or draw a new image and set the image path.
-		return null;
-	}
-
-	@Override
-	public void setProfileImage(String newProfileImagePath) {
-		profileImagePath = newProfileImagePath;
-	}
-
-	@Override
-	public void drawProfileImage() {
-		// code to run when user draws a new profile image and save the new image within database.
-		int width = 150;
-		int height = 150;
 		
-		BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-		
-		Graphics2D g2d = image.createGraphics();
-		
-		/**
-		 * Use event handling to call methods that:
-		 * -Color the background (white, orange, red, blue, green, purple, and black
-		 * -Color the lines being drawn
-		 * -draw the lines 
-		 * 
-		 * 
-		 * Use the set profile image method to change the name of the image.
-		 */
-	}
-
-	@Override
-	public String getProfileImagePath() {
-		return profileImagePath;
-	}
-	
 	public String getEmploymentDate() {
 		return employmentDate;
 	}
@@ -117,13 +31,15 @@ public class Librarian extends AccountBaseUser {
 		return staffID;
 	}
 	
-	public String[] getHistory(Object copy) {	//Object is of type Copy.
-		return null;
-	}
+	//Needs transaction table
+	//public String[] getHistory(Object copy) {	//Object is of type Copy.
+	//	return null;
+	//}
 	
-	public String[] getOverdue(Object copy) {	//Object is of type Copy.
+	//Needs transaction table
+	//public String[] getOverdue(Object copy) {	//Object is of type Copy.
 		//code.
-		return null;
-	}
+	//	return null;
+	//}
 
 }

@@ -18,10 +18,8 @@ import javax.persistence.*;
  * This class models the physical object of a real laptop owned by TaweLib.
  */
 
-@Entity
-@Table(name = "Laptop")
-@DiscriminatorValue("Laptop")
-@PrimaryKeyJoinColumn(name="ResourceUID")
+@Entity//Defining the class as a persistent entity allowing the hibernate API to interact with it 
+@PrimaryKeyJoinColumn(name="ResourceUID")//Defining that this entity's primary key is imported from another class, Resources
 public class Laptop extends Resources {
 
     private String operatingSystem;
@@ -49,10 +47,6 @@ public class Laptop extends Resources {
     }
     
     /**
-     * Method to convert a laptop to a string.(if need)
-     */    
-	
-    /**
      * @return The operating system of the laptop.
      */
     public String getOperatingSystem() {
@@ -70,6 +64,4 @@ public class Laptop extends Resources {
     public String getModel() {
         return model;
     }
-
-    
 }

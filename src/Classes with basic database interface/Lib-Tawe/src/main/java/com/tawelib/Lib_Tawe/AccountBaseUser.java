@@ -1,4 +1,6 @@
 package com.tawelib.Lib_Tawe;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 import javax.persistence.*;
 
 /**
@@ -13,13 +15,12 @@ import javax.persistence.*;
  * @author Christian Onishile
  */
 
-@Entity
-@Table(name="AccountBaseUser")
-@Inheritance(strategy=InheritanceType.JOINED)
-@DiscriminatorValue("AccountBaseUser")
+@Entity //Defining the class as a persistent entity allowing the hibernate API to interact with it 
+@Inheritance(strategy=InheritanceType.JOINED)//Defining which method of mapping inheritance is going to be used with the subclasses
 public abstract class AccountBaseUser {
 	//Instance Variables:
-	@Id
+	@Id  //specifying which variable is the primary key
+	@Column(unique=true) // This is specifying that the following attribute has to be unique, if not the program throws an exception 
 	public String username;				//user name of the user or librarian's account.
 	public String firstName;			//first name of the user or librarian.
 	public String lastName;				//last name of the user or librarian.
@@ -27,81 +28,57 @@ public abstract class AccountBaseUser {
 	public String address;				//address of the user or librarian.
 	public String profileImagePath;		//image path of the account's profile picture.
 	
-	/**
-	 * Abstract method to get the account's user name.
-	 * @return The current account's user name.
-	 */
-	public abstract String getUsername();
-	
-	/**
-	 * Abstract method to get the account's first name.
-	 * @return The current account's first name.
-	 */
-	public abstract String getFirstName();
-	
-	/**
-	 * Abstract method to set the account's first name.
-	 * @param newFirstName The new first name of the current account.
-	 */
-	public abstract void setFirstName(String newFirstName);
-	
-	/**
-	 * Abstract method to get the account's last name.
-	 * @return The current account's last name.
-	 */
-	public abstract String getLastName();
-	
-	/**
-	 * Abstract method to set the account's last name.
-	 * @param newLastName The new last name of the current account.
-	 */
-	public abstract void setLastName(String newLastName);
-	
-	/**
-	 * Abstract method to get the account's telephone number.
-	 * @return The current account's telephone number.
-	 */
-	public abstract int getTelephone();
-	
-	/**
-	 * Abstract method to set the account's telephone number.
-	 * @param newTelephone The current account's new telephone number.
-	 */
-	public abstract void setTelephone(int newTelephone);
-	
-	/**
-	 * Abstract method to get the account's address.
-	 * @return The current account's address.
-	 */
-	public abstract String getAddress();
-	
-	/**
-	 * Abstract method to set the account's address.
-	 * @param newAddress The current account's new address.
-	 */
-	public abstract void setAddress(String newAddress);
-	
-	/**
-	 * Abstract method to choose the account's profile image.
-	 * @return The current account's profile image (as type string).
-	 */
-	public abstract String chooseProfileImage();
-	
-	/**
-	 * Abstract method to set the account's profile image.
-	 * @param profileImagePath The current account's new profile image.
-	 */
-	public abstract void setProfileImage(String profileImagePath);
-	
-	/**
-	 * Abstract method to draw the account's profile image.
-	 */
-	public abstract void drawProfileImage();
-	
-	/**
-	 * Abstract method to get the account's profile image path.
-	 * @return The current account's profile image path.
-	 */
-	public abstract String getProfileImagePath();
-	
+
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public int getTelephone() {
+		return telephone;
+	}
+
+	public void setTelephone(int telephone) {
+		this.telephone = telephone;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setProfileImagePath(String profileImagePath) {
+		this.profileImagePath = profileImagePath;
+	}
+
+	public void drawProfileImage() {
+		// code to run when user draws a new profile image and save the new image within database.
+		int width = 150;
+		int height = 150;
+		
+		BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+		
+		Graphics2D g2d = image.createGraphics();
+		
+		/**
+		 * Use event handling to call methods that:
+		 * -Color the background (white, orange, red, blue, green, purple, and black
+		 * -Color the lines being drawn
+		 * -draw the lines 
+		 * 
+		 * 
+		 * Use the set profile image method to change the name of the image.
+		 */
+	}
 }

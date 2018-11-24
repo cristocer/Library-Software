@@ -2,10 +2,8 @@ package com.tawelib.Lib_Tawe;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name="Book")
-@DiscriminatorValue("Book")
-@PrimaryKeyJoinColumn(name="ResourceUID")
+@Entity//Defining the class as a persistant entity allowing the hibernate API to interact with it 
+@PrimaryKeyJoinColumn(name="ResourceUID")//Defining that this entity's primary key is imported from another class, Resources
 public class Book extends Resources {
    
 	public String author;
@@ -46,10 +44,4 @@ public class Book extends Resources {
     public String getLanguage() {
         return language;
     }
-
-	@Override
-	public String toString() {
-		return "Book [author=" + author + ", publisher=" + publisher + ", isbn=" + isbn + ", genre=" + genre
-				+ ", language=" + language + "]";
-	}
 }
