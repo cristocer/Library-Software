@@ -12,7 +12,7 @@
    <right>
       <VBox prefWidth="160.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="150.0" text="View">
+            <Button mnemonicParsing="false" onAction="#viewResourceButton" prefHeight="27.0" prefWidth="150.0" text="View">
                <VBox.margin>
                   <Insets bottom="5.0" />
                </VBox.margin>

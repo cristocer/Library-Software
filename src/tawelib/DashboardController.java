@@ -19,9 +19,14 @@ public class DashboardController extends Controller{
     @FXML
     private VBox adminVBox;
 
+
     @FXML
     void logoutButton(ActionEvent event) throws Exception{
         logoutHandling();
+    }
+    @FXML
+    void viewResourceButton(){
+        viewHandling();
     }
     @FXML
     void transactionHistoryButton(ActionEvent event) {
@@ -46,7 +51,7 @@ public class DashboardController extends Controller{
 
         Stage stage = (Stage) adminVBox.getScene().getWindow();
         stage.close();
-        try{stage.setScene(new Scene(FXMLLoader.load(getClass().getResource(SceneController.LOGIN_SCREEN)), 600, 600));
+        try{stage.setScene(new Scene(FXMLLoader.load(getClass().getResource(SceneController.LOGIN_SCREEN)), 250, 250));
         stage.show();
         }
         catch (IOException e) {
@@ -56,10 +61,13 @@ public class DashboardController extends Controller{
             }
     }
 
+    private void viewHandling(){
+        Window<ResourceViewController> viewWindow = new Window<>("ViewResource.fxml",600,300,"View Resource");
+        viewWindow.show();
+    }
     private void transactionHandling(){
         Window<TransactionController> transactionWindow = new Window<>("TransactionHistory.fxml",600,400,"Transaction History");
-        transactionWindow.makeModal();
-        transactionWindow.showAndWait();
+        transactionWindow.show();
     }
     @Override
     public void close(){
