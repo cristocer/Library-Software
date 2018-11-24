@@ -5,17 +5,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class LoginController extends Controller {
     private boolean authenticated;
     private boolean isLibrarian;
+
     @FXML
     private TextField username_text;
-    @FXML
-    private GridPane rootPane;
     @FXML
     private Text wronguser_text;
 
@@ -75,6 +73,9 @@ public class LoginController extends Controller {
         else if(username.equals("user")){
             isLibrarian=false;
             authenticated=true;
+        }
+        else{
+            authenticated=false;
         }
         SceneController.USER_USERNAME = username; //ToDo parse User to scenecontroller. Not just the name
     }
