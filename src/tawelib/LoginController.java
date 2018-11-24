@@ -8,10 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-//there will be 2 separate dashboards each with it's own components and methods
-//I say that 2 concise smaller classes are better than 1 big cluster
-//plus it is easier to work  on a certain dashboard individually and we don't 
-//have to deal with permissions (so far)
+
 public class LoginController extends Controller {
     private boolean authenticated;
     private boolean isLibrarian;
@@ -79,6 +76,7 @@ public class LoginController extends Controller {
             isLibrarian=false;
             authenticated=true;
         }
+        SceneController.USER_USERNAME = username; //ToDo parse User to scenecontroller. Not just the name
     }
 
     /**
