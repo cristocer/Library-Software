@@ -1,13 +1,16 @@
 /**
  * AccountBaseUser.java
- * This abstract class is used to store attributes and abstract methods used within both of 
- * its subclasses: User and Librarian. 
- * - Last Modified: 17/11/2018
  * - no copyright
- * - No Previous Versions
+ * - creation date: 17/11/2018
+ * - last modified: 17/11/2018
+ * @author Christian Onishile
  * @version 1.0.0
  * @since 17/11/2018
- * @author Christian Onishile
+ */
+
+/**
+ * The AccountBaseUser abstract class is used to store attributes and abstract methods used within both of 
+ * its subclasses: User and Librarian. 
  */
 
 public abstract class AccountBaseUser {

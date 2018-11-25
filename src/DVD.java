@@ -1,11 +1,11 @@
 /**
  * DVD.java
+ * - no copyright
+ * - creation date 17/11/2018
+ * - last modified 22/11/2018
  * @author Ben Farrington
- * -no copyright
  * @version 1.1
- * Version History 1.1
- * Creation Date 17/11/2018
- * Last Modified date 22/11/2018
+ * @since 22/11/2018
  */
 
 /**
@@ -13,12 +13,13 @@
  * DVD and no other Resources subclasses. 
  * This class models the physical object of a DVD owned by TaweLib.
  */
+
 public class DVD extends Resources{
 
-    private String director;
-    private int runTime;
-    private String language;
-    private String subtitleLanguage;
+    private String director;			//director of the DVD
+    private int runTime;				//runtime of the DVD
+    private String language;			//language(s) of the DVD
+    private String subtitleLanguage;	//subtitle language(s) of the DVD
 
     /**
      * On creation initializes all required attributes.
