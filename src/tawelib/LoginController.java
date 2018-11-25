@@ -5,24 +5,25 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class LoginController extends Controller {
+public class LoginController extends Controller{
     private boolean authenticated;
-    private boolean isLibrarian;
-
     @FXML
     private TextField username_text;
     @FXML
+    private GridPane rootPane;
+    @FXML
     private Text wronguser_text;
-
+    private boolean isLibrarian;
     /**
      * Initiates the variables.
      */
     public LoginController(){
         authenticated = false;
-        isLibrarian = false;
+        isLibrarian = false; 
     }
     /**
      * Handles login button press and Authenticates user.
@@ -39,7 +40,7 @@ public class LoginController extends Controller {
             wronguser_text.setText("Error: No user found");
         }
     } 
-    private void openDashboard(){
+      private void openDashboard(){
 
         String dashboard, dashboardTitle;
         if (isLibrarian){ // if user is librarian.
@@ -50,7 +51,7 @@ public class LoginController extends Controller {
             dashboard = SceneController.DASHBOARD_USER_WINDOW;
             dashboardTitle = SceneController.DASHBOARD_USER_WINDOW_TITLE;
         }
-
+        
         try{Stage stage = (Stage) username_text.getScene().getWindow();
             username_text.getScene();
             stage.close();
@@ -68,7 +69,6 @@ public class LoginController extends Controller {
         if (username.equals("admin")){
             isLibrarian=true;
             authenticated=true;
-
         }
         else if(username.equals("user")){
             isLibrarian=false;
@@ -79,7 +79,6 @@ public class LoginController extends Controller {
         }
         SceneController.USER_USERNAME = username; //ToDo parse User to scenecontroller. Not just the name
     }
-
     /**
      * Check if User is authentic
      * @return authenticity status.

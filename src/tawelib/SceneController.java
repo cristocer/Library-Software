@@ -5,10 +5,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-//SceneController was made for changing scenes but I ran out of time so,so far it is a resource class
-//and I should call it global session variables
 public class SceneController {
-    public static String USER_USERNAME;
+    
     // Login Window
     public static final String LOGIN_SCREEN="LoginScreen.fxml";
     public static final String LOGIN_WINDOW_TITLE = "Login";
@@ -17,7 +15,7 @@ public class SceneController {
 
     //Dashboard
     public static final String DASHBOARD_USER_WINDOW = "UserDashboard.fxml";
-    public static final String DASHBOARD_LIBRARIAN_WINDOW = "UserDashboard.fxml";
+    public static final String DASHBOARD_LIBRARIAN_WINDOW = "LibrarianDashboard.fxml";
     public static final int DASHBOARD_WINDOW_WIDTH = 600;
     public static final int DASHBOARD_WINDOW_HEIGHT = 600;
     public static final String DASHBOARD_USER_WINDOW_TITLE = "User Dashboard";
@@ -33,6 +31,32 @@ public class SceneController {
     public static final String RESOURCE_VIEW="ViewResource.fxml";
     public static final int RESOURCE_VIEW_HEIGHT = 300;
     public static final int RESOURCE_VIEW_WIDTH = 600;
-    public static final String RESOURCE_VIEW_TITLE="View Resource";
+    public static final String RESOURCE_VIEW_TITLE="View Resource"; 
+    
+    //Create Resource Window
+    public static final String CREATE_VIEW="CreateResource.fxml";
+    public static final int CREATE_VIEW_HEIGHT = 400;
+    public static final int CREATE_VIEW_WIDTH = 600;
+    public static final String CREATE_VIEW_TITLE="Create Resource"; 
+    
+    //Edit Resource Window
+    public static final String EDIT_VIEW="EditResource.fxml";
+    public static final int EDIT_VIEW_HEIGHT = 400;
+    public static final int EDIT_VIEW_WIDTH = 600;
+    public static final String EDIT_VIEW_TITLE="Edit Resource"; 
+    
+    //Loan Resource Window
+    public static final String LOAN_VIEW="LoanResource.fxml";
+    public static final int LOAN_VIEW_HEIGHT = 400;
+    public static final int LOAN_VIEW_WIDTH = 600;
+    public static final String LOAN_VIEW_TITLE="Loan Resource"; 
+    
+    //Collect Resource Window
+    public static final String COLLECT_VIEW="CollectResource.fxml";
+    public static final int COLLECT_VIEW_HEIGHT = 400;
+    public static final int COLLECT_VIEW_WIDTH = 600;
+    public static final String COLLECT_VIEW_TITLE="Collect Resource"; 
+    
+    public static String USER_USERNAME ; 
 
 }
