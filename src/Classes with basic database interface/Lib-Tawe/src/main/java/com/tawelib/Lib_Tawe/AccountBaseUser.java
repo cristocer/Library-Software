@@ -28,8 +28,6 @@ public abstract class AccountBaseUser {
 	public String address;				//address of the user or librarian.
 	public String profileImagePath;		//image path of the account's profile picture.
 	
-
-
 	public String getFirstName() {
 		return firstName;
 	}

@@ -19,6 +19,7 @@ public class App
     
         Book myBook = new Book("Ryan", "Ryan publishings", 420, "erotic", "Engish", "best book", 
         		"2013", "hardrive?" );
+        
     	em.getTransaction().begin();
     	em.persist(myBook);
     	em.getTransaction().commit();  
