@@ -47,19 +47,6 @@ public class UserDashboardController extends Controller{
         }
     }
 
-    private void logoutHandling(){
-
-        Stage stage = (Stage) adminVBox.getScene().getWindow();
-        stage.close();
-        try{stage.setScene(new Scene(FXMLLoader.load(getClass().getResource(SceneController.LOGIN_SCREEN)), SceneController.LOGIN_WINDOW_WIDTH, SceneController.LOGIN_WINDOW_HEIGHT));
-        stage.show();
-        }
-        catch (IOException e) {
-                    e.printStackTrace();
-                    // Quit the program (with an error code)
-                    System.exit(-1);
-            }
-    }
     private void viewHandling() {
         Window<ResourceViewController> viewWindow = new Window<>(SceneController.RESOURCE_VIEW, SceneController.RESOURCE_VIEW_WIDTH, SceneController.RESOURCE_VIEW_HEIGHT, SceneController.RESOURCE_VIEW_TITLE);
         viewWindow.show();

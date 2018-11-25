@@ -55,19 +55,6 @@ public class LibrarianDashboardController extends Controller{
         }
     }
 
-    private void logoutHandling(){
-
-        Stage stage = (Stage) rootPane.getScene().getWindow();
-        stage.close();
-        try{stage.setScene(new Scene(FXMLLoader.load(getClass().getResource(SceneController.LOGIN_SCREEN)), SceneController.LOGIN_WINDOW_WIDTH, SceneController.LOGIN_WINDOW_HEIGHT));
-        stage.show();
-        }
-        catch (IOException e) {
-                    e.printStackTrace();
-                    // Quit the program (with an error code)
-                    System.exit(-1);
-            }
-    }
     private void createResourceHandling() {
         Window<CreateResourceController> viewWindow = new Window<>(SceneController.CREATE_VIEW, SceneController.CREATE_VIEW_WIDTH, SceneController.CREATE_VIEW_HEIGHT, SceneController.CREATE_VIEW_TITLE);
         viewWindow.show();
