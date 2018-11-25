@@ -16,30 +16,29 @@ public class LibrarianDashboardController extends Controller{
     private ListView<String> resourcesList;
     @FXML
     private Text user_id;
-    @FXML
-    private VBox adminVBox;
 
     @FXML
     void logoutButton(ActionEvent event) {
         logoutHandling();
     }
-     @FXML
+    @FXML
     void createResourceButton() {
         createResourceHandling();
     }
-     @FXML
+    @FXML
     void editResourceButton() {
         editResourceHandling();
     }
-     @FXML
+    @FXML
     void loanResourceButton() {
         loanResourceHandling();
     }
-     @FXML
+    @FXML
     void collectResourceButton() {
         collectResourceHandling();
     } 
-    
+    @FXML
+    void createUserButton(){createUserHandling();}
     /**
      * Initializes the GUI, prompts user for Login...ToDO
      */
@@ -70,6 +69,10 @@ public class LibrarianDashboardController extends Controller{
     private void collectResourceHandling() {
         Window<CollectResourceController> viewWindow = new Window<>(SceneController.COLLECT_VIEW, SceneController.COLLECT_VIEW_WIDTH, SceneController.COLLECT_VIEW_HEIGHT, SceneController.COLLECT_VIEW_TITLE);
         viewWindow.show();
+    }
+    private void createUserHandling(){
+        Window<CreateUserController> createUser = new Window<>(SceneController.CREATE_USER,SceneController.CREATE_USER_WIDTH,SceneController.CREATE_USER_HEIGHT,SceneController.CREATE_USER_TITLE);
+        createUser.show();
     }
     @Override
     public void close(){
