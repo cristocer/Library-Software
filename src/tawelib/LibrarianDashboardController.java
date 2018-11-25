@@ -57,7 +57,7 @@ public class LibrarianDashboardController extends Controller{
 
     private void logoutHandling(){
 
-        Stage stage = (Stage) adminVBox.getScene().getWindow();
+        Stage stage = (Stage) rootPane.getScene().getWindow();
         stage.close();
         try{stage.setScene(new Scene(FXMLLoader.load(getClass().getResource(SceneController.LOGIN_SCREEN)), SceneController.LOGIN_WINDOW_WIDTH, SceneController.LOGIN_WINDOW_HEIGHT));
         stage.show();

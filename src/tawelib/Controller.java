@@ -6,7 +6,7 @@ import javafx.stage.Stage;
 
 public abstract class Controller{
     @FXML
-    private Pane rootPane;
+    public Pane rootPane;
     /**
      * Close the window.
      */
