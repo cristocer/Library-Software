@@ -8,7 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
-public class CreateUserController {
+public class CreateUserController extends Controller{
 
     @FXML
     private ImageView imageField;
@@ -52,6 +52,11 @@ public class CreateUserController {
         toggleLibrarian();
     }
 
+    @FXML
+    void submitFormButton(){
+        submitHandling();
+    }
+
 
 
     private void toggleLibrarian(){
@@ -62,5 +67,9 @@ public class CreateUserController {
     //ToDo - Chris to implement draw profile picture method here. have it return an Image if possible aswell as saving it.
     private Image drawImageHandling(){
         return null;
+    }
+
+    private void submitHandling(){
+        close();
     }
 }
