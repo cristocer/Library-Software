@@ -11,7 +11,6 @@ public class CreateResourceController extends Controller{
     //TO DO add text and textField  for dvd and book
     //to ask when we press the create button do we call the onstructor of the 
     //class book which will insert the data into the database?
-    private boolean validCreate;//validates that every input valid and entered
     @FXML
     private RadioButton book;
     @FXML
@@ -37,9 +36,44 @@ public class CreateResourceController extends Controller{
     @FXML
     private Text manufacturerT;
     @FXML
+    private Text publisherT;
+    @FXML
+    private TextField publisher;
+    @FXML
+    private Text isbnT;
+    @FXML
+    private TextField isbn;    
+    @FXML
+    private TextField author;
+    @FXML
+    private Text authorT;
+    @FXML
+    private TextField language;
+    @FXML
+    private Text languageT;
+    @FXML
+    private TextField genre;
+    @FXML
+    private Text genreT;
+    @FXML
+    private TextField director;
+    @FXML
+    private TextField runTime;
+    @FXML
+    private TextField languageD;
+    @FXML
+    private TextField subtitleLanguage;
+    @FXML
+    private Text directorT;
+    @FXML
+    private Text runTimeT;
+    @FXML
+    private Text languageDT;
+    @FXML
+    private Text subtitleLanguageT;
+    @FXML
     void createButton(){
-        //createHandling(); 
-        close();
+        createHandling(); 
     }
     @FXML
     void cancelButton(){
@@ -48,6 +82,7 @@ public class CreateResourceController extends Controller{
     @FXML
     void createLaptop(){
         reset();
+        resource=1;
         os.setVisible(true);
         manufacturer.setVisible(true);
         model.setVisible(true);
@@ -59,62 +94,72 @@ public class CreateResourceController extends Controller{
     @FXML
     void createDVD(){
         reset();
-        //director.setVisible(true);
-        //runTime.setVisible(true);
-        //language.setVisible(true);
-        //subtitleLanguage.setVisible(true);
-        //directorT.setVisible(true);
-        //runTimeT.setVisible(true);
-        //languageT.setVisible(true);
-        //subtitleLanguagelanguageT.setVisible(true);
+        resource=2;
+        director.setVisible(true);
+        runTime.setVisible(true);
+        languageD.setVisible(true);
+        subtitleLanguage.setVisible(true);
+        directorT.setVisible(true);
+        runTimeT.setVisible(true);
+        languageDT.setVisible(true);
+        subtitleLanguageT.setVisible(true);
        
     }
     @FXML
     void createBook(){
         reset();
-        //publisher.setVisible(true);
-        //isbn.setVisible(true);
-        //language.setVisible(true);
-        //author.setVisible(true);
-        //genre.setVisible(true);
-        //publisherT.setVisible(true);
-        //isbnT.setVisible(true);
-        //languageT.setVisible(true);
-        //authorT.setVisible(true);
-        //genreT.setVisible(true);
+        resource=3;
+        publisher.setVisible(true);
+        isbn.setVisible(true);
+        language.setVisible(true);
+        author.setVisible(true);
+        genre.setVisible(true);
+        publisherT.setVisible(true);
+        isbnT.setVisible(true);
+        languageT.setVisible(true);
+        authorT.setVisible(true);
+        genreT.setVisible(true);
         
     }
+    private int resource;
+    @FXML
+    private Text invalidMessage;
+    @FXML
+    private Text incompleteMessage;
     //reset the individual text and textfields
-    void reset(){        
+    void reset(){    
+        invalidMessage.setVisible(false);
+        incompleteMessage.setVisible(false);
+        resource =0;
         os.setVisible(false);
         manufacturer.setVisible(false);
         model.setVisible(false);
         modelT.setVisible(false);
         osT.setVisible(false);
         manufacturerT.setVisible(false);
-        //director.setVisible(false);
-        //runTime.setVisible(false);
-        //language.setVisible(false);
-        //subtitleLanguage.setVisible(false);
-        //directorT.setVisible(false);
-        //runTimeT.setVisible(false);
-        //languageT.setVisible(false);
-        //subtitleLanguagelanguageT.setVisible(false);
-        //publisher.setVisible(false);
-        //isbn.setVisible(false);
-        //language.setVisible(false);
-        //author.setVisible(false);
-        //genre.setVisible(false);
-        //publisherT.setVisible(false);
-        //isbnT.setVisible(false);
-        //languageT.setVisible(false);
-        //authorT.setVisible(false);
-        //genreT.setVisible(false);
+        director.setVisible(false);
+        runTime.setVisible(false);
+        languageD.setVisible(false);
+        subtitleLanguage.setVisible(false);
+        directorT.setVisible(false);
+        runTimeT.setVisible(false);
+        languageDT.setVisible(false);
+        subtitleLanguageT.setVisible(false);
+        publisher.setVisible(false);
+        isbn.setVisible(false);
+        language.setVisible(false);
+        author.setVisible(false);
+        genre.setVisible(false);
+        publisherT.setVisible(false);
+        isbnT.setVisible(false);
+        languageT.setVisible(false);
+        authorT.setVisible(false);
+        genreT.setVisible(false);
     }
     
     public void initialize(){
         
-        validCreate=false;
+        resource=0;
         ToggleGroup group = new ToggleGroup();
         book.setToggleGroup(group);
         DVD.setToggleGroup(group);
@@ -128,9 +173,37 @@ public class CreateResourceController extends Controller{
     
     
     //take the inputs and call the constructor of the class or insert into db by the right format
-    /*
+    //TO DO complete constructors when we decide on the format
+    //solve small error why the imcompleteMessage doesn't appear
+    //how to get the absence of text
+    
     private void createHandling(){
-        //to be build the resource
-    }*/
+       invalidMessage.setVisible(false);
+       incompleteMessage.setVisible(false);  
+       if(resource==0){
+           invalidMessage.setVisible(true);
+       }else if(resource==1){
+           if(title.getText()==null || year.getText()==null || image.getText()==null || os.getText()==null || manufacturer.getText()==null || model.getText()==null ){
+           incompleteMessage.setVisible(true);   
+           }else{
+               //Laptop.(year.getText(),title.getText(),image.getText()==""..)
+              // close();
+           }
+       }else if(resource==2){
+           if(title.getText()=="" || year.getText()=="" || image.getText()=="" || director.getText()=="" || runTime.getText()=="" || languageD.getText()=="" || subtitleLanguage.getText()==""){
+           invalidMessage.setText("Error: Field not completed!");   
+           }else{
+               //DVD.(year.getText(),title.getText(),image.getText()==""..)
+              // close();
+           }
+       }else if(resource==3){
+           if(title.getText()=="" || year.getText()=="" || image.getText()=="" || publisher.getText()=="" || isbn.getText()=="" || language.getText()=="" || author.getText()=="" || genre.getText()==""){
+           invalidMessage.setText("Error: Field not completed!");   
+           }else{
+               //Book.(year.getText(),title.getText(),image.getText()==""..)
+               //close();
+           }
+       }
+    }
 
 }
