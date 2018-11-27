@@ -42,7 +42,7 @@ public class SceneController {
     //Edit Resource Window
     public static final String EDIT_VIEW="EditResource.fxml";
     public static final int EDIT_VIEW_HEIGHT = 400;
-    public static final int EDIT_VIEW_WIDTH = 600;
+    public static final int EDIT_VIEW_WIDTH = 750;
     public static final String EDIT_VIEW_TITLE="Edit Resource"; 
     
     //Loan Resource Window
@@ -56,13 +56,13 @@ public class SceneController {
     public static final int COLLECT_VIEW_HEIGHT = 400;
     public static final int COLLECT_VIEW_WIDTH = 600;
     public static final String COLLECT_VIEW_TITLE="Collect Resource"; 
-
+    
     //Create User Window
     public static final String CREATE_USER="CreateUser.fxml";
     public static final int CREATE_USER_HEIGHT = 300;
     public static final int CREATE_USER_WIDTH= 600;
     public static final String CREATE_USER_TITLE="Create User";
-
+    
     public static String USER_USERNAME ; 
 
 }
