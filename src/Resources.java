@@ -14,7 +14,6 @@
  */
 public abstract class Resources {
 //
-//    private String title;					//Title of the resource
 //    private int resourceUID;				//Unique ID of the resource.
 //    private String year;					//Year the resource was released.
 //    private String title;					//Title of the resource.
