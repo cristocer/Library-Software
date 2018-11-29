@@ -24,8 +24,8 @@ public class Librarian extends AccountBaseUser {
 	/**
      * Creates a librarian account.
      * @param username The username given to the employee.
-     * @param firstname The first name of the employee.
-     * @param lastname The last name of the employee.
+     * @param firstName The first name of the employee.
+     * @param lastName The last name of the employee.
      * @param telephone The telephone number of the employee.
      * @param address The home address of the employee.
      * @param profileImagePath The file path to the profile image of the employee's account.

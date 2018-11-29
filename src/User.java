@@ -25,8 +25,8 @@ public class User extends AccountBaseUser {
 	/**
      * Creates a user account.
      * @param username The username given to the user.
-     * @param firstname The first name of the user.
-     * @param lastname The last name of the user.
+     * @param firstName The first name of the user.
+     * @param lastName The last name of the user.
      * @param telephone The telephone number of the user.
      * @param address The home address of the user.
      * @param profileImagePath The file path to the profile image of the user's account.

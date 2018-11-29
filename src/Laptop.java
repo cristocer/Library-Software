@@ -14,7 +14,7 @@
  * This class models the physical object of a real laptop owned by TaweLib.
  */
 
-package main;
+//package main;
 
 public class Laptop extends Resources {
     
@@ -32,7 +32,7 @@ public class Laptop extends Resources {
      * @param model The model of the laptop.
      */
     public Laptop (String year,String title,String thumbnailImagePath,String operatingSystem,String manufacturer,String model) {
-    	super (,title,year,thumbnailImagePath);//get resourceUID from db too call super
+    	//super (,title,year,thumbnailImagePath);//get resourceUID from db too call super
     	this.operatingSystem = operatingSystem;
     	this.manufacturer = manufacturer;
     	this.model = model;
