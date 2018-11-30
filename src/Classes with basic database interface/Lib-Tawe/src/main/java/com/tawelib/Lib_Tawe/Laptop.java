@@ -26,6 +26,10 @@ public class Laptop extends Resources {
     private String manufacturer;
     private String model;
 
+    public Laptop() { //Default blank constructor used for databasey stuff
+    }
+    
+    
     /**
      * Creates a laptop.
      * @param year The year when the laptop was build.

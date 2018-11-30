@@ -16,28 +16,18 @@ public class App
     		
     		Transaction tx = session.beginTransaction();
     		
-    		Book myBook = new Book();
+    		Book myDVD = new Book ("yeet","a",420,"b","c","d","e","d");
     		
-    		myBook.setAuthor("REEE");
-    		myBook.setGenre("PORN");
-    		myBook.setIsbn(69);
-    		myBook.setLanguage("welsh");
-    		myBook.setPublisher("Ryan publishings");
-    		myBook.setThumbnailImagePath("on harddrive");
-    		myBook.setTitle("shitty book");
-    		myBook.setYear("yeet");
+    		session.save(myDVD);
     		
-    		session.save(myBook);
+    		//Query query = session.createQuery("from Book");
+    		//	List<Book> empList = query.list();
+    			    			
+    		//for(Book emp : empList){
+    		//	System.out.println("List of ResourcesUID's: "+ emp.getResourceUID());		
+    		//}
     		
-    		Query query = session.createQuery("from Book");
-    			List<Resources> empList = query.list();
-    			
-    		for(Resources emp : empList){
-    			System.out.println("List of ResourcesUID's: "+ emp.getResourceUID());		
-  
-    		}
-    		
-    		session.getTransaction().commit();
+    	    session.getTransaction().commit();
     		
     		tx.rollback();
     		

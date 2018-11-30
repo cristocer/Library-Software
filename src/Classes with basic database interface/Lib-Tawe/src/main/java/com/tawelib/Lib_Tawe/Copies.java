@@ -31,15 +31,6 @@ public class Copies {
   //  public String getIssuedBy(){
   //  }
 
-    public void returnItem(){
-    }
-
-    public void requestItem(){
-    }
-
-    public void houseKeeping(){
-    }
-
     public int getCopyUID() {
         return copyUID;
     }

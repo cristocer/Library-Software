@@ -2,7 +2,6 @@ package com.tawelib.Lib_Tawe;
 import java.util.List;
 
 import javax.persistence.*;
-
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -34,30 +33,20 @@ public class Transaction {
 	
 	public void returnCopy(int copyUID) {
 		
-		Boolean present = false;
-		
 		//Check to see if copy is in the transaction table 
 		
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();		
 		
-		Transaction tx = session.beginTransaction();
-		
 		Query query = session.createQuery("From Transaction"); //return all Transaction objects from the table
 		List<Transaction> empList = query.list();	
 		for(Transaction emp : empList){
-			if (emp.getCopyUID() == copyUID){         //check to see if the copy ID is present 
-				
+			if (emp.getCopyUID() == copyUID){         //check to see if the copy ID is present 		
 				query = session.createQuery("update Transaction set returnDate= :returned where copyUID= :id");
 				query.setParameter("returnDate", "today");                         //Change the retrun date on the copy to today then 
 				query.setLong("copyUID", copyUID);
 			}
 		}
-		
-		tx.rollback();
-		
-		sessionFactory.close();
-		
 	}
 	
 	public void requestCopy(String title) {
@@ -75,6 +64,8 @@ public class Transaction {
 		
 		
 	}
+
+	
     public String getUsername() {
 		return username;
 	}
@@ -110,8 +101,4 @@ public class Transaction {
 	public void setReturnDate(String returnDate) {
 		this.returnDate = returnDate;
 	}
-	
-
-	
-	
 }

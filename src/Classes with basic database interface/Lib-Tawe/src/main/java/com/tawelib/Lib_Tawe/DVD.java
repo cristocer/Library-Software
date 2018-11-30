@@ -23,6 +23,11 @@ public class DVD extends Resources{
     private int runTime;
     private String language;
     private String subtitleLanguage;
+    
+    public DVD () {  //Default constructor for database stuff
+    }
+    
+    
     /**
      * On creation initializes all required attributes.
      * @param director name of director.
@@ -52,7 +57,6 @@ public class DVD extends Resources{
         this.year = year;
         this.thumbnailImagePath = thumbnailImagePath;
     }
-    
     
     /**
      * Gets the director.

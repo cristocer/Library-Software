@@ -1,5 +1,4 @@
 package com.tawelib.Lib_Tawe;
-
 import javax.persistence.*;
 
 @Entity//Defining the class as a persistant entity allowing the hibernate API to interact with it 
@@ -12,9 +11,22 @@ public class Book extends Resources {
     public String genre;
     public String language;
     
-    public Book() {}
+    public Book() { //added a default constructor, makes querying the database for Book objects a lot easier    	
+    }
     
-    public void editResource(String author, String publisher, int isbn, String genre, String language, String title, 
+    public Book (String author, String publisher, int isbn, String genre, String language, String year,
+    		String title, String thumbnailImagePath) {
+		this.author = author;
+		this.publisher = publisher;
+		this.isbn = isbn;
+		this.genre = genre;
+		this.language = language;
+		this.year = year;
+		this.title = title;
+	    this.thumbnailImagePath = thumbnailImagePath;
+	}
+
+	public void editResource(String author, String publisher, int isbn, String genre, String language, String title, 
     		String year, String thumbnailImagePath) {
         this.author = author;
 		this.publisher = publisher;
@@ -45,25 +57,5 @@ public class Book extends Resources {
     
     public int getIsbn() {
 		return isbn;
-	}
-    
-	public void setIsbn(int isbn) {
-		this.isbn = isbn;
-	}
-
-	public void setAuthor(String author) {
-		this.author = author;
-	}
-
-	public void setPublisher(String publisher) {
-		this.publisher = publisher;
-	}
-
-	public void setGenre(String genre) {
-		this.genre = genre;
-	}
-
-	public void setLanguage(String language) {
-		this.language = language;
 	}
 }

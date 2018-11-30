@@ -24,7 +24,6 @@ public abstract class Resources {
     public String title;
     public String thumbnailImagePath;
     
-    
     public void editResource() {
     }
 
@@ -47,13 +46,4 @@ public abstract class Resources {
     public void setThumbnailImagePath(String thumbnailImagePath) {
         this.thumbnailImagePath = thumbnailImagePath;
     }
-    
-    public void setYear(String year) {
-		this.year = year;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
 }

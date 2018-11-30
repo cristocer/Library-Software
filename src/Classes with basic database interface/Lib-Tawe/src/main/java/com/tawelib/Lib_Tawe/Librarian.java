@@ -12,6 +12,8 @@ public class Librarian extends AccountBaseUser {
 	@GeneratedValue (strategy=GenerationType.SEQUENCE, generator="seq")
 	public int staffID;
 	
+	public Librarian() {} //Default constructor for database stuff
+	
 	public Librarian(String employmentDate, String username, String firstName, 
 			String lastName, int telephone, String address, String profileImagePath) {
 		

@@ -7,6 +7,8 @@ public class User extends AccountBaseUser {
 	//Instance variables:
 	public int balance;
 	
+	public User() {} //Default constructor for database stuff
+	
 	public User( int balance, String username, String firstName, String lastName, int telephone, String address, 
 			String profileImagePath) {	
 		this.balance = balance;
