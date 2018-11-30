@@ -7,7 +7,6 @@ public class Copies {
 
     @Id//specifying which variable is the primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY)// specifying the type of auto-incrementation for the PK, in this cas "IDENTITY" uses identifies and uses the type specified in the linked table
-    
     private int copyUID;
 
     @JoinColumn(name="resourceUID")//Defining that resourceUID is a foreign key 

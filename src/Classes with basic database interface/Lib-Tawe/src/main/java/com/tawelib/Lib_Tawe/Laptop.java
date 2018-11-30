@@ -46,6 +46,16 @@ public class Laptop extends Resources {
         this.thumbnailImagePath = thumbnailImagePath;
     }
     
+    public void editResource(String operatingSystem,String manufacturer,String model, String title,String year, 
+    		String thumbnailImagePath) {
+    	this.operatingSystem = operatingSystem;  
+        this.manufacturer = manufacturer;
+        this.model = model;
+        this.title = title;
+        this.year = year;
+        this.thumbnailImagePath = thumbnailImagePath;
+    }
+    
     /**
      * @return The operating system of the laptop.
      */

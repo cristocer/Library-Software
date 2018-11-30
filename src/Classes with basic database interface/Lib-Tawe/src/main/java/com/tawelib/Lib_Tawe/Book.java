@@ -7,12 +7,14 @@ import javax.persistence.*;
 public class Book extends Resources {
    
 	public String author;
-    public String publisher;
+	public String publisher;
     public int isbn;
     public String genre;
     public String language;
     
-    public Book(String author, String publisher, int isbn, String genre, String language, String title, 
+    public Book() {}
+    
+    public void editResource(String author, String publisher, int isbn, String genre, String language, String title, 
     		String year, String thumbnailImagePath) {
         this.author = author;
 		this.publisher = publisher;
@@ -22,8 +24,7 @@ public class Book extends Resources {
 		this.year = year;
         this.title = title;
         this.thumbnailImagePath = thumbnailImagePath;
-
-	}
+    } 
     
     public String getAuthor() {
         return author;
@@ -33,9 +34,6 @@ public class Book extends Resources {
         return publisher;
     }
     
-    public int isbn() {
-        return isbn;
-    }
     
     public String getGenre() {
         return genre;
@@ -44,4 +42,28 @@ public class Book extends Resources {
     public String getLanguage() {
         return language;
     }
+    
+    public int getIsbn() {
+		return isbn;
+	}
+    
+	public void setIsbn(int isbn) {
+		this.isbn = isbn;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
+	}
 }

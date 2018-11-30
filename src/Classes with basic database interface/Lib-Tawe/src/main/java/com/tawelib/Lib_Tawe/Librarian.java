@@ -6,15 +6,16 @@ import javax.persistence.*;
 public class Librarian extends AccountBaseUser {
 	
 	//Instance variables:
-	@GeneratedValue(strategy = GenerationType.IDENTITY) // specifying the type of auto-incrementation for the PK, in this case "IDENTITY" uses identifies and uses the type specified in the linked table
 	public String employmentDate;
+	
+	@SequenceGenerator(name="seq", initialValue=1, allocationSize=100)
+	@GeneratedValue (strategy=GenerationType.SEQUENCE, generator="seq")
 	public int staffID;
 	
-	public Librarian(String employmentDate, int staffID, String username, String firstName, 
+	public Librarian(String employmentDate, String username, String firstName, 
 			String lastName, int telephone, String address, String profileImagePath) {
 		
 		this.employmentDate = employmentDate;
-		this.staffID = staffID;
 		this.username = username;
 		this.firstName = firstName;
 		this.lastName = lastName;

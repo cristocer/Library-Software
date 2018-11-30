@@ -42,6 +42,18 @@ public class DVD extends Resources{
         this.thumbnailImagePath = thumbnailImagePath;
     }
 
+    public void editResource(String director, int runTime, String language, String subtitleLanguage, String title, String year,	
+            String thumbnailImagePath){
+        this.director = director;
+        this.runTime = runTime;
+        this.language = language;
+        this.subtitleLanguage = subtitleLanguage;
+        this.title = title;
+        this.year = year;
+        this.thumbnailImagePath = thumbnailImagePath;
+    }
+    
+    
     /**
      * Gets the director.
      * @return name of director.
