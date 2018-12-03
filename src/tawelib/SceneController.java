@@ -46,16 +46,11 @@ public class SceneController {
     public static final String EDIT_VIEW_TITLE="Edit Resource"; 
     
     //Loan Resource Window
-    public static final String LOAN_VIEW="LoanResource.fxml";
-    public static final int LOAN_VIEW_HEIGHT = 400;
-    public static final int LOAN_VIEW_WIDTH = 600;
-    public static final String LOAN_VIEW_TITLE="Loan Resource"; 
+    public static final String OPERATIONS_VIEW="OperationsRequests.fxml";
+    public static final int OPERATIONS_VIEW_HEIGHT = 360;
+    public static final int OPERATIONS_VIEW_WIDTH = 666;
+    public static final String OPERATIONS_VIEW_TITLE="Operations on Requests"; 
     
-    //Collect Resource Window
-    public static final String COLLECT_VIEW="CollectResource.fxml";
-    public static final int COLLECT_VIEW_HEIGHT = 400;
-    public static final int COLLECT_VIEW_WIDTH = 600;
-    public static final String COLLECT_VIEW_TITLE="Collect Resource"; 
     
     //Create User Window
     public static final String CREATE_USER="CreateUser.fxml";

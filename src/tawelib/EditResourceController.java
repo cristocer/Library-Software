@@ -10,7 +10,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.TextField;
 
 public class EditResourceController extends Controller{
-//you can change the layout if you want
+
     @FXML
     private RadioButton book;
     @FXML
@@ -210,22 +210,25 @@ public class EditResourceController extends Controller{
        if(resource==0){
            invalidMessage.setVisible(true);
        }else if(resource==1){//laptop
-           if(title.getText()==null || year.getText()==null || image.getText()==null || os.getText()==null || manufacturer.getText()==null || model.getText()==null ){
+           if(title.getText().compareTo("")==0 || year.getText().compareTo("")==0 || image.getText().compareTo("")==0 || os.getText().compareTo("")==0 || 
+                   manufacturer.getText().compareTo("")==0|| model.getText().compareTo("")==0){
            incompleteMessage.setVisible(true);   
            }else{
                // System.out.print(resourcesList.getFocusModel().getFocusedItem());//return the item focused in the list to get the id
                //an update table query to the database with the resourceId to reference the resource to be changed and the parameters (year.getText(),title.getText(),image.getText()==""..)
            }
        }else if(resource==2){//dvd
-           if(title.getText()=="" || year.getText()=="" || image.getText()=="" || director.getText()=="" || runTime.getText()=="" || languageD.getText()=="" || subtitleLanguage.getText()==""){
-           invalidMessage.setText("Error: Field not completed!");   
+           if(title.getText().compareTo("")==0 || year.getText().compareTo("")==0 || image.getText().compareTo("")==0 || director.getText().compareTo("")==0
+                   || runTime.getText().compareTo("")==0 || languageD.getText().compareTo("")==0 || subtitleLanguage.getText().compareTo("")==0){
+           incompleteMessage.setVisible(true);     
            }else{
                // System.out.print(resourcesList.getFocusModel().getFocusedItem());//return the item focused in the list to get the id
                //an update table query to the database with the resourceId to reference the resource to be changed and the parameters (year.getText(),title.getText(),image.getText()==""..)
            }
        }else if(resource==3){//book
-           if(title.getText()=="" || year.getText()=="" || image.getText()=="" || publisher.getText()=="" || isbn.getText()=="" || language.getText()=="" || author.getText()=="" || genre.getText()==""){
-           invalidMessage.setText("Error: Field not completed!");   
+           if(title.getText().compareTo("")==0 || year.getText().compareTo("")==0 || image.getText().compareTo("")==0 || publisher.getText().compareTo("")==0
+                   || isbn.getText().compareTo("")==0|| language.getText().compareTo("")==0|| author.getText().compareTo("")==0|| genre.getText().compareTo("")==0){
+           incompleteMessage.setVisible(true);     
            }else{
                // System.out.print(resourcesList.getFocusModel().getFocusedItem());//return the item focused in the list to get the id
                //an update table query to the database with the resourceId to reference the resource to be changed and the parameters (year.getText(),title.getText(),image.getText()==""..)
