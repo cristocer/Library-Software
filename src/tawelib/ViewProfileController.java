@@ -8,7 +8,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-public class ViewProfileController {
+public class ViewProfileController extends Controller{
 
     @FXML
     private GridPane rootPane;
@@ -27,8 +27,17 @@ public class ViewProfileController {
 
     @FXML
     void editProfileButton(ActionEvent event) {
-
+        editProfileHandling();
+    }
+    @FXML
+    void doneButton(){
+        close();
     }
 
+    public void editProfileHandling(){
+        Window editProfileWindow = new Window(SceneController.EDIT_PROFILE,SceneController.EDIT_PROFILE_WIDTH,SceneController.EDIT_PROFILE_HEIGHT,SceneController.EDIT_PROFILE_TITLE);
+        editProfileWindow.makeModal();
+        editProfileWindow.showAndWait();
+    }
 }
 

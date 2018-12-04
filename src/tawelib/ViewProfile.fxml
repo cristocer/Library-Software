@@ -28,16 +28,16 @@
       <VBox fx:id="attributeVBox" alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0" spacing="5.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowSpan="3" GridPane.valignment="CENTER">
          <children>
             <ListView fx:id="profileInfo" prefHeight="275.0" prefWidth="215.0" />
-            <Button mnemonicParsing="false" onAction="#editProfileButton" text="Edit" textAlignment="CENTER" />
+            <HBox fx:id="profileHBox" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#editProfileButton" text="Edit" textAlignment="CENTER" />
+                  <Button mnemonicParsing="false" onAction="#doneButton" text="Done" />
+               </children>
+            </HBox>
          </children>
          <GridPane.margin>
             <Insets left="35.0" right="35.0" />
          </GridPane.margin>
       </VBox>
-      <HBox fx:id="profileHBox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
-         <GridPane.margin>
-            <Insets />
-         </GridPane.margin>
-      </HBox>
    </children>
 </GridPane>

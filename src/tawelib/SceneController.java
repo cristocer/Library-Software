@@ -69,6 +69,10 @@ public class SceneController {
     public static final int VIEW_PROFILE_WIDTH = 600;
     public static final String VIEW_PROFILE_TITLE = "View Profile";
 
+    public static final String EDIT_PROFILE = "EditProfile.fxml";
+    public static final int EDIT_PROFILE_HEIGHT = 300;
+    public static final int EDIT_PROFILE_WIDTH = 600;
+    public static final String EDIT_PROFILE_TITLE = "Edit Profile";
 
     public static String USER_USERNAME ; 
 
