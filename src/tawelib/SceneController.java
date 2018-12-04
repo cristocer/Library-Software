@@ -63,6 +63,13 @@ public class SceneController {
     public static final int CREATE_USER_WIDTH= 600;
     public static final String CREATE_USER_TITLE="Create User";
 
+    //View Profile Window
+    public static final String VIEW_PROFILE = "ViewProfile.fxml";
+    public static final int VIEW_PROFILE_HEIGHT = 300;
+    public static final int VIEW_PROFILE_WIDTH = 600;
+    public static final String VIEW_PROFILE_TITLE = "View Profile";
+
+
     public static String USER_USERNAME ; 
 
 }

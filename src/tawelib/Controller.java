@@ -18,6 +18,11 @@ public abstract class Controller{
         Stage stage = (Stage) rootPane.getScene().getWindow();
         stage.close();
     }
+
+    public void viewProfileHandling(){
+        Window viewProfile = new Window(SceneController.VIEW_PROFILE,SceneController.VIEW_PROFILE_WIDTH,SceneController.VIEW_PROFILE_HEIGHT,SceneController.VIEW_PROFILE_TITLE);
+        viewProfile.show();
+    }
     public void logoutHandling(){
 
         Stage stage = (Stage) rootPane.getScene().getWindow();

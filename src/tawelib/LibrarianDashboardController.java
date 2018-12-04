@@ -39,6 +39,9 @@ public class LibrarianDashboardController extends Controller{
     } 
     @FXML
     void createUserButton(){createUserHandling();}
+    @FXML
+    void viewProfileButton(){viewProfileHandling();
+    }
     /**
      * Initializes the GUI, prompts user for Login...ToDO
      */

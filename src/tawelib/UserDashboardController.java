@@ -16,8 +16,6 @@ public class UserDashboardController extends Controller{
     private ListView<String> resourcesList;
     @FXML
     private Text user_id;
-    @FXML
-    private VBox adminVBox;
 
     @FXML
     void logoutButton(ActionEvent event) {
@@ -31,7 +29,9 @@ public class UserDashboardController extends Controller{
     void transactionHistoryButton(ActionEvent event) {
         transactionHandling();
     }
-    
+    @FXML
+    void viewProfileButton(){viewProfileHandling();
+    }
     /**
      * Initializes the GUI, prompts user for Login...ToDO
      */
