@@ -63,7 +63,7 @@
    <bottom>
       <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="588.0" spacing="5.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="View Profile" />
+            <Button mnemonicParsing="false" onAction="#viewProfileButton" text="View Profile" />
             <Button mnemonicParsing="false" onAction="#logoutButton" text="Logout" />
 
          </children>
