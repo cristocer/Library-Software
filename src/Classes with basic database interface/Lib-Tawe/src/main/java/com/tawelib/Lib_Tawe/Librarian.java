@@ -8,8 +8,8 @@ public class Librarian extends AccountBaseUser {
 	//Instance variables:
 	public String employmentDate;
 	
-	@SequenceGenerator(name="seq", initialValue=1, allocationSize=100)
-	@GeneratedValue (strategy=GenerationType.SEQUENCE, generator="seq")
+	//@SequenceGenerator(name="seq", initialValue=1, allocationSize=100)
+	//@GeneratedValue (strategy=GenerationType.SEQUENCE, generator="seq")
 	public int staffID;
 	
 	public Librarian() {} //Default constructor for database stuff

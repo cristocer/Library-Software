@@ -25,9 +25,6 @@ public class Laptop extends Resources {
     private String operatingSystem;
     private String manufacturer;
     private String model;
-
-    public Laptop() { //Default blank constructor used for databasey stuff
-    }
     
     
     /**

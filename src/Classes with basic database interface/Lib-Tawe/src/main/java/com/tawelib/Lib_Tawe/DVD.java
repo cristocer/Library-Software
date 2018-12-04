@@ -24,9 +24,6 @@ public class DVD extends Resources{
     private String language;
     private String subtitleLanguage;
     
-    public DVD () {  //Default constructor for database stuff
-    }
-    
     
     /**
      * On creation initializes all required attributes.

@@ -10,15 +10,35 @@ import org.hibernate.Transaction;
 public class App 
 {
     public static void main( String[] args )
-    {			      	
-    		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-    		Session session = sessionFactory.getCurrentSession();		
+    {		
+    				
+ //   		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+ //   		Session session = sessionFactory.getCurrentSession();		
     		
-    		Transaction tx = session.beginTransaction();
+ //   		session.beginTransaction();
     		
-    		Book myDVD = new Book ("yeet","a",420,"b","c","d","e","d");
+    		Book myBook = new Book ("yeet","a",420,"b","c","d","e","d");
     		
-    		session.save(myDVD);
+    //		session.save(myBook);
+    		
+    		Copies myCopyOfMyBook = new Copies(1, 420);
+
+    //		session.save(myCopyOfMyBook);
+    		
+    		User myUser = new User(69, "The big yeeter420", "Ryan", "Williams", 999, "address who?", "SSD");
+    		
+    //		session.save(myUser);
+    		
+    		Librarian myLibrarian = new Librarian("from yesterday","The big yeeter421", "Ryan", "Williams", 999, "address who?", "SSD");
+    		
+  //  		session.save(myLibrarian);    		
+    		
+    		com.tawelib.Lib_Tawe.Transaction myTransaction = new com.tawelib.Lib_Tawe.Transaction(myUser.getUsername(), 420, 
+    				0, "today", "two weeks", " ");
+    		
+    		myTransaction.returnCopy(0);
+    		
+    		//session.save(myTransaction);
     		
     		//Query query = session.createQuery("from Book");
     		//	List<Book> empList = query.list();
@@ -27,11 +47,10 @@ public class App
     		//	System.out.println("List of ResourcesUID's: "+ emp.getResourceUID());		
     		//}
     		
-    	    session.getTransaction().commit();
+  //  		session.getTransaction().commit();	
     		
-    		tx.rollback();
+  //  		sessionFactory.close();
     		
-    		sessionFactory.close();
     		
 	    	System.out.println("NO ERRORS Lmao");
     }

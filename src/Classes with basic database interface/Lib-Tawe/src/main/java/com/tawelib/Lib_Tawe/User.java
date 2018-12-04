@@ -4,6 +4,7 @@ import javax.persistence.*;
 @Entity //Defining the class as a persistent entity allowing the hibernate API to interact with it 
 @PrimaryKeyJoinColumn(name="username")//Defining that this entity's primary key is imported from another class, Resources
 public class User extends AccountBaseUser {
+	
 	//Instance variables:
 	public int balance;
 	

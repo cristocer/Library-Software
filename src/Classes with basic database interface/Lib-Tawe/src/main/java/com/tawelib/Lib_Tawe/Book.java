@@ -11,9 +11,6 @@ public class Book extends Resources {
     public String genre;
     public String language;
     
-    public Book() { //added a default constructor, makes querying the database for Book objects a lot easier    	
-    }
-    
     public Book (String author, String publisher, int isbn, String genre, String language, String year,
     		String title, String thumbnailImagePath) {
 		this.author = author;
