@@ -47,6 +47,7 @@ public class UserDashboardController extends Controller{
         }
     }
 
+
     private void viewHandling() {
         Window<ResourceViewController> viewWindow = new Window<>(SceneController.RESOURCE_VIEW, SceneController.RESOURCE_VIEW_WIDTH, SceneController.RESOURCE_VIEW_HEIGHT, SceneController.RESOURCE_VIEW_TITLE);
         viewWindow.show();

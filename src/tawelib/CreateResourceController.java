@@ -8,9 +8,6 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.TextField;
 public class CreateResourceController extends Controller{
 
-    //TO DO add text and textField  for dvd and book
-    //to ask when we press the create button do we call the onstructor of the 
-    //class book which will insert the data into the database?
     @FXML
     private RadioButton book;
     @FXML
