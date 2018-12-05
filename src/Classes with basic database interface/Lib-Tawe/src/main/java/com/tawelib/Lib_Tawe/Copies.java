@@ -17,7 +17,6 @@ public class Copies {
 
     @JoinColumn(name="resourceUID")//Defining that resourceUID is a foreign key 
     private int resourceUID;
-
     private int loanDuration;
 
     public Copies() {}
@@ -85,6 +84,7 @@ public class Copies {
 		sessionFactory.close();
 		return (staffID);
     }
+ 
 
     public int getCopyUID() {
         return copyUID;

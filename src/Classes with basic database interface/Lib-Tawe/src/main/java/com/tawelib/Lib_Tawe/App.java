@@ -1,5 +1,6 @@
 package com.tawelib.Lib_Tawe;
 
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -11,45 +12,33 @@ public class App
 {
     public static void main( String[] args )
     {		
-    				
- //   		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
- //   		Session session = sessionFactory.getCurrentSession();		
-    		
- //   		session.beginTransaction();
-    		
-    		Book myBook = new Book ("yeet","a",420,"b","c","d","e","d");
-    		
+    //		Book myBook = new Book ("yeet","a",420,"b","c","d","e","d");
     //		session.save(myBook);
-    		
-    		Copies myCopyOfMyBook = new Copies(1, 420);
-
-    //		session.save(myCopyOfMyBook);
-    		
-    		User myUser = new User(69, "The big yeeter420", "Ryan", "Williams", 999, "address who?", "SSD");
-    		
+    //		Copies myCopyOfMyBook = new Copies(1, 420);
+    // 		session.save(myCopyOfMyBook);
+    //		User myUser = new User(69, "The big yeeter420", "Ryan", "Williams", 999, "address who?", "SSD");	
     //		session.save(myUser);
+    //		Librarian myLibrarian = new Librarian("from yesterday","The big yeeter424", "Ryan", "Williams", 999, "address who?", "SSD");	
+    		//session.save(myLibrarian);    
     		
-    		Librarian myLibrarian = new Librarian("from yesterday","The big yeeter421", "Ryan", "Williams", 999, "address who?", "SSD");
+			
+	//		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+	//		Session session = sessionFactory.getCurrentSession();		
+	//		session.beginTransaction();
+			
+    //		com.tawelib.Lib_Tawe.Transaction myTransaction = new com.tawelib.Lib_Tawe.Transaction("The big yeeter420", 420, 
+    //				1, "10", "10", null);
+    
+    //		session.save(myTransaction);
+    //		session.getTransaction().commit();	
     		
-  //  		session.save(myLibrarian);    		
+    		com.tawelib.Lib_Tawe.Transaction.returnCopy(1, "The big yeeter420");
     		
-    		com.tawelib.Lib_Tawe.Transaction myTransaction = new com.tawelib.Lib_Tawe.Transaction(myUser.getUsername(), 420, 
-    				0, "today", "two weeks", " ");
+    	//	com.tawelib.Lib_Tawe.Transaction.requestCopy(1, "Ryan 'the legend' Williams", 69);
     		
-    		myTransaction.returnCopy(0);
+    	//	com.tawelib.Lib_Tawe.Transaction.collectCopy(1);
     		
-    		//session.save(myTransaction);
-    		
-    		//Query query = session.createQuery("from Book");
-    		//	List<Book> empList = query.list();
-    			    			
-    		//for(Book emp : empList){
-    		//	System.out.println("List of ResourcesUID's: "+ emp.getResourceUID());		
-    		//}
-    		
-  //  		session.getTransaction().commit();	
-    		
-  //  		sessionFactory.close();
+    	//	com.tawelib.Lib_Tawe.Transaction.houseKeeping();
     		
     		
 	    	System.out.println("NO ERRORS Lmao");

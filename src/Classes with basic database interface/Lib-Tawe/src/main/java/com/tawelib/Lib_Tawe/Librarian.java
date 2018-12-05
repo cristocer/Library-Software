@@ -5,12 +5,15 @@ import javax.persistence.*;
 @PrimaryKeyJoinColumn(name="username")//Defining that this entity's primary key is imported from another class, Resources
 public class Librarian extends AccountBaseUser {
 	
-	//Instance variables:
-	public String employmentDate;
-	
 	//@SequenceGenerator(name="seq", initialValue=1, allocationSize=100)
 	//@GeneratedValue (strategy=GenerationType.SEQUENCE, generator="seq")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(unique=true)
 	public int staffID;
+	
+	
+	//Instance variables:
+	public String employmentDate;
 	
 	public Librarian() {} //Default constructor for database stuff
 	

@@ -14,7 +14,7 @@
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         
         <property name="hibernate.current_session_context_class">thread</property>
-        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.show_sql">false</property>
         
         <mapping class="com.tawelib.Lib_Tawe.Resources"/>
         <mapping class="com.tawelib.Lib_Tawe.Book"/>
