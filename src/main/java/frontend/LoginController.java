@@ -84,12 +84,12 @@ public class LoginController extends Controller{
             authenticated=true;
         }
         else if(query.uniqueResult() != null){
-            Query queryLibrarian = session.createQuery("From User Where username = '" + username + "'");
+            Query queryLibrarian = session.createQuery("From Librarian Where username = '" + username + "'");
             if(queryLibrarian.uniqueResult() != null){
-                isLibrarian = false;
+                isLibrarian = true;
             }
             else {
-                isLibrarian = true;
+                isLibrarian = false;
             }
             authenticated=true;
         }
@@ -97,7 +97,7 @@ public class LoginController extends Controller{
             authenticated=false;
         }
         session.close();
-        SceneController.USER_USERNAME = username; //ToDo parse User to scenecontroller. Not just the name
+        SceneController.USER_USERNAME = username;  // TODO parse User to scenecontroller. Not just the name
     }
     /**
      * Check if User is authentic
