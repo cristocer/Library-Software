@@ -12,7 +12,7 @@
    <right>
       <VBox prefWidth="160.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#createResourceButton" prefHeight="27.0" prefWidth="150.0" text="Add Resource">
+            <Button mnemonicParsing="false" onAction="#createResourceButton" prefHeight="27.0" prefWidth="150.0" text="Add resource">
                <VBox.margin>
                   <Insets bottom="5.0" />
                </VBox.margin>
@@ -22,17 +22,12 @@
                   <Insets bottom="5.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#loanResourceButton" prefHeight="27.0" prefWidth="150.0" text="Loan">
+            <Button mnemonicParsing="false" onAction="#operationsRequestsButton" prefHeight="27.0" prefWidth="150.0" text="Operations">
                <VBox.margin>
                   <Insets bottom="5.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#collectResourceButton" prefHeight="27.0" prefWidth="150.0" text="Collect">
-               <VBox.margin>
-                  <Insets bottom="5.0" />
-               </VBox.margin>
-            </Button>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#createUserButton" prefHeight="27.0" prefWidth="300.0" text="Create User" textAlignment="CENTER" />
+            <Button mnemonicParsing="false" onAction="#createUserButton" prefHeight="27.0" prefWidth="169.0" text="Create User" />
          </children>
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

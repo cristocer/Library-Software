@@ -1,15 +1,11 @@
 package tawelib;
 
-import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.ListView;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
-import javafx.stage.Stage;
+
 public class LibrarianDashboardController extends Controller{
 
     @FXML
@@ -30,13 +26,9 @@ public class LibrarianDashboardController extends Controller{
         editResourceHandling();
     }
     @FXML
-    void loanResourceButton() {
-        loanResourceHandling();
+    void operationsRequestsButton() {
+        operationsRequestsHandling();
     }
-    @FXML
-    void collectResourceButton() {
-        collectResourceHandling();
-    } 
     @FXML
     void createUserButton(){createUserHandling();}
     @FXML
@@ -60,17 +52,15 @@ public class LibrarianDashboardController extends Controller{
     private void createResourceHandling() {
         Window<CreateResourceController> viewWindow = new Window<>(SceneController.CREATE_VIEW, SceneController.CREATE_VIEW_WIDTH, SceneController.CREATE_VIEW_HEIGHT, SceneController.CREATE_VIEW_TITLE);
         viewWindow.show();
+        System.out.println(SceneController.CREATE_VIEW_WIDTH);
     }
     private void editResourceHandling() {
         Window<EditResourceController> viewWindow = new Window<>(SceneController.EDIT_VIEW, SceneController.EDIT_VIEW_WIDTH, SceneController.EDIT_VIEW_HEIGHT, SceneController.EDIT_VIEW_TITLE);
         viewWindow.show();
+        System.out.println(SceneController.EDIT_VIEW_WIDTH);
     }
-    private void loanResourceHandling() {
-        Window<LoanResourceController> viewWindow = new Window<>(SceneController.LOAN_VIEW, SceneController.LOAN_VIEW_WIDTH, SceneController.LOAN_VIEW_HEIGHT, SceneController.LOAN_VIEW_TITLE);
-        viewWindow.show();
-    }
-    private void collectResourceHandling() {
-        Window<CollectResourceController> viewWindow = new Window<>(SceneController.COLLECT_VIEW, SceneController.COLLECT_VIEW_WIDTH, SceneController.COLLECT_VIEW_HEIGHT, SceneController.COLLECT_VIEW_TITLE);
+    private void operationsRequestsHandling() {
+        Window<OperationsRequestsController> viewWindow = new Window<>(SceneController.OPERATIONS_VIEW, SceneController.OPERATIONS_VIEW_WIDTH, SceneController.OPERATIONS_VIEW_HEIGHT, SceneController.OPERATIONS_VIEW_TITLE);
         viewWindow.show();
     }
     private void createUserHandling(){
