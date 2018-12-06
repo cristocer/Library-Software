@@ -30,6 +30,10 @@ public class LibrarianDashboardController extends Controller{
         operationsRequestsHandling();
     }
     @FXML
+    void createCopyButton() {
+        createCopyHandling();
+    }
+    @FXML
     void createUserButton(){createUserHandling();}
     @FXML
     void viewProfileButton(){viewProfileHandling();
@@ -52,20 +56,22 @@ public class LibrarianDashboardController extends Controller{
     private void createResourceHandling() {
         Window<CreateResourceController> viewWindow = new Window<>(SceneController.CREATE_VIEW, SceneController.CREATE_VIEW_WIDTH, SceneController.CREATE_VIEW_HEIGHT, SceneController.CREATE_VIEW_TITLE);
         viewWindow.show();
-        System.out.println(SceneController.CREATE_VIEW_WIDTH);
     }
     private void editResourceHandling() {
-        Window<EditResourceController> viewWindow = new Window<>(SceneController.EDIT_VIEW, SceneController.EDIT_VIEW_WIDTH, SceneController.EDIT_VIEW_HEIGHT, SceneController.EDIT_VIEW_TITLE);
-        viewWindow.show();
-        System.out.println(SceneController.EDIT_VIEW_WIDTH);
+        Window<EditResourceController> editResource = new Window<>(SceneController.EDIT_VIEW, SceneController.EDIT_VIEW_WIDTH, SceneController.EDIT_VIEW_HEIGHT, SceneController.EDIT_VIEW_TITLE);
+        editResource.show();
     }
     private void operationsRequestsHandling() {
-        Window<OperationsRequestsController> viewWindow = new Window<>(SceneController.OPERATIONS_VIEW, SceneController.OPERATIONS_VIEW_WIDTH, SceneController.OPERATIONS_VIEW_HEIGHT, SceneController.OPERATIONS_VIEW_TITLE);
-        viewWindow.show();
+        Window<OperationsRequestsController> operationsWindow = new Window<>(SceneController.OPERATIONS_VIEW, SceneController.OPERATIONS_VIEW_WIDTH, SceneController.OPERATIONS_VIEW_HEIGHT, SceneController.OPERATIONS_VIEW_TITLE);
+        operationsWindow.show();
     }
     private void createUserHandling(){
         Window<CreateUserController> createUser = new Window<>(SceneController.CREATE_USER,SceneController.CREATE_USER_WIDTH,SceneController.CREATE_USER_HEIGHT,SceneController.CREATE_USER_TITLE);
         createUser.show();
+    }
+    private void createCopyHandling(){
+        Window<CreateCopyController> createCopy = new Window<>(SceneController.CREATEC_VIEW, SceneController.CREATEC_VIEW_WIDTH, SceneController.CREATEC_VIEW_HEIGHT, SceneController.CREATEC_VIEW_TITLE);
+        createCopy.show();
     }
     @Override
     public void close(){

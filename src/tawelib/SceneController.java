@@ -40,7 +40,13 @@ public class SceneController {
     public static final int EDIT_VIEW_WIDTH = 750;
     public static final String EDIT_VIEW_TITLE="Edit Resource"; 
     
-    //Loan Resource Window
+    //Create Copy Window
+    public static final String CREATEC_VIEW="CreateCopy.fxml";
+    public static final int CREATEC_VIEW_HEIGHT = 400;
+    public static final int CREATEC_VIEW_WIDTH = 750;
+    public static final String CREATEC_VIEW_TITLE="Create Copy"; 
+    
+    //Operations Resource Window
     public static final String OPERATIONS_VIEW="OperationsRequests.fxml";
     public static final int OPERATIONS_VIEW_HEIGHT = 360;
     public static final int OPERATIONS_VIEW_WIDTH = 666;
