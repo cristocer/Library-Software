@@ -72,7 +72,7 @@ public class SceneController {
     public static final String EDIT_PROFILE_TITLE = "Edit Profile";
 
     //Edit Profile Image Window
-    public static final String EDIT_PROFILE_IMAGE = "ChooseProfileImage.fxml";
+    public static final String EDIT_PROFILE_IMAGE = "ChooseProfileImageController.fxml";
     public static final String EDIT_PROFILE_IMAGE_TITLE = "Choose Profile Image";
     public static final int EDIT_PROFILE_IMAGE_HEIGHT = 600;
     public static final int EDIT_PROFILE_IMAGE_WIDTH = 600;
