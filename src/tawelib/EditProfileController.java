@@ -45,12 +45,12 @@ public class EditProfileController extends Controller{
 
     @FXML
     void chooseImage(ActionEvent event) {
-
+        chooseImageHandling();
     }
 
     @FXML
     void drawImage(ActionEvent event) {
-
+        drawimagehandling();
     }
 
     @FXML
@@ -71,5 +71,13 @@ public class EditProfileController extends Controller{
     }
     public void cancelHandling(){
         close();
+    }
+    public void drawimagehandling(){
+        Window<DrawProfileImageController> drawProfile = new Window<>("DrawProfileImage.fxml",600,600,"lol");
+        drawProfile.show();
+    }
+    public void chooseImageHandling(){
+        Window<EditProfileImageController> editProfileImage = new Window<>("EditProfileImage.fxml", 600, 600, "lol");
+        editProfileImage.show();
     }
 }

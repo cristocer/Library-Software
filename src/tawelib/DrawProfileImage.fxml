@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<SplitPane dividerPositions="0.061872909698996656" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tawelib.DrawProfileImageController">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="22.0" prefWidth="598.0">
+         <children>
+            <HBox prefHeight="37.0" prefWidth="600.0">
+               <children>
+                  <BorderPane prefHeight="18.0" prefWidth="598.0">
+                     <center>
+                        <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Button fx:id="brush" mnemonicParsing="false" onAction="#brushToolSelected" prefHeight="26.0" prefWidth="54.0" text="Brush">
+                                 <HBox.margin>
+                                    <Insets right="7.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" text="Line">
+                                 <HBox.margin>
+                                    <Insets right="7.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" text="Square">
+                                 <HBox.margin>
+                                    <Insets right="7.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" text="Triangle">
+                                 <HBox.margin>
+                                    <Insets right="7.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" text="Circle">
+                                 <HBox.margin>
+                                    <Insets right="7.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <RadioButton mnemonicParsing="false" text="Fill Shape">
+                                 <HBox.margin>
+                                    <Insets right="7.0" top="5.0" />
+                                 </HBox.margin>
+                              </RadioButton>
+                              <ColorPicker fx:id="colorPicker">
+                                 <HBox.margin>
+                                    <Insets right="7.0" top="5.0" />
+                                 </HBox.margin>
+                              </ColorPicker>
+                              <TextField fx:id="brushSize" prefHeight="26.0" prefWidth="90.0" promptText="Brush size">
+                                 <HBox.margin>
+                                    <Insets right="7.0" top="5.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                     </center>
+                  </BorderPane>
+               </children>
+            </HBox>
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="445.0" prefWidth="598.0">
+         <children>
+            <Canvas fx:id="canvas" height="558.0" layoutX="-4.0" width="607.0" />
+            <Button layoutX="529.0" layoutY="508.0" mnemonicParsing="false" text="Save" />
+            <Button layoutX="457.0" layoutY="508.0" mnemonicParsing="false" text="Clear" />
+         </children></AnchorPane>
+  </items>
+</SplitPane>
