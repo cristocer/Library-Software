@@ -56,6 +56,8 @@ public abstract class AccountBaseUser {
 		return username;
 	}
 
+	public String getAddress() { return address; }
+
 	public void setProfileImagePath(String profileImagePath) {
 		this.profileImagePath = profileImagePath;
 	}

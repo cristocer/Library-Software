@@ -33,10 +33,10 @@ public class App
     		
   //  		session.save(myLibrarian);    		
     		
-    		Request myTransaction = new Request(myUser.getUsername(), 420,
-    				0, "today", "two weeks", " ");
+    		//Request myTransaction = new Request(myUser.getUsername(), 420,
+    		//		0, "today", "two weeks", " ");
     		
-    		myTransaction.returnCopy(0);
+    		//myTransaction.returnCopy(0);
     		
     		//session.save(myTransaction);
     		

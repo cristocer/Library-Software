@@ -9,12 +9,12 @@
 
 <Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.CreateResourceController">
    <children>
-      <Button layoutX="223.0" layoutY="319.0" mnemonicParsing="false" onAction="#createButton" text="Create" />
-      <RadioButton fx:id="book" layoutX="14.0" layoutY="42.0" mnemonicParsing="false" onMouseClicked="#createBook" text="Book" />
+      <Button layoutX="223.0" layoutY="345.0" mnemonicParsing="false" onAction="#createButton" text="Add" />
+      <RadioButton fx:id="book" layoutX="14.0" layoutY="42.0" mnemonicParsing="false" onAction="#createBook" onMouseClicked="#createBook" text="Book" />
       <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose a resource to create:" />
       <RadioButton fx:id="DVD" layoutX="14.0" layoutY="68.0" mnemonicParsing="false" onMouseClicked="#createDVD" text="DVD" />
       <RadioButton fx:id="laptop" layoutX="14.0" layoutY="95.0" mnemonicParsing="false" onMouseClicked="#createLaptop" text="Laptop" />
-      <TextField fx:id="title" layoutX="15.0" layoutY="202.0" maxHeight="25.0" maxWidth="150.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0">
+      <TextField fx:id="title" layoutX="14.0" layoutY="156.0" maxHeight="25.0" maxWidth="150.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0">
          <opaqueInsets>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </opaqueInsets>
@@ -22,13 +22,13 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </TextField>
-      <Text layoutX="19.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" />
-      <Text layoutX="225.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Year" />
-      <Text layoutX="431.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thumbnail Image" />
-      <Text fx:id="modelT" layoutX="19.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Model" />
-      <Text fx:id="manufacturerT" layoutX="225.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manufacturer" />
-      <Text fx:id="osT" layoutX="431.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Operating System" />
-      <TextField fx:id="year" layoutX="225.0" layoutY="202.0" maxHeight="25.0" maxWidth="150.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0">
+      <Text layoutX="25.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" />
+      <Text layoutX="225.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Year" />
+      <Text layoutX="432.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thumbnail Image" />
+      <Text fx:id="modelT" layoutX="21.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Model" />
+      <Text fx:id="manufacturerT" layoutX="225.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manufacturer" />
+      <Text fx:id="osT" layoutX="431.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Operating System" />
+      <TextField fx:id="year" layoutX="221.0" layoutY="156.0" maxHeight="25.0" maxWidth="150.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0">
          <opaqueInsets>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </opaqueInsets>
@@ -36,7 +36,7 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </TextField>
-      <TextField fx:id="image" layoutX="431.0" layoutY="202.0" maxHeight="25.0" maxWidth="150.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0">
+      <TextField fx:id="image" layoutX="431.0" layoutY="156.0" maxHeight="25.0" maxWidth="150.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0">
          <opaqueInsets>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </opaqueInsets>
@@ -44,7 +44,7 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </TextField>
-      <TextField fx:id="manufacturer" layoutX="225.0" layoutY="273.0" maxHeight="25.0" maxWidth="150.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0">
+      <TextField fx:id="manufacturer" layoutX="225.0" layoutY="230.0" maxHeight="25.0" maxWidth="150.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0">
          <opaqueInsets>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </opaqueInsets>
@@ -52,7 +52,7 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </TextField>
-      <TextField fx:id="model" layoutX="15.0" layoutY="273.0" maxHeight="25.0" maxWidth="150.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0">
+      <TextField fx:id="model" layoutX="14.0" layoutY="230.0" maxHeight="25.0" maxWidth="150.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0">
          <opaqueInsets>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </opaqueInsets>
@@ -60,7 +60,7 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </TextField>
-      <TextField fx:id="os" layoutX="431.0" layoutY="273.0" maxHeight="25.0" maxWidth="150.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0">
+      <TextField fx:id="os" layoutX="431.0" layoutY="230.0" maxHeight="25.0" maxWidth="150.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0">
          <opaqueInsets>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </opaqueInsets>
@@ -68,6 +68,89 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </TextField>
-      <Button layoutX="335.0" layoutY="319.0" mnemonicParsing="false" onAction="#cancelButton" text="Cancel" />
+      <Button layoutX="337.0" layoutY="345.0" mnemonicParsing="false" onAction="#cancelButton" text="Cancel" />
+      <TextField fx:id="author" layoutX="123.0" layoutY="292.0" maxHeight="25.0" maxWidth="150.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0">
+         <opaqueInsets>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </opaqueInsets>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </TextField>
+      <TextField fx:id="language" layoutX="14.0" layoutY="230.0" maxHeight="25.0" maxWidth="150.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0">
+         <opaqueInsets>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </opaqueInsets>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </TextField>
+      <TextField fx:id="publisher" layoutX="431.0" layoutY="230.0" maxHeight="25.0" maxWidth="150.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0">
+         <opaqueInsets>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </opaqueInsets>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </TextField>
+      <TextField fx:id="isbn" layoutX="225.0" layoutY="230.0" maxHeight="25.0" maxWidth="150.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0">
+         <opaqueInsets>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </opaqueInsets>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </TextField>
+      <TextField fx:id="genre" layoutX="337.0" layoutY="292.0" maxHeight="25.0" maxWidth="150.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0">
+         <opaqueInsets>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </opaqueInsets>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </TextField>
+      <Text fx:id="languageT" layoutX="21.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Language" />
+      <Text fx:id="isbnT" layoutX="225.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Isbn" />
+      <Text fx:id="publisherT" layoutX="431.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Publisher" />
+      <Text fx:id="authorT" layoutX="123.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Author" />
+      <Text fx:id="genreT" layoutX="337.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Genre" />
+      <Text fx:id="directorT" layoutX="22.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Director" />
+      <TextField fx:id="director" layoutX="14.0" layoutY="230.0" maxHeight="25.0" maxWidth="150.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0">
+         <opaqueInsets>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </opaqueInsets>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </TextField>
+      <Text fx:id="runTimeT" layoutX="224.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RunTime" />
+      <TextField fx:id="runTime" layoutX="225.0" layoutY="230.0" maxHeight="25.0" maxWidth="150.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0">
+         <opaqueInsets>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </opaqueInsets>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </TextField>
+      <Text fx:id="languageDT" layoutX="429.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Language" />
+      <TextField fx:id="languageD" layoutX="432.0" layoutY="230.0" maxHeight="25.0" maxWidth="150.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0">
+         <opaqueInsets>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </opaqueInsets>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </TextField>
+      <Text fx:id="subtitleLanguageT" layoutX="225.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subtitle Language" />
+      <TextField fx:id="subtitleLanguage" layoutX="225.0" layoutY="292.0" maxHeight="25.0" maxWidth="150.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0">
+         <opaqueInsets>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </opaqueInsets>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </TextField>
+      <Text fx:id="invalidMessage" fill="#f50404" layoutX="271.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please select a resource." wrappingWidth="84.79998779296875" />
+      <Text fx:id="incompleteMessage" fill="#f50404" layoutX="271.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please fill all the fields." wrappingWidth="84.79998779296875" />
    </children>
 </Pane>

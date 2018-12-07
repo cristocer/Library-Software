@@ -16,11 +16,11 @@ public class SceneController {
     public static final String DASHBOARD_USER_WINDOW_TITLE = "User Dashboard";
     public static final String DASHBOARD_LIBRARIAN_WINDOW_TITLE = "Librarian Dashboard";
 
-    //Request Window
+    //Transaction Window
     public static final String TRANSACTION_WINDOW="/fxml/TransactionHistory.fxml";
     public static final int TRANSACTION_WINDOW_HEIGHT = 300;
     public static final int TRANSACTION_WINDOW_WIDTH = 600;
-    public static final String TRANSACTION_WINDOW_TITLE="Request History";
+    public static final String TRANSACTION_WINDOW_TITLE="Transaction History";
 
     //Resource View Window
     public static final String RESOURCE_VIEW="/fxml/ViewResource.fxml";
@@ -37,20 +37,21 @@ public class SceneController {
     //Edit Resource Window
     public static final String EDIT_VIEW="/fxml/EditResource.fxml";
     public static final int EDIT_VIEW_HEIGHT = 400;
-    public static final int EDIT_VIEW_WIDTH = 600;
+    public static final int EDIT_VIEW_WIDTH = 750;
     public static final String EDIT_VIEW_TITLE="Edit Resource"; 
     
-    //Loan Resource Window
-    public static final String LOAN_VIEW="/fxml/LoanResource.fxml";
-    public static final int LOAN_VIEW_HEIGHT = 400;
-    public static final int LOAN_VIEW_WIDTH = 600;
-    public static final String LOAN_VIEW_TITLE="Loan Resource"; 
+    //Create Copy Window
+    public static final String CREATEC_VIEW="/fxml/CreateCopy.fxml";
+    public static final int CREATEC_VIEW_HEIGHT = 400;
+    public static final int CREATEC_VIEW_WIDTH = 750;
+    public static final String CREATEC_VIEW_TITLE="Create Copy"; 
     
-    //Collect Resource Window
-    public static final String COLLECT_VIEW="/fxml/CollectResource.fxml";
-    public static final int COLLECT_VIEW_HEIGHT = 400;
-    public static final int COLLECT_VIEW_WIDTH = 600;
-    public static final String COLLECT_VIEW_TITLE="Collect Resource"; 
+    //Operations Resource Window
+    public static final String OPERATIONS_VIEW="/fxml/OperationsRequests.fxml";
+    public static final int OPERATIONS_VIEW_HEIGHT = 360;
+    public static final int OPERATIONS_VIEW_WIDTH = 666;
+    public static final String OPERATIONS_VIEW_TITLE="Operations on Requests";
+    
 
     //Create User Window
     public static final String CREATE_USER="/fxml/CreateUser.fxml";

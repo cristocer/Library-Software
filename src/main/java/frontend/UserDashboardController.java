@@ -1,10 +1,15 @@
 package frontend;
 
+import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+import javafx.stage.Stage;
 public class UserDashboardController extends Controller{
 
     @FXML
@@ -41,6 +46,7 @@ public class UserDashboardController extends Controller{
             resourcesList.getItems().add("lol");
         }
     }
+
 
     private void viewHandling() {
         Window<ResourceViewController> viewWindow = new Window<>(SceneController.RESOURCE_VIEW, SceneController.RESOURCE_VIEW_WIDTH, SceneController.RESOURCE_VIEW_HEIGHT, SceneController.RESOURCE_VIEW_TITLE);

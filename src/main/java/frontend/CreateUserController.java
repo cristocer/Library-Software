@@ -1,8 +1,6 @@
 package frontend;
 
 import backend.HibernateUtil;
-import backend.Librarian;
-import backend.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
@@ -10,13 +8,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
-import java.util.List;
-import org.hibernate.Query;
+import backend.Librarian;
+import backend.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import frontend.TaweLib;
-
 
 public class CreateUserController extends Controller{
 

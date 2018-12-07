@@ -1,7 +1,5 @@
 package frontend;
 import java.io.IOException;
-
-import backend.HibernateUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import backend.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -71,7 +70,7 @@ public class LoginController extends Controller{
 		}
     }
     private void authenticate(String username){ // Let the authenticity of the user be decided here.
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
         Query query = session.createQuery("From AccountBaseUser Where username = '" + username + "'");
