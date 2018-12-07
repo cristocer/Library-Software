@@ -84,6 +84,6 @@ public class SceneController {
     public static final int DRAW_PROFILE_WIDTH = 600;
 
     public static String USER_USERNAME ;
-    public static String imagePath;
+    public static String imagePath = "file:profilepics/default.png";
 
 }
