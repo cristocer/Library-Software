@@ -112,7 +112,7 @@ public class DrawProfileImageController implements Initializable{
 	public void closeWindow() {
 //		Stage temp = (Stage) save.getScene().getWindow();
 //		temp.close();
-//		Window<EditProfileImageController> editProfileImage = new Window<EditProfileImageController>(SceneController.EDIT_PROFILE_IMAGE,SceneController.EDIT_PROFILE_IMAGE_WIDTH,SceneController.EDIT_PROFILE_IMAGE_HEIGHT,SceneController.EDIT_PROFILE_IMAGE_TITLE);
+//		Window<ChooseProfileImage> editProfileImage = new Window<ChooseProfileImage>(SceneController.EDIT_PROFILE_IMAGE,SceneController.EDIT_PROFILE_IMAGE_WIDTH,SceneController.EDIT_PROFILE_IMAGE_HEIGHT,SceneController.EDIT_PROFILE_IMAGE_TITLE);
 //    	editProfileImage.show();
     }
 	

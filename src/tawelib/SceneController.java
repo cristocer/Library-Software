@@ -65,11 +65,24 @@ public class SceneController {
     public static final int VIEW_PROFILE_WIDTH = 600;
     public static final String VIEW_PROFILE_TITLE = "View Profile";
 
+    //Edit Profile Window
     public static final String EDIT_PROFILE = "EditProfile.fxml";
     public static final int EDIT_PROFILE_HEIGHT = 300;
     public static final int EDIT_PROFILE_WIDTH = 600;
     public static final String EDIT_PROFILE_TITLE = "Edit Profile";
 
-    public static String USER_USERNAME ; 
+    //Edit Profile Image Window
+    public static final String EDIT_PROFILE_IMAGE = "ChooseProfileImage.fxml";
+    public static final String EDIT_PROFILE_IMAGE_TITLE = "Choose Profile Image";
+    public static final int EDIT_PROFILE_IMAGE_HEIGHT = 600;
+    public static final int EDIT_PROFILE_IMAGE_WIDTH = 600;
+
+    //Draw Profile Image Window
+    public static final String DRAW_PROFILE = "DrawProfileImage.fxml";
+    public static final String DRAW_PROFILE_TITLE = "Draw Profile";
+    public static final int DRAW_PROFILE_HEIGHT = 600;
+    public static final int DRAW_PROFILE_WIDTH = 600;
+
+    public static String USER_USERNAME ;
 
 }

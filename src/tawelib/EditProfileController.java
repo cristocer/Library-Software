@@ -77,7 +77,7 @@ public class EditProfileController extends Controller{
         drawProfile.show();
     }
     public void chooseImageHandling(){
-        Window<EditProfileImageController> editProfileImage = new Window<>("EditProfileImage.fxml", 600, 600, "lol");
+        Window<ChooseProfileImage> editProfileImage = new Window<>("ChooseProfileImage.fxml", 600, 600, "lol");
         editProfileImage.show();
     }
 }

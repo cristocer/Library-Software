@@ -7,7 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-public class EditProfileImageController {
+public class ChooseProfileImage {
 	@FXML
 	private ImageView equippedImage;
 	@FXML
@@ -30,7 +30,7 @@ public class EditProfileImageController {
 	
 	
 	
-	public EditProfileImageController() {
+	public ChooseProfileImage() {
 		
 		//equipped = equipped data from loggedin table in database.
 		//String equippedPath = path from current user.
