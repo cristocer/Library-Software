@@ -1,13 +1,16 @@
 /**
  * AccountBaseUser.java
- * This abstract class is used to store attributes and abstract methods used within both of 
- * its subclasses: User and Librarian. 
- * - Last Modified: 17/11/2018
  * - no copyright
- * - No Previous Versions
+ * - creation date: 17/11/2018
+ * - last modified: 17/11/2018
+ * @author Christian Onishile
  * @version 1.0.0
  * @since 17/11/2018
- * @author Christian Onishile
+ */
+
+/**
+ * The AccountBaseUser abstract class is used to store attributes and abstract methods used within both of 
+ * its subclasses: User and Librarian. 
  */
 
 public abstract class AccountBaseUser {
@@ -20,58 +23,76 @@ public abstract class AccountBaseUser {
 	public String profileImagePath;		//image path of the account's profile picture.
 	
 	/**
-	 * Abstract method to get the account's user name.
+	 * Method to get the account's user name.
 	 * @return The current account's user name.
 	 */
-	public abstract String getUsername();
+	public String getUsername() {
+		return username;
+	}
 	
 	/**
-	 * Abstract method to get the account's first name.
+	 * Method to get the account's first name.
 	 * @return The current account's first name.
 	 */
-	public abstract String getFirstName();
+	public String getFirstName() {
+		return firstName;
+	}
 	
 	/**
-	 * Abstract method to set the account's first name.
+	 * Method to set the account's first name.
 	 * @param newFirstName The new first name of the current account.
 	 */
-	public abstract void setFirstName(String newFirstName);
+	public void setFirstName(String newFirstName) {
+		firstName = newFirstName;
+	}
 	
 	/**
-	 * Abstract method to get the account's last name.
+	 * Method to get the account's last name.
 	 * @return The current account's last name.
 	 */
-	public abstract String getLastName();
+	public String getLastName() {
+		return lastName;
+	}
 	
 	/**
-	 * Abstract method to set the account's last name.
+	 * Method to set the account's last name.
 	 * @param newLastName The new last name of the current account.
 	 */
-	public abstract void setLastName(String newLastName);
+	public void setLastName(String newLastName) {
+		lastName = newLastName;
+	}
 	
 	/**
-	 * Abstract method to get the account's telephone number.
+	 * Method to get the account's telephone number.
 	 * @return The current account's telephone number.
 	 */
-	public abstract int getTelephone();
+	public int getTelephone() {
+		return telephone;
+	}
 	
 	/**
-	 * Abstract method to set the account's telephone number.
+	 * Method to set the account's telephone number.
 	 * @param newTelephone The current account's new telephone number.
 	 */
-	public abstract void setTelephone(int newTelephone);
+	public void setTelephone(int newTelephone) {
+		telephone = newTelephone;
+	}
 	
 	/**
-	 * Abstract method to get the account's address.
+	 * Method to get the account's address.
 	 * @return The current account's address.
 	 */
-	public abstract String getAddress();
+	public String getAddress() {
+		return address;
+	}
 	
 	/**
-	 * Abstract method to set the account's address.
+	 * Method to set the account's address.
 	 * @param newAddress The current account's new address.
 	 */
-	public abstract void setAddress(String newAddress);
+	public void setAddress(String newAddress) {
+		address = newAddress;
+	}
 	
 	/**
 	 * Abstract method to choose the account's profile image.

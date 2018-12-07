@@ -1,25 +1,25 @@
 /**
  * Book.java
+ * - no copyright
+ * - creation Date 17/11/2018
+ * - last modified 22/11/2018
  * @author Keiran Hughes
- * -no copyright
  * @version 1.1
- * Version History 1.1
- * Creation Date 17/11/2018
- * Last Modified date 22/11/2018
+ * @since 22/11/2018
  */
 
 /**
- * Book is a subclass of the class Resources, which holds the data and methods relevant to only
+ * Book is a subclass of the class Resources and holds data and methods relevant to only
  * book and no other Resources subclasses. 
  * This class models the physical object of a real book owned by TaweLib.
  */
 
 public class Book extends Resources {
-	private String author;
-    private String publisher;
-    private int isbn;
-    private String genre;
-    private String language;
+	private String author;		//author of the book
+    private String publisher;	//publisher of the book
+    private int isbn;			//international standard book number of the book
+    private String genre;		//genre(s) of the book
+    private String language;	//language(s) of the book
     
     /**
      * When called initialises all required attributes.
