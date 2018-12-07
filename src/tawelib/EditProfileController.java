@@ -15,9 +15,6 @@ public class EditProfileController extends Controller{
     private GridPane rootPane;
 
     @FXML
-    private ImageView imageField;
-
-    @FXML
     private VBox attributeVBox;
 
     @FXML

@@ -80,8 +80,8 @@ public class SceneController {
     //Draw Profile Image Window
     public static final String DRAW_PROFILE = "DrawProfileImage.fxml";
     public static final String DRAW_PROFILE_TITLE = "Draw Profile";
-    public static final int DRAW_PROFILE_HEIGHT = 600;
-    public static final int DRAW_PROFILE_WIDTH = 600;
+    public static final int DRAW_PROFILE_HEIGHT = 350;
+    public static final int DRAW_PROFILE_WIDTH = 300;
 
     public static String USER_USERNAME ;
     public static String imagePath = "file:profilepics/default.png";

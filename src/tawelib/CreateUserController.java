@@ -10,8 +10,6 @@ import javafx.scene.layout.VBox;
 
 public class CreateUserController extends Controller{
 
-    @FXML
-    private ImageView imageField;
 
     @FXML
     private TextField userNameField;
