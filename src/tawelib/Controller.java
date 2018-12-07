@@ -42,11 +42,11 @@ public abstract class Controller{
     public void drawImageHandling(){
         Window<DrawProfileImageController> drawProfile = new Window<>(SceneController.DRAW_PROFILE,SceneController.DRAW_PROFILE_WIDTH,SceneController.DRAW_PROFILE_HEIGHT,SceneController.DRAW_PROFILE_TITLE);
         drawProfile.showAndWait();
-        imageField.setImage(new Image(SceneController.imagePath));
+        imageField.setImage(new Image(SceneController.currentProfileImagePath));
     }
     public void chooseImageHandling(){
         Window<ChooseProfileImageController> chooseProfileImage = new Window<>(SceneController.CHOOSE_PROFILE_IMAGE,SceneController.CHOOSE_PROFILE_IMAGE_WIDTH,SceneController.CHOOSE_PROFILE_IMAGE_HEIGHT,SceneController.CHOOSE_PROFILE_IMAGE_TITLE);
         chooseProfileImage.showAndWait();
-        imageField.setImage(new Image(SceneController.imagePath));
+        imageField.setImage(new Image(SceneController.currentProfileImagePath));
     }
 }

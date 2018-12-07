@@ -29,25 +29,25 @@ public class ChooseProfileImageController extends Controller{
     @FXML
     void chooseD1() {
         selectedImage.setImage(d1.getImage());
-        SceneController.imagePath = DEFAULT_1;
+        SceneController.currentProfileImagePath = DEFAULT_1;
     }
 
     @FXML
     void chooseD2() {
         selectedImage.setImage(d2.getImage());
-        SceneController.imagePath = DEFAULT_2;
+        SceneController.currentProfileImagePath = DEFAULT_2;
     }
 
     @FXML
     void chooseD3() {
         selectedImage.setImage(d3.getImage());
-        SceneController.imagePath = DEFAULT_3;
+        SceneController.currentProfileImagePath = DEFAULT_3;
     }
 
     @FXML
     void chooseD4() {
         selectedImage.setImage(d4.getImage());
-        SceneController.imagePath = DEFAULT_4;
+        SceneController.currentProfileImagePath = DEFAULT_4;
     }
     @FXML
     void doneB() {
@@ -68,7 +68,7 @@ public class ChooseProfileImageController extends Controller{
     }
     private void reset(){
         selectedImage.setImage(new Image(DEFAULT));
-        SceneController.imagePath = DEFAULT;
+        SceneController.currentProfileImagePath = DEFAULT;
     }
 
 }

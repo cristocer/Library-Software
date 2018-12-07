@@ -9,8 +9,6 @@ import javafx.scene.control.ColorPicker;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
 import java.awt.image.RenderedImage;
@@ -75,7 +73,7 @@ public class DrawProfileImageController extends Controller {
             canvas.snapshot(null, writableImage);
             RenderedImage renderedImage = SwingFXUtils.fromFXImage(writableImage, null);
             ImageIO.write(renderedImage, "png", file);
-            SceneController.imagePath="file:"+filePath;
+            SceneController.currentProfileImagePath ="file:"+filePath;
         } catch (IOException ex) {
             System.out.println("Error!");
         }
