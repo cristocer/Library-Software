@@ -9,6 +9,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class EditProfileController extends Controller{
+    private String imagePath; // Path to be store in DB under this attribute.
 
     @FXML
     private GridPane rootPane;
@@ -50,7 +51,7 @@ public class EditProfileController extends Controller{
 
     @FXML
     void drawImage(ActionEvent event) {
-        drawimagehandling();
+        drawImageHandling();
     }
 
     @FXML
@@ -71,13 +72,5 @@ public class EditProfileController extends Controller{
     }
     public void cancelHandling(){
         close();
-    }
-    public void drawimagehandling(){
-        Window<DrawProfileImageController> drawProfile = new Window<>("DrawProfileImage.fxml",600,600,"lol");
-        drawProfile.show();
-    }
-    public void chooseImageHandling(){
-        Window<ChooseProfileImageController> editProfileImage = new Window<>("ChooseProfileImage.fxml", 600, 600, "lol");
-        editProfileImage.show();
     }
 }

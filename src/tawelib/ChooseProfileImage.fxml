@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tawelib.ChooseProfileImageController">
+<BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tawelib.ChooseProfileImageController">
    <top>
       <HBox alignment="CENTER" prefHeight="38.0" prefWidth="550.0" BorderPane.alignment="CENTER">
          <children>
@@ -26,7 +26,7 @@
       </HBox>
    </top>
    <center>
-      <GridPane prefHeight="350.0" prefWidth="350.0" BorderPane.alignment="CENTER">
+      <GridPane maxHeight="350.0" maxWidth="350.0" prefHeight="350.0" prefWidth="350.0" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -38,11 +38,7 @@
          <children>
             <ImageView fx:id="d1" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#chooseD1" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
             <ImageView fx:id="d2" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#chooseD2" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <ImageView fx:id="d3" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#chooseD3" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-               <image>
-                  <Image url="@../../profilepics/default3.jpg" />
-               </image>
-            </ImageView>
+            <ImageView fx:id="d3" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#chooseD3" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
             <ImageView fx:id="d4" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#chooseD4" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
@@ -56,6 +52,7 @@
                   <Image url="@../../profilepics/default.png" />
                </image>
             </ImageView>
+            <Button mnemonicParsing="false" onAction="#resetB" text="Reset to Default" />
          </children>
          <padding>
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
@@ -63,9 +60,9 @@
       </VBox>
    </left>
    <bottom>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="34.0" prefWidth="550.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Done" />
+            <Button mnemonicParsing="false" onAction="#doneB" text="Done" />
          </children>
       </HBox>
    </bottom>

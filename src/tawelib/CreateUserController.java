@@ -38,7 +38,7 @@ public class CreateUserController extends Controller{
     private TextField employmentField;
 
     @FXML
-    void chooseImage(ActionEvent event) {
+    void chooseImage(ActionEvent event) {chooseImageHandling();
 
     }
 
@@ -64,10 +64,6 @@ public class CreateUserController extends Controller{
         librarianFields.setVisible(!librarianFields.isVisible());
     }
 
-    //ToDo - Chris to implement draw profile picture method here. have it return an Image if possible aswell as saving it.
-    private Image drawImageHandling(){
-        return null;
-    }
 
     private void submitHandling(){
         close();
