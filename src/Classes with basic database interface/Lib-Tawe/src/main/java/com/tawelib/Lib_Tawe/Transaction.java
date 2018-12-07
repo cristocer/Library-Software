@@ -35,21 +35,21 @@ public class Transaction {
 	
 	public static void returnCopy(int copyUID, String username) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-		session.beginTransaction();				//Start and setup session factory 
+		session.beginTransaction();								//Start and setup session factory 
 		Query query = session.createQuery("From Transaction"); //query transaction table and return all Transaction objects from the table
 		List<Transaction> empList = query.list();	           //return the objects into a list
-		session.close();
+		session.close();									   // close this request session
 		
-		Date currentDateTime = new Date();
+		Date currentDateTime = new Date();                             //Stores local time as a string in the EPOC format
 		String currentTime = String.valueOf(currentDateTime.getTime());
 		
 		for(Transaction emp : empList){
 			if (emp.getCopyUID() == copyUID && emp.getReturnDate() == null && emp.getUsername().equals(username)){         //if this current Transaction object uses the same copyUID as specified
 				Session session2 = HibernateUtil.getSessionFactory().getCurrentSession();
 				session2.beginTransaction();
-				query = session2.createQuery("update Transaction set returnDate= :returnDate where copyUID= :id");
+				query = session2.createQuery("update Transaction set returnDate= :returnDate where copyUID= :id");         //Create a new query to update the return date transaction object 
 				query.setParameter("returnDate", currentTime);     		//set return date
-				query.setLong("id", emp.getTransactionUID());	
+				query.setLong("id", emp.getTransactionUID());			//put in the params 
 				int result = query.executeUpdate();                //execute update
 				System.out.println("[Transaction Update] Status = "+result + " copy" +emp.getCopyUID()+" returned");  //print to terminal if it worked
 				session2.getTransaction().commit();		//commit changes
@@ -57,27 +57,25 @@ public class Transaction {
 				
 				//CHECK AND ISSUING FINES
 				
-				Long dueDateLong = Long.parseLong(emp.getDueDate(), 10);
+				Long dueDateLong = Long.parseLong(emp.getDueDate(), 10); // taking the current due date and converting it to a Long 
 				
-				if(dueDateLong < currentDateTime.getTime()) {
-					
-					System.out.println("here");
-					
+				if(dueDateLong < currentDateTime.getTime()) { //comparing the return date (the date time rn) to the dueDate
+				
 					Session session3 = HibernateUtil.getSessionFactory().getCurrentSession();
 					session3.beginTransaction();
-					Query query2 = session3.createQuery("From User"); //query user table and return all user objects from the table
+					Query query2 = session3.createQuery("From User"); //query user table and return all user objects from the table into a list
 					List<User> empList2 = query2.list();	           //return the objects into a list
-					session3.close();
+					session3.close();							
 					
-					for(User emp2 : empList2){
+					for(User emp2 : empList2){                   // go through all user objects stored until it finds the one where the username matches the one of the passed in ( the user whose returned the copy)
 						if(emp2.getUsername().equals(username)) {
 							
-							int fineApplied= emp2.getBalance() - 5;
+							int fineApplied= emp2.getBalance() - 5;  // set a variable with the current users balance minus their fine 
 							
 							Session session4 = HibernateUtil.getSessionFactory().getCurrentSession();
 							session4.beginTransaction();
-							query = session4.createQuery("update User set balance= :fine where username= :username");
-							query.setParameter("fine", fineApplied);     		//set return date
+							query = session4.createQuery("update User set balance= :fine where username= :username"); //basically update the users balance with their £5 fine
+							query.setParameter("fine", fineApplied);     		//set new balance with fine applied       
 							query.setParameter("username", username);	
 							int result2 = query.executeUpdate();       //execute update
 							System.out.println("[User balance update] Status = "+result2 + " user: " +username+" fined");  //print to terminal if it worked
@@ -99,18 +97,18 @@ public class Transaction {
 		
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
-		Query query = session.createQuery("From Transaction"); //return all Transaction objects from the table
+		Query query = session.createQuery("From Transaction"); //return all Transaction objects from the table into a list 
 		List<Transaction> empList = query.list();	
 		session.close();
 		
 		Date twoDaysTime = new Date();
-		String twoDays = String.valueOf(twoDaysTime.getTime()+172800);
+		String twoDays = String.valueOf(twoDaysTime.getTime() + 172800); //get and set the current time in two days 
 		
 		for(Transaction emp : empList){
 			if (emp.getCopyUID() == copyUID){         //if this current Transaction object uses the same copyUID as specified
 				if (emp.getDueDate() == null && emp.getReturnDate() == null && !emp.getUsername().equals(username)) { //if resource is out (dueDate = null) and hasnt been returned (returnDate = null)
-					
-					Session session2 = HibernateUtil.getSessionFactory().getCurrentSession();
+																													// then set that transactions due date 
+					Session session2 = HibernateUtil.getSessionFactory().getCurrentSession();						// and create a new request (which is a blank transaction)
 					session2.beginTransaction();
 					query = session2.createQuery("update Transaction set dueDate= :dueDate where copyUID= :id");
 				    query.setParameter("dueDate", twoDays); 
@@ -133,7 +131,7 @@ public class Transaction {
 					session3.getTransaction().commit();
 					
 				}else if(emp.getReturnDate() != null && emp.getIssueDate() != null && !emp.getUsername().equals(username)) { //if the resource is not out make a new transaction and push that shit
-					
+					                                                                                                         //then just create a blank request
 					Transaction newTransaction = new Transaction();
 					newTransaction.setCopyUID(copyUID);
 					newTransaction.setUsername(username);
@@ -162,7 +160,7 @@ public class Transaction {
 		session.close();
 		
 		Date currentDateTime = new Date();
-		String currentTime = String.valueOf(currentDateTime.getTime());
+		String currentTime = String.valueOf(currentDateTime.getTime());  //storing the current time
 		
 		for(Transaction emp : empList){
 			if (emp.getCopyUID() == copyUID){ //act on where the copyUID matches
@@ -180,6 +178,8 @@ public class Transaction {
 			}
 		}
 	}
+	
+
 	
 	
 	public void updateTransaction() {
@@ -233,7 +233,48 @@ public class Transaction {
 	
 	public static void houseKeeping() {	
 		
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		Query query = session.createQuery("From Transaction"); //return all Transaction objects from the table
+		List<Transaction> empList = query.list();	
+		List<Transaction> emp2List = query.list();	
+		session.close();
 		
+		Date currentDateTime = new Date();
+		String currentTime = String.valueOf(currentDateTime.getTime());  //storing the current time
+		
+		for(Transaction emp : empList){
+			if (emp.getDueDate() != null && emp.getIssueDate() != null &&  emp.getReturnDate() != null) {
+		                                                        //Looks for completed transactions then checks for requests on those completed transactions
+				Long mostRecentlyReturned = currentDateTime.getTime();
+				Long LongReturnDate = null;
+				
+				for(Transaction emp2 : emp2List){
+					
+					LongReturnDate = Long.parseLong(emp2.getReturnDate(), 10);  //Basically finding the most recently returned instance of the copy
+					
+					if (LongReturnDate > mostRecentlyReturned){
+						mostRecentlyReturned = LongReturnDate;
+					}
+					
+				if(mostRecentlyReturned < (currentDateTime.getTime() - 172800) && emp.getCopyUID() == emp2.getCopyUID()) {
+																										
+						Session session2 = HibernateUtil.getSessionFactory().getCurrentSession();			//Sorry about this mess kieran but like this basically deletes any requests for resources that have been returned more than 2 days ago, 
+						session2.beginTransaction();                                                        // as they have not been collected in that 
+						
+						Query query2 = session.createQuery("delete from Transaction where copyUID= :CopyUID AND returnDate= :returnDate AND issueDate= :issueDate AND dueDate= :dueDate"); //return all Transaction objects from the table
+						query2.setParameter("copyUID", emp.getCopyUID());
+						query2.setParameter("returnDate", emp.getReturnDate());
+						query2.setParameter("issueDate", emp.getIssueDate());
+						query2.setParameter("dueDate", emp.getReturnDate());
+						
+						int result = query.executeUpdate();
+						System.out.println("[Transaction Update] Status = "+result + " deleted uncollected request");
+						session2.getTransaction().commit();
+					}
+				}
+			}
+		}
 	}
 
 	public int getTransactionUID() {
