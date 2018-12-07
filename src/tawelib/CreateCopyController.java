@@ -76,6 +76,12 @@ public class CreateCopyController extends Controller{
         reset();        
                 
     }
+	// "Filter" mehtod. We want either a list of all laptops or DVDs or Books
+	// Let's say we only have 2 laptops models in the resource db. We want only those
+	// 2 to be shown in the listView to the Librarian
+	// If librarian changes his mind and wants to create a book instead just select the book type
+	// and now all the books will br shown in the listView instead of latptops.
+	// read coments below for implementation
     private void refreshList(){
         if(copy==1){
             //query laptop db of resources
