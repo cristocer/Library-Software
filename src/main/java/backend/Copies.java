@@ -7,26 +7,53 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+/**
+ * Copies.java
+ * - GNU General Public License 2007
+ * - creation date: 17/11/2018
+ * - last modified: 07/12/2018
+ * @author 
+ * @version 1.1
+ * @since 07/12/2018
+ */
+
+/**
+ * The Copies class is used to create a copy of a Resource and track the loan duration
+ * when the resource copy is taken on loan from the library.
+ */
+
 @Entity//Defining the class as a persistent entity allowing the hibernate API to interact with it 
 @Table(name = "Copies")
 public class Copies {
 
     @Id//specifying which variable is the primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY)// specifying the type of auto-incrementation for the PK, in this cas "IDENTITY" uses identifies and uses the type specified in the linked table
-    private int copyUID;
+    private int copyUID;	//Unique identification number for the copy.
 
     @JoinColumn(name="resourceUID")//Defining that resourceUID is a foreign key 
-    private int resourceUID;
+    private int resourceUID;	//Unique identification number for the resource the copy is based off.
 
-    private int loanDuration;
+    private int loanDuration;	//Duration the copy will be taken on loan for.
 
+    /**
+     * Initial constructor for Copies.
+     */
     public Copies() {}
     
+    /**
+     * Creates a Copy of a resource.
+     * @param resourceUID Unique Identification number of the resource that there is a copy of.
+     * @param loanDuration Duration the copy will be taken on loan for.
+     */
     public Copies (int resourceUID, int loanDuration) {
         this.resourceUID = resourceUID;
         this.loanDuration = loanDuration;
     }
 
+    /**
+     * Finds and returns the User a copy was last issued to.
+     * @return The username who was last issued the copy.
+     */
     public String getLastIssuedTo(){
     	
     	String username = null;
@@ -48,6 +75,10 @@ public class Copies {
 		return (username);
     }
 
+    /**
+     * Finds and returns the date the copy was last issued.
+     * @return The date the copy was last issued.
+     */
     public String getLastIssueDate(){
     	String issueDate = null; //set blank variable
     
@@ -66,6 +97,10 @@ public class Copies {
 		return (issueDate);
     }
 
+    /**
+     * Finds and returns the Librarian who last issued the copy.
+     * @return The Librarian who last issued the copy.
+     */
     public int getLastIssuedBy(){
     	int staffID = 0;
     	
@@ -86,14 +121,26 @@ public class Copies {
 		return (staffID);
     }
 
+    /**
+     * Gets the UID of the copy.
+     * @return Unique Identification number of the copy.
+     */
     public int getCopyUID() {
         return copyUID;
     }
 
+    /**
+     * Gets the UID of the resource the copy is based off.
+     * @return Unique Identification number of the resource.
+     */
     public int getResourceUID() {
         return resourceUID;
     }
 
+    /**
+     * Gets the duration of the loan the copy is taken out for.
+     * @return The duration of the loan.
+     */
     public int getLoanDuration() {
         return loanDuration;
     }

@@ -3,14 +3,13 @@ import javax.persistence.*;
 
 /**
  * Laptop.java
+ * -GNU General Public License 2007
+ * -creation date 18/11/2018
+ * -last modified 07/12/2018
  * @author Cristian Neacsu
- * -no copyright
- * @version 1.0
- * Version History 1.0 
  * Creation Date 18/11/2018
- * Last Modified date 18/11/2018
+ * Last Modified date 07/12/2018
  */
-//package main;
 
 /**
  * Laptop is a subclass of the class Resources, which holds the data and methods relevant to only
@@ -22,19 +21,19 @@ import javax.persistence.*;
 @PrimaryKeyJoinColumn(name="ResourceUID")//Defining that this entity's primary key is imported from another class, Resources
 public class Laptop extends Resources {
 
-    private String operatingSystem;
-    private String manufacturer;
-    private String model;
+    private String operatingSystem;		//operatingSystem of the laptop
+    private String manufacturer;		//manufacturer of the laptop
+    private String model;				//model of the laptop
     
     
     /**
      * Creates a laptop.
-     * @param year The year when the laptop was build.
-     * @param title The title(name) of the laptop.
-     * @param thumbnailImagePath The path to the thumbnail image of the each individual laptop.
      * @param operatingSystem The operating system of the laptop.
      * @param manufacturer The manufacturer of the laptop.
      * @param model The model of the laptop.
+     * @param title The title(name) of the laptop.
+     * @param year The year when the laptop was build.
+     * @param thumbnailImagePath The path to the thumbnail image of the each individual laptop.
      */
     public Laptop (String operatingSystem,String manufacturer,String model, String title,String year, 
     		String thumbnailImagePath) {
@@ -47,6 +46,15 @@ public class Laptop extends Resources {
         this.thumbnailImagePath = thumbnailImagePath;
     }
     
+    /**
+     * When called replaces variables tied to the laptop resource with newly input variables.
+     * @param operatingSystem The operating system of the laptop.
+     * @param manufacturer The manufacturer of the laptop.
+     * @param model The model of the laptop.
+     * @param title The title(name) of the laptop.
+     * @param year The year when the laptop was build.
+     * @param thumbnailImagePath The path to the thumbnail image of the each individual laptop.
+     */
     public void editResource(String operatingSystem,String manufacturer,String model, String title,String year, 
     		String thumbnailImagePath) {
     	this.operatingSystem = operatingSystem;  
@@ -58,18 +66,23 @@ public class Laptop extends Resources {
     }
     
     /**
+     * Gets the operating system
      * @return The operating system of the laptop.
      */
     public String getOperatingSystem() {
         return operatingSystem;
     }
-	/**
+    
+    /**
+	 * Gets the manufacturer
      * @return The manufacturer of the laptop.
      */
     public String getManufacturer() {
         return manufacturer;
     }
+    
 	/**
+	 * Gets the model
      * @return The model of the laptop.
      */
     public String getModel() {

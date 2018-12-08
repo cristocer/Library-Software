@@ -7,6 +7,20 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+/**
+ * App.java
+ * - GNU General Public License 2007
+ * - creation date: 17/11/2018
+ * - last modified: 07/12/2018
+ * @author 
+ * @version 1.1
+ * @since 07/12/2018
+ */
+
+/**
+ * The App class is used to start up the Tawelib application.
+ */
+
 public class App 
 {
     public static void main( String[] args )

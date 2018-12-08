@@ -1,12 +1,13 @@
 /**
  * DVD.java
+ * - GNU General Public License 2007
+ * - creation date 17/11/2018
+ * - last modified 07/12/2018
  * @author Ben Farrington
- * -no copyright
- * @version 1.1
- * Version History 1.1
- * Creation Date 17/11/2018
- * Last Modified date 22/11/2018
+ * @version 1.5
+ * @since 07/12/2018
  */
+
 package backend;
 import javax.persistence.*;
 /**
@@ -19,10 +20,10 @@ import javax.persistence.*;
 @PrimaryKeyJoinColumn(name="ResourceUID")//Defining that this entity's primary key is imported from another class, Resources
 public class DVD extends Resources{
 
-    private String director;
-    private int runTime;
-    private String language;
-    private String subtitleLanguage;
+    private String director;			//director of the DVD
+    private int runTime;				//runtime of the DVD
+    private String language;			//language(s) of the DVD
+    private String subtitleLanguage;	//subtitle language(s) of the DVD
     
     
     /**
@@ -31,6 +32,9 @@ public class DVD extends Resources{
      * @param runTime run time of  DVD in seconds.
      * @param language language of the DVD's audio
      * @param subtitleLanguage language of the DVD's subtitles.
+     * @param title The title of the DVD.
+     * @param year The year the DVD was first released.
+     * @param thumbnailImagePath The file path of the resources thumbnail image.
      */
     public DVD(String director, int runTime, String language, String subtitleLanguage, String title, String year,	
                String thumbnailImagePath){
@@ -44,6 +48,16 @@ public class DVD extends Resources{
         this.thumbnailImagePath = thumbnailImagePath;
     }
 
+    /**
+     * When called replaces variables tied to the DVD resource with newly input variables.
+     * @param director name of director.
+     * @param runTime run time of  DVD in seconds.
+     * @param language language of the DVD's audio
+     * @param subtitleLanguage language of the DVD's subtitles.
+     * @param title The title of the DVD.
+     * @param year The year the DVD was first released.
+     * @param thumbnailImagePath The file path of the resources thumbnail image.
+     */
     public void editResource(String director, int runTime, String language, String subtitleLanguage, String title, String year,	
             String thumbnailImagePath){
         this.director = director;
@@ -56,7 +70,7 @@ public class DVD extends Resources{
     }
     
     /**
-     * Gets the director.
+     * Gets the director of the DVD.
      * @return name of director.
      */
     public String getDirector() {
