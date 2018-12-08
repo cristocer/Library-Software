@@ -1,5 +1,10 @@
 package backend;
 
+import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.service.ServiceRegistry;
+
 /**
  * HibernateUtil.java
  * - GNU General Public License 2007
@@ -14,11 +19,6 @@ package backend;
  * The HibernateUtil class is used to create a sessionFactory session for use with the database
  * so long as a session is not already active, in which case it is used to  get the active session.
  */
-
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
 
 public class HibernateUtil {
 

@@ -1,3 +1,7 @@
+
+package backend;
+import javax.persistence.*;
+
 /**
  * Resources.java
  * - GNU General Public License 2007
@@ -12,8 +16,6 @@
  * The Resources abstract class is used to store attributes and abstract methods used within
  * its subclasses: Book, DVD and, Laptop. 
  */
-package backend;
-import javax.persistence.*;
 
 @Entity //Defining the class as a persistent entity allowing the hibernate API to interact with it 
 @Inheritance(strategy=InheritanceType.JOINED) //Defining which method of mapping inheritance is going to be used with the subclasses
