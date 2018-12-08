@@ -1,5 +1,20 @@
 package frontend;
 
+/**
+ * EditResourcesController.java
+ * - GNU General Public License 2007
+ * - creation date: 17/11/2018
+ * - last modified: 03/12/2018
+ * @author Alex Moras & Ryan Williams
+ * @version 1.3
+ * @since 07/12/2018
+ */
+
+/**
+ * The EditResourcesController class is a subclass of the class Controller. This class is used 
+ * to edit information on Resources already owned by the library.
+ */
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
@@ -11,76 +26,89 @@ import javafx.scene.control.TextField;
 
 public class EditResourceController extends Controller{
 
+	@FXML
+    private RadioButton book;	//Book RadioButton used in the GUI.
     @FXML
-    private RadioButton book;
+    private RadioButton DVD;	//DVD RadioButton used in the GUI.
     @FXML
-    private RadioButton DVD;
+    private RadioButton laptop;	//Laptop RadioButton used in the GUI.
     @FXML
-    private RadioButton laptop;
+    private TextField title;	//Title TextField to be used in creating a resource via the GUI.
     @FXML
-    private TextField title;
+    private TextField year;		//Year TextField to be used in creating a resource via the GUI.
     @FXML
-    private TextField year;
+    private TextField os;		//OS TextField to be used in creating a laptop resource via the GUI.
     @FXML
-    private TextField os;
+    private TextField manufacturer;	//Manufacturer TextField to be used in creating a laptop resource via the GUI.
     @FXML
-    private TextField manufacturer;
+    private TextField image;	//Image TextField to be used in creating a resource via the GUI.
     @FXML
-    private TextField image;
+    private TextField model;	//Model TextField to be used in creating a laptop resource via the GUI.
     @FXML
-    private TextField model;
+    private Text modelT;	//Model Text to be used in creating a laptop resource via the GUI.
     @FXML
-    private Text modelT;
+    private Text osT;	//Os Text to be used in creating a laptop resource via the GUI.
     @FXML
-    private Text osT;
+    private Text manufacturerT;	//Manufacturer Text to be used in creating a laptop resource via the GUI.
     @FXML
-    private Text manufacturerT;
+    private Text publisherT;	//Publisher Text to be used in creating a Book resource via the GUI.
     @FXML
-    private Text publisherT;
+    private TextField publisher;	//Publisher TextField to be used in creating a Book resource via the GUI.
     @FXML
-    private TextField publisher;
+    private Text isbnT;		//Isbn Text to be used in creating a Book resource via the GUI.
     @FXML
-    private Text isbnT;
+    private TextField isbn;    //Isbn TextField to be used in creating a Book resource via the GUI.
     @FXML
-    private TextField isbn;    
+    private TextField author;	//Author TextField to be used in creating a Book resource via the GUI.
     @FXML
-    private TextField author;
+    private Text authorT;	//Author Text to be used in creating a Book resource via the GUI.
     @FXML
-    private Text authorT;
+    private TextField language;	//Language TextField to be used in creating a Book resource via the GUI.
     @FXML
-    private TextField language;
+    private Text languageT;	//Language Text to be used in creating a Book resource via the GUI.
     @FXML
-    private Text languageT;
+    private TextField genre;	//Genre TextField to be used in creating a DVD resource via the GUI.
     @FXML
-    private TextField genre;
+    private Text genreT;	//Genre Text to be used in creating a DVD resource via the GUI.
     @FXML
-    private Text genreT;
+    private TextField director;	//Director TextField to be used in creating a DVD resource via the GUI.
     @FXML
-    private TextField director;
+    private TextField runTime;	//Runtime TextField to be used in creating a DVD resource via the GUI.
     @FXML
-    private TextField runTime;
+    private TextField languageD;	//Language TextField to be used in creating a DVD resource via the GUI.
     @FXML
-    private TextField languageD;
+    private TextField subtitleLanguage;	//SubtitleLanguage TextField to be used in creating a DVD resource via the GUI.
     @FXML
-    private TextField subtitleLanguage;
+    private Text directorT;	//Director Text to be used in creating a DVD resource via the GUI.
     @FXML
-    private Text directorT;
+    private Text runTimeT;	//Runtime Text to be used in creating a DVD resource via the GUI.
     @FXML
-    private Text runTimeT;
+    private Text languageDT;	//Language Text to be used in creating a DVD resource via the GUI.
     @FXML
-    private Text languageDT;
+    private Text subtitleLanguageT;	//SubtitleLanguage Text to be used in creating a DVD resource via the GUI.
     @FXML
-    private Text subtitleLanguageT;
-    @FXML
-    private ListView<String> listOfResources;//list with the available resource to edit
+    private ListView<String> listOfResources;//list with the available resource to edit.
+    
+    /**
+     * A method called when the user presses the edit button.
+     */
     @FXML
     void editButton(){
         editHandling(); 
     }
+    
+    /**
+     * A method called when the user presses the cancel button. This method closes
+     * the edit resource menu.
+     */
     @FXML
     void cancelButton(){
         close();
     }
+    
+    /**
+     * Method used in creating a laptop resource via the GUI.
+     */
     @FXML
     void createLaptop(){
         reset();        
@@ -94,6 +122,10 @@ public class EditResourceController extends Controller{
         manufacturerT.setVisible(true);
         
     }
+    
+    /**
+     * Method used in creating a DVD resource via the GUI.
+     */
     @FXML
     void createDVD(){
         reset();
@@ -109,6 +141,10 @@ public class EditResourceController extends Controller{
         subtitleLanguageT.setVisible(true);
        
     }
+    
+    /**
+     * Method used in creating a Book resource via the GUI.
+     */
     @FXML
     void createBook(){
         reset();
@@ -126,12 +162,15 @@ public class EditResourceController extends Controller{
         genreT.setVisible(true);
         
     }
-    private int resource;
+    private int resource;	//Variable used to track the kind of resource created.
     @FXML
-    private Text invalidMessage;
+    private Text invalidMessage;	//Message used in the case of an invalid action.
     @FXML
-    private Text incompleteMessage;
-    //reset the individual text and textfields
+    private Text incompleteMessage;	//Message used in the case of an incomplete action.
+    
+    /**
+     * Method used to reset the individual text and textfields.
+     */
     void reset(){    
         invalidMessage.setVisible(false);
         incompleteMessage.setVisible(false);
@@ -162,6 +201,9 @@ public class EditResourceController extends Controller{
         genreT.setVisible(false);
     }
     
+    /**
+     * Method used to initialise the create a resource GUI.
+     */
     public void initialize(){
         
         
@@ -179,6 +221,10 @@ public class EditResourceController extends Controller{
         reset();        
                 
     }
+    
+    /**
+     * Method used to refresh the list of available resources.
+     */
     private void refreshList(){
         if(resource==1){
             //query laptop db
@@ -202,7 +248,11 @@ public class EditResourceController extends Controller{
         //  "Julia", "Ian", "Sue", "Matthew", "Hannah", "Stephan", "Denise");
         //listOfResources = new ListView<String>(names);
     }
-    private int resourceID;
+    private int resourceID;	//Identification number unique to the resource.
+    
+    /**
+     * Method used to maintain and control the edit resource GUI used by the librarian accounts.
+     */
     private void editHandling(){
         
        invalidMessage.setVisible(false);

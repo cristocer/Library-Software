@@ -13,15 +13,30 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+/**
+ * LoginController.java
+ * - GNU General Public License 2007
+ * - creation date: 17/11/2018
+ * - last modified: 03/12/2018
+ * @author Alex Moras & Ryan Williams
+ * @version 1.3
+ * @since 02/12/2018
+ */
+
+/**
+ * The LoginController class is a subclass of the class Controller. This class 
+ * is used to create and manage the login screen used to access the library system.
+ */
+
 public class LoginController extends Controller{
-    private boolean authenticated;
+    private boolean authenticated;	//Boolean used to determine whether the user's login information is correct.
     @FXML
-    private TextField username_text;
+    private TextField username_text;	//A textField created to input the user's username for login.
     @FXML
-    private GridPane rootPane;
+    private GridPane rootPane;	//Creates a GridPane for displaying the login screen.
     @FXML
-    private Text wronguser_text;
-    private boolean isLibrarian;
+    private Text wronguser_text;	//Text displayed when the user's login information is incorrect
+    private boolean isLibrarian;	//Boolean used to determine whether the user is a librarian.
     /**
      * Initiates the variables.
      */
@@ -44,6 +59,9 @@ public class LoginController extends Controller{
             wronguser_text.setText("Error: No user found");
         }
     } 
+      /**
+       * Opens the Dashboard if login is successful.
+       */
       private void openDashboard(){
 
         String dashboard, dashboardTitle;
@@ -69,6 +87,10 @@ public class LoginController extends Controller{
 			System.exit(-1);
 		}
     }
+    /**
+     * Method used to determine whether or not the user's login information is correct.  
+     * @param username The username the user input during login.
+     */
     private void authenticate(String username){ // Let the authenticity of the user be decided here.
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();

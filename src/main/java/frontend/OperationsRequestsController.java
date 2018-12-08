@@ -10,10 +10,25 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.TextField;
 
+/**
+ * OperationsRequestsController.java
+ * - GNU General Public License 2007
+ * - creation date: 17/11/2018
+ * - last modified: 07/12/2018
+ * @author 
+ * @version 1.3
+ * @since 07/12/2018
+ */
+
+/**
+ * The OperationsRequests class is a subclass of the class Controller. This class creates and manages the 
+ * operations a librarian can use when a user requests a resource.
+ */
+
 public class OperationsRequestsController extends Controller{
 
     @FXML
-    private ListView<bob> listOfRequests;//list with the requests (loan someone a copy of a resource, somebody came to collect or return it)
+    private ListView<bob> listOfRequests;	//list with the requests (loan someone a copy of a resource, somebody came to collect or return it)
     @FXML
     private TextField textID;
     @FXML

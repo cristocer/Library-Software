@@ -8,45 +8,79 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.TextField;
 
+/**
+ * CreateCopyController.java
+ * - GNU General Public License 2007
+ * - creation date: 17/11/2018
+ * - last modified: 07/12/2018
+ * @author 
+ * @version 1.3
+ * @since 07/12/2018
+ */
+
+/**
+ * The CreateCopyController class is a subclass of the class Controller and 
+ * is used to create a copy of a resource via a librarian account's GUI.
+ */
+
 public class CreateCopyController extends Controller{
 
     @FXML
-    private RadioButton book;
+    private RadioButton book;	//Book RadioButton used in the GUI.
     @FXML
-    private RadioButton DVD;
+    private RadioButton DVD;	//DVD RadioButton used in the GUI.
     @FXML
-    private RadioButton laptop;
+    private RadioButton laptop;	//Laptop RadioButton used in the GUI.
     
     @FXML
-    private ListView<String> listOfCopies;//list with the available copies to edit
+    private ListView<String> listOfCopies;	//list with the available copies to edit
+    
+    /**
+     * Method used to add a button to the GUI.
+     */
     @FXML
     void addButton(){
         addHandling(); 
     }
+    
+    /**
+     * Method used to remove a button from the GUI.
+     */
     @FXML
     void cancelButton(){
         close();
     }
    
-    private int copy;
+    private int copy;	//Variable used to track the kind of copy created.
     @FXML
-    private Text invalidMessage;
+    private Text invalidMessage;	//Message used in the case of an invalid action.
     @FXML
-    private Text incompleteMessage;
-    //reset the individual text and textfields
+    private Text incompleteMessage;	//Message used in the case of an incomplete action.
+    
+    /**
+     * Method used to reset the individual text and textfields.
+     */
     void reset(){    
         invalidMessage.setVisible(false);
         incompleteMessage.setVisible(false);
         copy =0;
 
     }
-        @FXML
+    
+    /**
+     * Method used when Laptop resource copy is being created.
+     */
+    @FXML
     void createLaptop(){
         reset();        
         copy=1;
         refreshList();
         
     }
+    
+    /**
+     * Method used when DVD resource copy is being created.
+     */
     @FXML
     void createDVD(){
         reset();
@@ -54,6 +88,10 @@ public class CreateCopyController extends Controller{
         refreshList();
        
     }
+    
+    /**
+     * Method used when Book resource copy is being created.
+     */
     @FXML
     void createBook(){
         reset();
@@ -61,6 +99,10 @@ public class CreateCopyController extends Controller{
         refreshList();
        
     }
+    
+    /**
+     * Method used to initialise the create a copy GUI.
+     */
     public void initialize(){
         
         
@@ -75,6 +117,10 @@ public class CreateCopyController extends Controller{
         reset();        
                 
     }
+    
+    /**
+     * Method used to refresh the list of copies of resources.
+     */
     private void refreshList(){
         if(copy==1){
             //query laptop db of resources
@@ -98,8 +144,12 @@ public class CreateCopyController extends Controller{
         //  "Julia", "Ian", "Sue", "Matthew", "Hannah", "Stephan", "Denise");
         //listOfResources = new ListView<String>(names);
     }
-    private int resourceID;
-    private void addHandling(){
+    private int resourceID;		//Unique ID of the resource.
+    
+    /**
+     * Method used to maintain and control the create copy GUI used by the librarian accounts.
+     */
+    private void addHandling(){	
         
        invalidMessage.setVisible(false);
        incompleteMessage.setVisible(false);

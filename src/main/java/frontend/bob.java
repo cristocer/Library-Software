@@ -6,8 +6,17 @@
 package frontend;
 
 /**
- *
- * @author cucus
+ * LibrarianDashboardController.java
+ * - GNU General Public License 2007
+ * - creation date: 17/11/2018
+ * - last modified: 03/12/2018
+ * @author 
+ * @version 1.3
+ * @since 07/12/2018
+ */
+
+/**
+ * The bob class...
  */
 public class bob {
     public String a;

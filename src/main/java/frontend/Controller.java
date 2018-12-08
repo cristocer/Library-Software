@@ -7,6 +7,20 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+/**
+ * Controller.java
+ * - GNU General Public License 2007
+ * - creation date: 17/11/2018
+ * - last modified: 07/12/2018
+ * @author Alex Moras & Ryan Williams
+ * @version 1.3
+ * @since 07/12/2018
+ */
+
+/**
+ * The Controller class sets up and controls the window and other conditions necessary
+ * for the application and its subclasses.
+ */
 
 public abstract class Controller{
     @FXML

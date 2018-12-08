@@ -13,57 +13,91 @@ import backend.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+/**
+ * CreateUserController.java
+ * - GNU General Public License 2007
+ * - creation date: 17/11/2018
+ * - last modified: 07/12/2018
+ * @author 
+ * @version 1.3
+ * @since 07/12/2018
+ */
+
+/**
+ * The CreateUserController Class is is a subclass of the class Controller and is used 
+ * in creating a new user via the GUI.
+ */
+
 public class CreateUserController extends Controller{
 
     @FXML
-    private ImageView imageField;
+    private ImageView imageField;	//Creates ImageView used for choosing a profile image for the user via the GUI.
 
     @FXML
-    private TextField userNameField;
+    private TextField userNameField;	//Creates TextField used for inputting the user's username via the GUI.
 
     @FXML
-    private TextField firstnameField;
+    private TextField firstnameField;	//Creates TextField used for inputting the user's first name via the GUI.
 
     @FXML
-    private TextField lastnameField;
+    private TextField lastnameField;	//Creates TextField used for inputting the user's last name via the GUI.
 
     @FXML
-    private TextField telephoneField;
+    private TextField telephoneField;	//Creates TextField used for inputting the user's telephone number via the GUI.
 
     @FXML
-    private TextField addressField;
+    private TextField addressField;		//Creates TextField used for inputting the user's address via the GUI.
 
     @FXML
-    private CheckBox librarianCheckbox;
+    private CheckBox librarianCheckbox;	//Creates Checkbox used to define whether the user being created is a librarian or not.
 
     @FXML
-    private VBox librarianFields;
+    private VBox librarianFields;	//This VBox adds extra fields based on whether the librarianCheckbox is checked or not.
 
     @FXML
-    private TextField employmentField;
+    private TextField employmentField;	//Creates TextField used to define when the librarian was hired.
 
+    /**
+     * Method called when the user has chosen their profile image.
+     * @param event An event caused by the user submitting their profile image.
+     */
     @FXML
     void chooseImage(ActionEvent event) {
 
     }
 
+    /**
+     * Method used when the user has chosen to draw their profile image.
+     * @param event An event caused by the user drawing their profile image.
+     */
     @FXML
     void drawImage(ActionEvent event) {
         drawImageHandling();
     }
 
+    /**
+     * Method used when the created user is determined to be a librarian, the method shows
+     * new fields on the GUI if the created user is a librarian.
+     * @param event An event caused by the librarianCheckbox being checked.
+     */
     @FXML
     void showLibrarianFields(ActionEvent event) {
         toggleLibrarian();
     }
 
+    /**
+     * Method used when the user has finished their creation form to submit all their fields.
+     */
     @FXML
     void submitFormButton(){
         submitHandling();
     }
 
 
-
+    /**
+     * Method used to toggle whether or not extra fields relative to a librarian are shown,
+     * this is decided based on whether the user being created is determined to be a librarian.
+     */
     private void toggleLibrarian(){
         librarianFields.setDisable(!librarianFields.isDisabled());
         librarianFields.setVisible(!librarianFields.isVisible());
@@ -74,6 +108,9 @@ public class CreateUserController extends Controller{
         return null;
     }
 
+    /**
+     * Method used when the form has been filled and submitted to create and register the newly created user account.
+     */
     private void submitHandling(){
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();  //
         Session session = sessionFactory.getCurrentSession();

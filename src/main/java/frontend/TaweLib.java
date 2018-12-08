@@ -7,6 +7,20 @@ import javafx.stage.Stage;
 import backend.HibernateUtil;
 import org.hibernate.SessionFactory;
 
+/**
+ * TawLib.java
+ * - GNU General Public License 2007
+ * - creation date: 17/11/2018
+ * - last modified: 03/12/2018
+ * @author 
+ * @version 1.3
+ * @since 07/12/2018
+ */
+
+/**
+ * The TawLib class...
+ */
+
 //main class
 public class TaweLib extends Application {
 
