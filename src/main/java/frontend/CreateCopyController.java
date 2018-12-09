@@ -51,6 +51,7 @@ public class CreateCopyController extends Controller {
     @FXML
     void addButton() {
         addHandling();
+        close();
     }
 
     /**
@@ -74,39 +75,6 @@ public class CreateCopyController extends Controller {
         invalidMessage.setVisible(false);
         incompleteMessage.setVisible(false);
         copy = 0;
-
-    }
-
-    /**
-     * Method used when Laptop resource copy is being created.
-     */
-    @FXML
-    void createLaptop() {
-        reset();
-        copy = 1;
-        refreshList();
-
-    }
-
-    /**
-     * Method used when DVD resource copy is being created.
-     */
-    @FXML
-    void createDVD() {
-        reset();
-        copy = 2;
-        refreshList();
-
-    }
-
-    /**
-     * Method used when Book resource copy is being created.
-     */
-    @FXML
-    void createBook() {
-        reset();
-        copy = 3;
-        refreshList();
 
     }
 
@@ -165,32 +133,6 @@ public class CreateCopyController extends Controller {
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
         int resourceUID = Integer.parseInt(listOfCopies.getFocusModel().getFocusedItem().split("[\\(\\)]")[1]);
-        invalidMessage.setVisible(false);
-        incompleteMessage.setVisible(false);
-        if (copy == 0) {
-            invalidMessage.setVisible(true);
-        } else if (copy == 1) {//laptop
-            if (listOfCopies.getFocusModel().getFocusedItem() == null) {
-                incompleteMessage.setVisible(true);
-            } else {
-                // System.out.print(resourcesList.getFocusModel().getFocusedItem());//return the item focused in the list to get the id
-                //an update table query to the database with the resourceId to reference the resource of which copy to be created
-            }
-        } else if (copy == 2) {//dvd
-            if (listOfCopies.getFocusModel().getFocusedItem() == null) {
-                incompleteMessage.setVisible(true);
-            } else {
-                // System.out.print(resourcesList.getFocusModel().getFocusedItem());//return the item focused in the list to get the id
-                //an update table query to the database with the resourceId to reference the resource of which copy to be created
-            }
-        } else if (copy == 3) {//book
-            if (listOfCopies.getFocusModel().getFocusedItem() == null) {
-                incompleteMessage.setVisible(true);
-            } else {
-                // System.out.print(resourcesList.getFocusModel().getFocusedItem());//return the item focused in the list to get the id
-                //an update table query to the database with the resourceId to reference the resource of which copy to be created
-            }
-        }
         Copies copy = new Copies(resourceUID, 604800);
         session.save(copy);
         session.getTransaction().commit();

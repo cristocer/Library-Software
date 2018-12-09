@@ -4,9 +4,11 @@ import backend.AccountBaseUser;
 import backend.HibernateUtil;
 import backend.Librarian;
 import backend.User;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -14,6 +16,10 @@ import javafx.scene.layout.VBox;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
 
 
 /**
@@ -104,6 +110,22 @@ public class ViewProfileController extends Controller{
         }
         else {
             profileInfo.getItems().add("Balance:    " + user.getBalance());
+        }
+        try {
+            File imageFile = new File(baseUser.profileImagePath);
+            if(imageFile.exists()) {
+                BufferedImage imageB = ImageIO.read(imageFile);
+                imageField.setImage(SwingFXUtils.toFXImage(imageB, null));
+            }
+            else {
+                imageFile = new File("src/main/resources/images/default.png");
+                BufferedImage imageB = ImageIO.read(imageFile);
+                imageField.setImage(SwingFXUtils.toFXImage(imageB, null));
+                System.out.println(imageFile.getAbsolutePath());
+            }
+        }
+        catch (Exception e){
+            System.out.println(e);
         }
         session.close();
     }

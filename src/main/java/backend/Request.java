@@ -33,6 +33,12 @@ public class Request {
 		this.returnDate = returnDate;
 	}
 
+
+	/**
+	 * Returns an on-loan copy that has been returned by a user. Then applies any necessary fines to that user
+	 * @param copyUID Unique ID of the copy that is being returned.
+	 * @param username The username of the user returning an on-loan copy.
+	 */
 	public static void returnCopy(int copyUID, String username) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();								//Start and setup session factory
@@ -92,7 +98,12 @@ public class Request {
 	}
 
 
-
+	/**
+	 * Requests a copy of a resource for a user, this request needs to verified and allowed by a librarian.
+	 * @param copyUID The unique ID of the resource copy being requested.
+	 * @param username The username of the user requesting a resource copy.
+	 * @param staffID The staffID of the librarian allowing the request.
+	 */
 	public static void requestCopy(int copyUID, String username, int staffID) {
 
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -151,6 +162,11 @@ public class Request {
 	}
 
 
+	/**
+	 * Used by a user to collect a requested resource copy.
+	 * @param copyUID The unique ID of the resource copy being collected.
+	 * @param username The username of the user collecting the resource copy.
+	 */
 	public static void collectCopy(int copyUID, String username) {
 
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -180,8 +196,11 @@ public class Request {
 	}
 
 
-
-
+	/**
+	 * Updates the requests table with any new copies of resources that have been added to the system, by creating blank
+	 * requests with no associated username, so that the new copies can be requested and withdrawn. This is done with
+	 * the use of two other methods checkIfPresentInTransaction() and addCopyToTransaction()
+	 */
 	public void updateTransaction() {
 		//Adding new copies to transaction table
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -205,6 +224,13 @@ public class Request {
 
 	}
 
+
+	/**
+	 * This method is excusively called by updateRequests, it performs a search of the requests table to see wether
+	 * the param copy is indeed already present within the request table, returning a true if it is
+	 * @param copy object
+	 * @return boolean value
+	 */
 	private static Boolean checkIfPresentInTransaction(Copies copy) {
 		Boolean present = false;
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -220,17 +246,33 @@ public class Request {
 		return present;
 	}
 
+
+	/**
+	 * This method is excusively called by updateRequests, it just takes a copy object and inserts it into the request
+	 * table
+	 * @param copy the copy of a resource to be inserted into request table
+	 */
 	public static void addCopyToTransaction(Copies copy) {
+		Date currentDateTime = new Date();
+		String currentTime = String.valueOf(currentDateTime.getTime());
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 		Request myTransaction = new Request();
 		myTransaction.setCopyUID(copy.getCopyUID());
+		myTransaction.setIssueDate(currentTime);
+		myTransaction.setReturnDate(currentTime);
+		myTransaction.setDueDate(currentTime);
 		session.save(myTransaction);
 		session.getTransaction().commit();
-		sessionFactory.close();
 	}
 
+
+	/**
+	 * This method is ran whenever the program is booted up, this methods looks through the requests table and
+	 * removes requests where the item requested has been returned for more than 2 days and yet not collected by someone
+	 * who has requested it
+	 */
 	public static void houseKeeping() {
 
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();

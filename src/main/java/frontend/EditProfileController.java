@@ -71,7 +71,10 @@ public class EditProfileController extends Controller{
      */
     @FXML
     void chooseImage(ActionEvent event) {
-
+        Window chooseImage = new Window(SceneController.CHOOSE_PROFILE_IMAGE,SceneController.CHOOSE_PROFILE_IMAGE_WIDTH,SceneController.CHOOSE_PROFILE_IMAGE_HEIGHT,SceneController.CHOOSE_PROFILE_IMAGE_TITLE);
+        chooseImage.makeModal();
+        chooseImage.showAndWait();
+        close();
     }
 
     /**

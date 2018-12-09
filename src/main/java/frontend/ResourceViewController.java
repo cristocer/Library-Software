@@ -43,10 +43,10 @@ public class ResourceViewController extends Controller{
      * Calls the methods necessary to populate the GUI with the resources' information.
      */
     public void initialize(){ //TODO Fix bug where program crashes if no resource is selected.
-        if(!SceneController.SELECTED_RESOURCE.isEmpty()) {
-            SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-            Session session = sessionFactory.getCurrentSession();
-            session.beginTransaction();
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+        try {
             Resources resource = (Resources) session.createQuery("From Resources Where title = '" + SceneController.SELECTED_RESOURCE + "'").uniqueResult();
             Book book = (Book) session.createQuery("From Book Where resourceUID = '" + resource.getResourceUID() + "'").uniqueResult();
             Laptop laptop = (Laptop) session.createQuery("From Laptop Where resourceUID = '" + resource.getResourceUID() + "'").uniqueResult();
@@ -73,8 +73,12 @@ public class ResourceViewController extends Controller{
                 resourceDetails.getItems().add("Language: " + dvd.getLanguage());
                 resourceDetails.getItems().add("Subtitles: " + dvd.getSubtitleLanguage());
             }
-            session.close();
         }
+        catch (Exception e){
+            resourceDetails.getItems().add("Please close this window and select a resource.");
+            System.out.println(e);
+        }
+        session.close();
     }
 
     /**

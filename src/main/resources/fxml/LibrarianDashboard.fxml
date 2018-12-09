@@ -12,17 +12,13 @@
    <right>
       <VBox prefWidth="160.0" BorderPane.alignment="CENTER">
          <children>
+            <Button mnemonicParsing="false" onAction="#viewCopiesButton" prefHeight="27.0" prefWidth="150.0" text="View/Loan Resource" />
             <Button mnemonicParsing="false" onAction="#createResourceButton" prefHeight="27.0" prefWidth="150.0" text="Add resource">
                <VBox.margin>
                   <Insets bottom="5.0" />
                </VBox.margin>
             </Button>
             <Button mnemonicParsing="false" onAction="#editResourceButton" prefHeight="27.0" prefWidth="150.0" text="Edit resource">
-               <VBox.margin>
-                  <Insets bottom="5.0" />
-               </VBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#operationsRequestsButton" prefHeight="27.0" prefWidth="150.0" text="Operations">
                <VBox.margin>
                   <Insets bottom="5.0" />
                </VBox.margin>

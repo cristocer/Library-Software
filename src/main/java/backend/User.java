@@ -6,7 +6,7 @@ import javax.persistence.*;
  * - GNU General Public License 2007
  * - creation date 18/11/2018
  * - last modified 07/12/2018
- * @author 
+ * @author Christian Onishile & Ryan Williams
  * @version 1.5
  * @since 07/12/2018
  */

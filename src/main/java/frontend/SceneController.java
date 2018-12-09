@@ -61,7 +61,7 @@ public class SceneController {
     public static final String CREATEC_VIEW_TITLE="Create Copy"; 
     
     //Operations Resource Window
-    public static final String OPERATIONS_VIEW="/fxml/OperationsRequests.fxml";
+    public static final String OPERATIONS_VIEW="/fxml/ViewCopies.fxml";
     public static final int OPERATIONS_VIEW_HEIGHT = 360;
     public static final int OPERATIONS_VIEW_WIDTH = 666;
     public static final String OPERATIONS_VIEW_TITLE="Operations on Requests";
@@ -84,7 +84,20 @@ public class SceneController {
     public static final int EDIT_PROFILE_WIDTH = 600;
     public static final String EDIT_PROFILE_TITLE = "Edit Profile";
 
+    //Edit Profile Image Window
+    public static final String CHOOSE_PROFILE_IMAGE = "/fxml/ChooseProfileImage.fxml";
+    public static final String CHOOSE_PROFILE_IMAGE_TITLE = "Choose Profile Image";
+    public static final int CHOOSE_PROFILE_IMAGE_HEIGHT = 475;
+    public static final int CHOOSE_PROFILE_IMAGE_WIDTH = 550;
+
+    //Draw Profile Image Window
+    public static final String DRAW_PROFILE = "/fxml/DrawProfileImage.fxml";
+    public static final String DRAW_PROFILE_TITLE = "Draw Profile";
+    public static final int DRAW_PROFILE_HEIGHT = 350;
+    public static final int DRAW_PROFILE_WIDTH = 300;
+
     public static String USER_USERNAME ;
     public static String SELECTED_RESOURCE;
+    public static String currentProfileImagePath = "src/main/resources/images/default.png";
 
 }

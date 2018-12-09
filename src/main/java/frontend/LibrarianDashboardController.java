@@ -1,6 +1,7 @@
 package frontend;
 
 import backend.HibernateUtil;
+import backend.Resources;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
@@ -8,6 +9,7 @@ import javafx.scene.text.Text;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -61,8 +63,8 @@ public class LibrarianDashboardController extends Controller{
      * 
      */
     @FXML
-    void operationsRequestsButton() {
-        operationsRequestsHandling();
+    void viewCopiesButton() {
+        viewCopiesHandling();
     }
     
     /**
@@ -101,10 +103,10 @@ public class LibrarianDashboardController extends Controller{
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
-        List resources = session.createQuery("Select title From Resources").list();
+        List<Resources> resources = session.createQuery("From Resources").list();
         if(!resources.isEmpty()) {
             for (int i = 0; i < resources.size(); i++) {
-                resourcesList.getItems().add(String.valueOf(resources.get(i)));
+                resourcesList.getItems().add(resources.get(i).title + " (" + resources.get(i).getResourceUID() + ")");
             }
         }
         session.close();
@@ -129,9 +131,10 @@ public class LibrarianDashboardController extends Controller{
     /**
      * 
      */
-    private void operationsRequestsHandling() {
-        Window<OperationsRequestsController> operationsWindow = new Window<>(SceneController.OPERATIONS_VIEW, SceneController.OPERATIONS_VIEW_WIDTH, SceneController.OPERATIONS_VIEW_HEIGHT, SceneController.OPERATIONS_VIEW_TITLE);
-        operationsWindow.show();
+    private void viewCopiesHandling() {
+        SceneController.SELECTED_RESOURCE = resourcesList.getSelectionModel().getSelectedItem();
+        Window viewCopiesWindow = new Window(SceneController.OPERATIONS_VIEW, SceneController.OPERATIONS_VIEW_WIDTH, SceneController.OPERATIONS_VIEW_HEIGHT, SceneController.OPERATIONS_VIEW_TITLE);
+        viewCopiesWindow.show();
     }
     
     /**
