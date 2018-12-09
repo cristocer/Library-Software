@@ -3,13 +3,13 @@
 }
 .button{
     -fx-background-color:rgb(204,204,255);
-    -fx-font-family:garamond;
+    -fx-font-family:"Trebuchet MS";
     -fx-font-size:16px;
 
 }
 .text{
 
-    -fx-font-family:garamond;
+    -fx-font-family:"Trebuchet MS";
     -fx-font-size:16px;
 
 }
