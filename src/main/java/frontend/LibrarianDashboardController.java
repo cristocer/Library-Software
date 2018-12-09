@@ -1,9 +1,14 @@
 package frontend;
 
+import backend.HibernateUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import java.util.List;
 
 /**
  * LibrarianDashboardController.java
@@ -93,9 +98,16 @@ public class LibrarianDashboardController extends Controller{
      * Fills the resourceList with all the resources the library owns.
      */
     private void populateList() { // Just for testing
-        for(int x=0; x < 1000; x++){
-            resourcesList.getItems().add("lol");
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+        List resources = session.createQuery("Select title From Resources").list();
+        if(!resources.isEmpty()) {
+            for (int i = 0; i < resources.size(); i++) {
+                resourcesList.getItems().add(String.valueOf(resources.get(i)));
+            }
         }
+        session.close();
     }
     
     /**

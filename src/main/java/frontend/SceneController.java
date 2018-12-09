@@ -84,6 +84,7 @@ public class SceneController {
     public static final int EDIT_PROFILE_WIDTH = 600;
     public static final String EDIT_PROFILE_TITLE = "Edit Profile";
 
-    public static String USER_USERNAME ; 
+    public static String USER_USERNAME ;
+    public static String SELECTED_RESOURCE;
 
 }

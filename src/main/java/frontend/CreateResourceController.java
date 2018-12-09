@@ -1,27 +1,38 @@
 package frontend;
+
+import backend.Book;
+import backend.DVD;
+import backend.HibernateUtil;
+import backend.Laptop;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.TextField;
-public class CreateResourceController extends Controller{
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+public class CreateResourceController extends Controller {
+
+    //TODO Implement changes on commit 21b2e4c
+
 
 /**
  * CreateResourceController.java
  * - GNU General Public License 2007
  * - creation date: 17/11/2018
  * - last modified: 07/12/2018
- * @author 
+ * @author
  * @version 1.3
  * @since 07/12/2018
  */
-	
+
 /**
- * The CreateResourceController class is a subclass of the class Controller and is 
+ * The CreateResourceController class is a subclass of the class Controller and is
  * used to create a new resource via a librarian account's GUI.
- */	
-	
+ */
+
     @FXML
     private RadioButton book;	//Book RadioButton used in the GUI.
     @FXML
@@ -82,46 +93,46 @@ public class CreateResourceController extends Controller{
     private Text languageDT;	//Language Text to be used in creating a DVD resource via the GUI.
     @FXML
     private Text subtitleLanguageT;	//SubtitleLanguage Text to be used in creating a DVD resource via the GUI.
-    
+
     /**
      * Method used to create a button in the GUI.
      */
     @FXML
-    void createButton(){
-        createHandling(); 
+    void createButton() {
+        createHandling();
     }
-    
+
     /**
      * Method used to remove a button from the GUI.
      */
     @FXML
-    void cancelButton(){
+    void cancelButton() {
         close();
     }
-    
+
     /**
      * Method used in creating a laptop resource via the GUI.
      */
     @FXML
-    void createLaptop(){
+    void createLaptop() {
         reset();
-        resource=1;
+        resource = 1;
         os.setVisible(true);
         manufacturer.setVisible(true);
         model.setVisible(true);
         modelT.setVisible(true);
         osT.setVisible(true);
         manufacturerT.setVisible(true);
-        
+
     }
-    
+
     /**
      * Method used in creating a DVD resource via the GUI.
      */
     @FXML
-    void createDVD(){
+    void createDVD() {
         reset();
-        resource=2;
+        resource = 2;
         director.setVisible(true);
         runTime.setVisible(true);
         languageD.setVisible(true);
@@ -130,16 +141,16 @@ public class CreateResourceController extends Controller{
         runTimeT.setVisible(true);
         languageDT.setVisible(true);
         subtitleLanguageT.setVisible(true);
-       
+
     }
-    
+
     /**
      * Method used in creating a Book resource via the GUI.
      */
     @FXML
-    void createBook(){
+    void createBook() {
         reset();
-        resource=3;
+        resource = 3;
         publisher.setVisible(true);
         isbn.setVisible(true);
         language.setVisible(true);
@@ -150,21 +161,21 @@ public class CreateResourceController extends Controller{
         languageT.setVisible(true);
         authorT.setVisible(true);
         genreT.setVisible(true);
-        
+
     }
     private int resource;	//Variable used to track the kind of resource created.
     @FXML
     private Text invalidMessage;	//Message used in the case of an invalid action.
     @FXML
     private Text incompleteMessage;	//Message used in the case of an incomplete action.
-    
+
     /**
      * Method used to reset the individual text and textfields.
      */
     void reset(){    
         invalidMessage.setVisible(false);
         incompleteMessage.setVisible(false);
-        resource =0;
+        resource = 0;
         os.setVisible(false);
         manufacturer.setVisible(false);
         model.setVisible(false);
@@ -195,7 +206,6 @@ public class CreateResourceController extends Controller{
      * Method used to initialise the create a resource GUI.
      */
     public void initialize(){
-        
         resource=0;
         ToggleGroup group = new ToggleGroup();
         book.setToggleGroup(group);
@@ -204,11 +214,10 @@ public class CreateResourceController extends Controller{
         title.setVisible(true);
         year.setVisible(true);
         image.setVisible(true);
-        reset();        
-                
+        reset();
     }
-    
-    
+
+
     //take the inputs and call the constructor of the class or insert into db by the right format
     //TO DO complete constructors when we decide on the format
     //solve small error why the imcompleteMessage doesn't appear
@@ -217,33 +226,43 @@ public class CreateResourceController extends Controller{
     /**
      * Method used to maintain and control the create resource GUI used by the librarian accounts.
      */
-    private void createHandling(){
-       invalidMessage.setVisible(false);
-       incompleteMessage.setVisible(false);  
-       if(resource==0){
-           invalidMessage.setVisible(true);
-       }else if(resource==1){
-           if(title.getText()==null || year.getText()==null || image.getText()==null || os.getText()==null || manufacturer.getText()==null || model.getText()==null ){
-           incompleteMessage.setVisible(true);   
-           }else{
-               //Laptop.(year.getText(),title.getText(),image.getText()==""..)
-              // close();
-           }
-       }else if(resource==2){
-           if(title.getText()=="" || year.getText()=="" || image.getText()=="" || director.getText()=="" || runTime.getText()=="" || languageD.getText()=="" || subtitleLanguage.getText()==""){
-           invalidMessage.setText("Error: Field not completed!");   
-           }else{
-               //DVD.(year.getText(),title.getText(),image.getText()==""..)
-              // close();
-           }
-       }else if(resource==3){
-           if(title.getText()=="" || year.getText()=="" || image.getText()=="" || publisher.getText()=="" || isbn.getText()=="" || language.getText()=="" || author.getText()=="" || genre.getText()==""){
-           invalidMessage.setText("Error: Field not completed!");   
-           }else{
-               //Book.(year.getText(),title.getText(),image.getText()==""..)
-               //close();
-           }
-       }
+    private void createHandling() {
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+        invalidMessage.setVisible(false);
+        incompleteMessage.setVisible(false);
+        if (resource == 0) {
+            invalidMessage.setVisible(true);
+        } else if (resource == 1) {
+            if (title.getText() == null || year.getText() == null || image.getText() == null || os.getText() == null || manufacturer.getText() == null || model.getText() == null) {
+                incompleteMessage.setVisible(true);
+            } else {
+                Laptop laptop = new Laptop(os.getText(), manufacturer.getText(), model.getText(), title.getText(), year.getText(), image.getText());
+                session.save(laptop);
+                //Laptop.(year.getText(),title.getText(),image.getText()==""..)
+                close();
+            }
+        } else if (resource == 2) {
+            if (title.getText() == "" || year.getText() == "" || image.getText() == "" || director.getText() == "" || runTime.getText() == "" || languageD.getText() == "" || subtitleLanguage.getText() == "") {
+                invalidMessage.setText("Error: Field not completed!");
+            } else {
+                backend.DVD dvd = new DVD(director.getText(), Integer.parseInt(runTime.getText()), language.getText(), subtitleLanguage.getText(), title.getText(), year.getText(), image.getText());
+                session.save(dvd);
+                //DVD.(year.getText(),title.getText(),image.getText()==""..)
+                close();
+            }
+        } else if (resource == 3) {
+            if (title.getText() == "" || year.getText() == "" || image.getText() == "" || publisher.getText() == "" || isbn.getText() == "" || language.getText() == "" || author.getText() == "" || genre.getText() == "") {
+                invalidMessage.setText("Error: Field not completed!");
+            } else {
+                Book book = new Book(author.getText(), publisher.getText(), Integer.parseInt(isbn.getText()), genre.getText(), language.getText(), year.getText(), title.getText(), image.getText());
+                session.save(book);
+                //Book.(year.getText(),title.getText(),image.getText()==""..)
+                close();
+            }
+        }
+        session.getTransaction().commit();
     }
 
 }

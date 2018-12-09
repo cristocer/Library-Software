@@ -14,10 +14,10 @@ import javax.persistence.*;
  */
 
 /**
- * The AccountBaseUser abstract class is used to store attributes and abstract methods used within both of 
- * its subclasses: User and Librarian. 
+ * The AccountBaseUser abstract class is used to store attributes and abstract methods used within both of
+ * its subclasses: User and Librarian.
  */
-@Entity //Defining the class as a persistent entity allowing the hibernate API to interact with it 
+@Entity //Defining the class as a persistent entity allowing the hibernate API to interact with it
 @Inheritance(strategy=InheritanceType.JOINED)//Defining which method of mapping inheritance is going to be used with the subclasses
 public abstract class AccountBaseUser {
 	//Instance Variables:
@@ -91,6 +91,8 @@ public abstract class AccountBaseUser {
 	 * @return The current account's address.
 	 */
 	public String getAddress() { return address; }
+
+	public void setAddress(String address) { this.address = address; }
 
 	/**
 	 * Abstract method to set the account's profile image.

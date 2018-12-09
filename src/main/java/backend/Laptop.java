@@ -24,8 +24,10 @@ public class Laptop extends Resources {
     private String operatingSystem;		//operatingSystem of the laptop
     private String manufacturer;		//manufacturer of the laptop
     private String model;				//model of the laptop
-    
-    
+
+
+    public Laptop (){}
+
     /**
      * Creates a laptop.
      * @param operatingSystem The operating system of the laptop.
@@ -45,16 +47,7 @@ public class Laptop extends Resources {
         this.year = year;
         this.thumbnailImagePath = thumbnailImagePath;
     }
-    
-    /**
-     * When called replaces variables tied to the laptop resource with newly input variables.
-     * @param operatingSystem The operating system of the laptop.
-     * @param manufacturer The manufacturer of the laptop.
-     * @param model The model of the laptop.
-     * @param title The title(name) of the laptop.
-     * @param year The year when the laptop was build.
-     * @param thumbnailImagePath The path to the thumbnail image of the each individual laptop.
-     */
+
     public void editResource(String operatingSystem,String manufacturer,String model, String title,String year, 
     		String thumbnailImagePath) {
     	this.operatingSystem = operatingSystem;  

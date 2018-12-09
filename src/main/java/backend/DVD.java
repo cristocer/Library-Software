@@ -24,7 +24,9 @@ public class DVD extends Resources{
     private int runTime;				//runtime of the DVD
     private String language;			//language(s) of the DVD
     private String subtitleLanguage;	//subtitle language(s) of the DVD
-    
+
+
+    public DVD (){}
     
     /**
      * On creation initializes all required attributes.
@@ -48,16 +50,6 @@ public class DVD extends Resources{
         this.thumbnailImagePath = thumbnailImagePath;
     }
 
-    /**
-     * When called replaces variables tied to the DVD resource with newly input variables.
-     * @param director name of director.
-     * @param runTime run time of  DVD in seconds.
-     * @param language language of the DVD's audio
-     * @param subtitleLanguage language of the DVD's subtitles.
-     * @param title The title of the DVD.
-     * @param year The year the DVD was first released.
-     * @param thumbnailImagePath The file path of the resources thumbnail image.
-     */
     public void editResource(String director, int runTime, String language, String subtitleLanguage, String title, String year,	
             String thumbnailImagePath){
         this.director = director;

@@ -15,7 +15,6 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import java.util.List;
 
 /**
  * ViewProfileController.java
@@ -94,19 +93,18 @@ public class ViewProfileController extends Controller{
         AccountBaseUser baseUser = (AccountBaseUser) session.createQuery("From AccountBaseUser Where username = '" + SceneController.USER_USERNAME + "'").uniqueResult();
         User user = (User) session.createQuery("From User Where username = '" + SceneController.USER_USERNAME + "'").uniqueResult();
         Librarian librarian = (Librarian) queryLibrarian.uniqueResult();
-        profileInfo.getItems().add(baseUser.getUsername());
-        profileInfo.getItems().add(baseUser.getFirstName());
-        profileInfo.getItems().add(baseUser.getLastName());
-        profileInfo.getItems().add(String.valueOf(baseUser.getTelephone()));
-        profileInfo.getItems().add(baseUser.getAddress());
+        profileInfo.getItems().add("Username:   " + baseUser.getUsername());
+        profileInfo.getItems().add("Firstname:  " + baseUser.getFirstName());
+        profileInfo.getItems().add("Last name:  " + baseUser.getLastName());
+        profileInfo.getItems().add("Telephone:  " + baseUser.getTelephone());
+        profileInfo.getItems().add("Address:    " + baseUser.getAddress());
         if(queryLibrarian.uniqueResult() != null){
-            profileInfo.getItems().add(String.valueOf(librarian.getStaffID()));
-            profileInfo.getItems().add(librarian.getEmploymentDate());
+            profileInfo.getItems().add("Staff ID:   " + librarian.getStaffID());
+            profileInfo.getItems().add("Start Date: " + librarian.getEmploymentDate());
         }
         else {
-            profileInfo.getItems().add(String.valueOf(user.getBalance()));
+            profileInfo.getItems().add("Balance:    " + user.getBalance());
         }
         session.close();
     }
 }
-

@@ -118,7 +118,7 @@ public class LoginController extends Controller{
             authenticated=false;
         }
         session.close();
-        SceneController.USER_USERNAME = username;  // TODO parse User to scenecontroller. Not just the name
+        SceneController.USER_USERNAME = username;
     }
     /**
      * Check if User is authentic

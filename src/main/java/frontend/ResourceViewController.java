@@ -1,10 +1,14 @@
 package frontend;
 
+import backend.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 /**
  * ResourceViewController.java
@@ -38,17 +42,39 @@ public class ResourceViewController extends Controller{
     /**
      * Calls the methods necessary to populate the GUI with the resources' information.
      */
-    public void initialize(){
-        // Purely for testing purposes.
-        Image image = null;
-        try {
-            image = new Image("file:testpic.png");
+    public void initialize(){ //TODO Fix bug where program crashes if no resource is selected.
+        if(!SceneController.SELECTED_RESOURCE.isEmpty()) {
+            SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+            Session session = sessionFactory.getCurrentSession();
+            session.beginTransaction();
+            Resources resource = (Resources) session.createQuery("From Resources Where title = '" + SceneController.SELECTED_RESOURCE + "'").uniqueResult();
+            Book book = (Book) session.createQuery("From Book Where resourceUID = '" + resource.getResourceUID() + "'").uniqueResult();
+            Laptop laptop = (Laptop) session.createQuery("From Laptop Where resourceUID = '" + resource.getResourceUID() + "'").uniqueResult();
+            DVD dvd = (DVD) session.createQuery("From DVD Where resourceUID = '" + resource.getResourceUID() + "'").uniqueResult();
+            if (book != null) {
+                resourceDetails.getItems().add("Title: " + book.getTitle());
+                resourceDetails.getItems().add("Author: " + book.getAuthor());
+                resourceDetails.getItems().add("Publisher: " + book.getPublisher());
+                resourceDetails.getItems().add("Year: " + book.getYear());
+                resourceDetails.getItems().add("Genre: " + book.getGenre());
+                resourceDetails.getItems().add("Language: " + book.getLanguage());
+                resourceDetails.getItems().add("ISBN: " + book.getIsbn());
+            } else if (laptop != null) {
+                resourceDetails.getItems().add("Title: " + laptop.getTitle());
+                resourceDetails.getItems().add("OS: " + laptop.getOperatingSystem());
+                resourceDetails.getItems().add("Manufacturer: " + laptop.getManufacturer());
+                resourceDetails.getItems().add("Model: " + laptop.getModel());
+                resourceDetails.getItems().add("Year: " + laptop.getYear());
+            } else if (dvd != null) {
+                resourceDetails.getItems().add("Title: " + dvd.getTitle());
+                resourceDetails.getItems().add("Director: " + dvd.getDirector());
+                resourceDetails.getItems().add("Year: " + dvd.getYear());
+                resourceDetails.getItems().add("Run-time: " + dvd.getRunTime());
+                resourceDetails.getItems().add("Language: " + dvd.getLanguage());
+                resourceDetails.getItems().add("Subtitles: " + dvd.getSubtitleLanguage());
+            }
+            session.close();
         }
-        catch (Exception e){
-            System.exit(-1);
-        }
-        resourceImage.setImage(image);
-        resourceDetails.getItems().add("test");
     }
 
     /**

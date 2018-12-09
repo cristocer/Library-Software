@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="649.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.OperationsRequestsController">
+<Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="649.0" styleClass="bk" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.OperationsRequestsController">
    <children>
-      <Text layoutX="304.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Actions:" />
+      <Text layoutX="304.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Actions:" />
       <Button layoutX="575.0" layoutY="308.0" mnemonicParsing="false" onAction="#cancelButton" text="Cancel" />
-      <Button fx:id="approveLoan" layoutX="365.0" layoutY="91.0" mnemonicParsing="false" onAction="#approveL" text="Approve Loan">
+      <Button fx:id="createLoan" layoutX="365.0" layoutY="91.0" mnemonicParsing="false" onAction="#createL" text="Create Loan">
          <opaqueInsets>
             <Insets left="5.0" right="5.0" />
          </opaqueInsets>
@@ -27,14 +27,14 @@
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding></Button>
-      <TextField fx:id="textID" layoutX="411.0" layoutY="22.0">
+      <TextField fx:id="textID" layoutX="411.0" layoutY="22.0" prefHeight="28.0" prefWidth="160.0" styleClass="text">
          <opaqueInsets>
             <Insets left="5.0" right="5.0" />
          </opaqueInsets>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding></TextField>
-      <Text layoutX="304.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search by ID :" />
+      <Text layoutX="304.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Search by ID :" />
       <Button layoutX="575.0" layoutY="22.0" mnemonicParsing="false" onAction="#searchID" text="Search">
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

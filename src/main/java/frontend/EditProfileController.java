@@ -1,5 +1,9 @@
 package frontend;
 
+import backend.AccountBaseUser;
+import backend.HibernateUtil;
+import backend.Librarian;
+import backend.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -7,19 +11,22 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 /**
  * EditProfileController.java
  * - GNU General Public License 2007
  * - creation date: 17/11/2018
  * - last modified: 07/12/2018
- * @author 
+ * @author
  * @version 1.3
  * @since 07/12/2018
  */
 
 /**
- * The EditProfileController Class is a subclass of the class Controller and is used in 
+ * The EditProfileController Class is a subclass of the class Controller and is used in
  * editing a users' profile information via the GUI.
  */
 
@@ -82,7 +89,7 @@ public class EditProfileController extends Controller{
      */
     @FXML
     void editProfileButton(ActionEvent event) {editProfileHandling(); }
-    
+
     /**
      * Method used to cancel any changes to the user's profile information.
      */
@@ -102,15 +109,24 @@ public class EditProfileController extends Controller{
     public void isLibrarian(){
         //If user is librarian make employment date visible.
     }
-    
+
     /**
      * This method submits final changes once the user has finished making changes.
      */
     public void editProfileHandling(){
-        // Submit Form.
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+        AccountBaseUser baseUser = (AccountBaseUser) session.createQuery("From AccountBaseUser Where username = '" + SceneController.USER_USERNAME + "'").uniqueResult();
+        if(!firstnameField.getText().isEmpty()){ baseUser.setFirstName(firstnameField.getText()); }
+        if(!lastnameField.getText().isEmpty()){ baseUser.setLastName(lastnameField.getText()); }
+        if(!telephoneField.getText().isEmpty()){ baseUser.setTelephone(Integer.parseInt(telephoneField.getText())); }
+        if(!addressField.getText().isEmpty()){ baseUser.setAddress(addressField.getText()); }
+        session.save(baseUser);
+        session.getTransaction().commit();
         close();
     }
-    
+
     /**
      * This method cancels all changes to the user's profile information when called.
      */
