@@ -26,8 +26,9 @@ public class LibrarianDashboardController extends Controller{
         editResourceHandling();
     }
     @FXML
-    void operationsRequestsButton() {
-        operationsRequestsHandling();
+    void viewCopiesButton(){
+        SceneController.SELECTED_RESOURCE = resourcesList.getSelectionModel().getSelectedItem();
+        viewCopiesHandling();
     }
     @FXML
     void createCopyButton() {
@@ -61,8 +62,8 @@ public class LibrarianDashboardController extends Controller{
         Window<EditResourceController> editResource = new Window<>(SceneController.EDIT_VIEW, SceneController.EDIT_VIEW_WIDTH, SceneController.EDIT_VIEW_HEIGHT, SceneController.EDIT_VIEW_TITLE);
         editResource.show();
     }
-    private void operationsRequestsHandling() {
-        Window<OperationsRequestsController> operationsWindow = new Window<>(SceneController.OPERATIONS_VIEW, SceneController.OPERATIONS_VIEW_WIDTH, SceneController.OPERATIONS_VIEW_HEIGHT, SceneController.OPERATIONS_VIEW_TITLE);
+    private void viewCopiesHandling() {
+        Window operationsWindow = new Window(SceneController.OPERATIONS_VIEW, SceneController.OPERATIONS_VIEW_WIDTH, SceneController.OPERATIONS_VIEW_HEIGHT, SceneController.OPERATIONS_VIEW_TITLE);
         operationsWindow.show();
     }
     private void createUserHandling(){
