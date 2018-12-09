@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.LoginController">
+<GridPane id="bk" fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="250.0" styleClass="bk" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.LoginController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -25,11 +25,20 @@
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tawe-Lib" textAlignment="CENTER" wrappingWidth="147.13671875" GridPane.columnSpan="2">
          <font>
-            <Font name="Comic Sans MS" size="32.0" />
+            <Font name="Garamond" size="32.0" />
          </font>
       </Text>
-      <TextField fx:id="username_text" promptText="Username" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-      <Button mnemonicParsing="false" onAction="#loginHandling" text="Login" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+      <TextField fx:id="username_text" promptText="Username" styleClass="text" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+         <font>
+            <Font name="Garamond" size="16.0" />
+         </font></TextField>
+      <Button id="but" mnemonicParsing="false" onAction="#loginHandling" prefHeight="30.0" prefWidth="62.0" text="Login" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+         <font>
+            <Font name="Garamond" size="16.0" />
+         </font>
+         <opaqueInsets>
+            <Insets top="5.0" />
+         </opaqueInsets></Button>
       <Text fx:id="wronguser_text" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
    </children>
 </GridPane>

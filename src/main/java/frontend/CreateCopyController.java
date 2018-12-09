@@ -36,13 +36,6 @@ import java.util.List;
 public class CreateCopyController extends Controller {
 
     @FXML
-    private RadioButton book;    //Book RadioButton used in the GUI.
-    @FXML
-    private RadioButton DVD;    //DVD RadioButton used in the GUI.
-    @FXML
-    private RadioButton laptop;    //Laptop RadioButton used in the GUI.
-
-    @FXML
     private ListView<String> listOfCopies;    //list with the available copies to edit
 
     /**
@@ -101,13 +94,6 @@ public class CreateCopyController extends Controller {
      * Method used to refresh the list of copies of resources.
      */
     private void refreshList() {
-        if (copy == 1) {
-            //query laptop db of resources
-        } else if (copy == 2) {
-            //query DVD db of resources
-        } else if (copy == 3) {
-            //query book db of resources
-        }
         //a select query to db that will return a list of objects of subtype of resource(laptop,book,dvd)
         //this list will be put in the listView.
         //We will also need the Id of the resource so we can reference it when we change it back into the database.

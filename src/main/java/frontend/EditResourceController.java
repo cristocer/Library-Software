@@ -15,6 +15,7 @@ package frontend;
  * to edit information on Resources already owned by the library.
  */
 
+import backend.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
@@ -23,15 +24,13 @@ import javafx.scene.text.Text;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.TextField;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import java.util.List;
 
 public class EditResourceController extends Controller{
 
-	@FXML
-    private RadioButton book;	//Book RadioButton used in the GUI.
-    @FXML
-    private RadioButton DVD;	//DVD RadioButton used in the GUI.
-    @FXML
-    private RadioButton laptop;	//Laptop RadioButton used in the GUI.
     @FXML
     private TextField title;	//Title TextField to be used in creating a resource via the GUI.
     @FXML
@@ -110,27 +109,28 @@ public class EditResourceController extends Controller{
      * Method used in creating a laptop resource via the GUI.
      */
     @FXML
-    void createLaptop(){
-        reset();        
-        resource=1;
-        refreshList();
+    void createLaptop(Laptop laptop){
+        reset();
         os.setVisible(true);
         manufacturer.setVisible(true);
         model.setVisible(true);
         modelT.setVisible(true);
         osT.setVisible(true);
         manufacturerT.setVisible(true);
-        
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+        laptop.editResource(os.getText(),manufacturer.getText(),model.getText(),title.getText(),year.getText(),image.getText());
+        session.save(laptop);
+        session.getTransaction().commit();
     }
     
     /**
      * Method used in creating a DVD resource via the GUI.
      */
     @FXML
-    void createDVD(){
+    void createDVD(DVD dvd){
         reset();
-        resource=2;
-        refreshList();
         director.setVisible(true);
         runTime.setVisible(true);
         languageD.setVisible(true);
@@ -139,6 +139,12 @@ public class EditResourceController extends Controller{
         runTimeT.setVisible(true);
         languageDT.setVisible(true);
         subtitleLanguageT.setVisible(true);
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+        dvd.editResource(director.getText(), Integer.parseInt(runTime.getText()), language.getText(), subtitleLanguage.getText(), title.getText(), year.getText(), image.getText());
+        session.save(dvd);
+        session.getTransaction().commit();
        
     }
     
@@ -146,10 +152,8 @@ public class EditResourceController extends Controller{
      * Method used in creating a Book resource via the GUI.
      */
     @FXML
-    void createBook(){
+    void createBook(Book book){
         reset();
-        resource=3;
-        refreshList();
         publisher.setVisible(true);
         isbn.setVisible(true);
         language.setVisible(true);
@@ -160,7 +164,12 @@ public class EditResourceController extends Controller{
         languageT.setVisible(true);
         authorT.setVisible(true);
         genreT.setVisible(true);
-        
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+        book.editResource(author.getText(), publisher.getText(), Integer.parseInt(isbn.getText()), genre.getText(), language.getText(), title.getText(), year.getText(), image.getText());
+        session.save(book);
+        session.getTransaction().commit();
     }
     private int resource;	//Variable used to track the kind of resource created.
     @FXML
@@ -205,85 +214,42 @@ public class EditResourceController extends Controller{
      * Method used to initialise the create a resource GUI.
      */
     public void initialize(){
-        
-        
-        for(int i=0; i < 1000; i++){
-            listOfResources.getItems().add("lol"+Integer.toString(i));
-        }
-        resource=0;
-        ToggleGroup group = new ToggleGroup();
-        book.setToggleGroup(group);
-        DVD.setToggleGroup(group);
-        laptop.setToggleGroup(group);
         title.setVisible(true);
         year.setVisible(true);
         image.setVisible(true);
-        reset();        
-                
+        reset();
     }
-    
-    /**
-     * Method used to refresh the list of available resources.
-     */
-    private void refreshList(){
-        if(resource==1){
-            //query laptop db
-        }else if(resource==2){
-            //query DVD db
-        }else if(resource==3){
-            //query book db
-        }
-        //a select query to db that will return a list of objects of subtype of resource(laptop,book,dvd)
-        //from which we can extract the attributes that can be changed.
-        //this list will be put in the listView.
-        //We will also need the Id of the resource so we can reference it when we change it back into the database.
-        //we may need to override toString method for every resource so we can display them as strings,unless the query
-        //will return string objects which i doubt
-        //then we simply use add() method./or the normal way from below
-        //resourceID=id from db
-        
-        
-        //a possible alternative
-        //ObservableList<String> names = FXCollections.observableArrayList(
-        //  "Julia", "Ian", "Sue", "Matthew", "Hannah", "Stephan", "Denise");
-        //listOfResources = new ListView<String>(names);
-    }
-    private int resourceID;	//Identification number unique to the resource.
-    
+
     /**
      * Method used to maintain and control the edit resource GUI used by the librarian accounts.
      */
     private void editHandling(){
-        
-       invalidMessage.setVisible(false);
-       incompleteMessage.setVisible(false);  
-       if(resource==0){
-           invalidMessage.setVisible(true);
-       }else if(resource==1){//laptop
-           if(title.getText().compareTo("")==0 || year.getText().compareTo("")==0 || image.getText().compareTo("")==0 || os.getText().compareTo("")==0 || 
-                   manufacturer.getText().compareTo("")==0|| model.getText().compareTo("")==0){
-           incompleteMessage.setVisible(true);   
-           }else{
-               // System.out.print(resourcesList.getFocusModel().getFocusedItem());//return the item focused in the list to get the id
-               //an update table query to the database with the resourceId to reference the resource to be changed and the parameters (year.getText(),title.getText(),image.getText()==""..)
-           }
-       }else if(resource==2){//dvd
-           if(title.getText().compareTo("")==0 || year.getText().compareTo("")==0 || image.getText().compareTo("")==0 || director.getText().compareTo("")==0
-                   || runTime.getText().compareTo("")==0 || languageD.getText().compareTo("")==0 || subtitleLanguage.getText().compareTo("")==0){
-           incompleteMessage.setVisible(true);     
-           }else{
-               // System.out.print(resourcesList.getFocusModel().getFocusedItem());//return the item focused in the list to get the id
-               //an update table query to the database with the resourceId to reference the resource to be changed and the parameters (year.getText(),title.getText(),image.getText()==""..)
-           }
-       }else if(resource==3){//book
-           if(title.getText().compareTo("")==0 || year.getText().compareTo("")==0 || image.getText().compareTo("")==0 || publisher.getText().compareTo("")==0
-                   || isbn.getText().compareTo("")==0|| language.getText().compareTo("")==0|| author.getText().compareTo("")==0|| genre.getText().compareTo("")==0){
-           incompleteMessage.setVisible(true);     
-           }else{
-               // System.out.print(resourcesList.getFocusModel().getFocusedItem());//return the item focused in the list to get the id
-               //an update table query to the database with the resourceId to reference the resource to be changed and the parameters (year.getText(),title.getText(),image.getText()==""..)
-           }
-       }
-       refreshList();
+        try {
+            SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+            Session session = sessionFactory.getCurrentSession();
+            session.beginTransaction();
+            Resources resource = (Resources) session.createQuery("From Resources Where resourceUID = '" + SceneController.SELECTED_RESOURCE.split("[\\(\\)]")[1] + "'").uniqueResult();
+            Book book = (Book) session.createQuery("From Book Where resourceUID = '" + resource.getResourceUID() + "'").uniqueResult();
+            Laptop laptop = (Laptop) session.createQuery("From Laptop Where resourceUID = '" + resource.getResourceUID() + "'").uniqueResult();
+            DVD dvd = (DVD) session.createQuery("From DVD Where resourceUID = '" + resource.getResourceUID() + "'").uniqueResult();
+            session.close();
+            if(book != null){
+                //It's a book!
+                createBook(book);
+            }
+            else if(laptop != null){
+                //It's a laptop!
+                createLaptop(laptop);
+
+            }
+            else if(dvd != null){
+                //It's a dvd!
+                createDVD(dvd);
+            }
+        }
+        catch (Exception e){
+            listOfResources.getItems().add("Please close this window and select a resource.");
+            System.out.println(e);
+        }
     }
 }

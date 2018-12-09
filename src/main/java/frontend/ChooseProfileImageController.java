@@ -53,6 +53,7 @@ public class ChooseProfileImageController extends Controller{
         selectedImage.setImage(d4.getImage());
         SceneController.currentProfileImagePath = DEFAULT_4;
     }
+
     @FXML
     void doneB() {
         try {
@@ -82,6 +83,7 @@ public class ChooseProfileImageController extends Controller{
         d3.setImage(new Image(DEFAULT_3));
         d4.setImage(new Image(DEFAULT_4));
     }
+
     private void reset(){
         selectedImage.setImage(new Image(DEFAULT));
         SceneController.currentProfileImagePath = DEFAULT;

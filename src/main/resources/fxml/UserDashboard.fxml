@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="rootPane" maxHeight="600.0" maxWidth="600.0" minHeight="600.0" minWidth="600" prefHeight="600.0" prefWidth="600.0" scaleShape="false" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.UserDashboardController">
+<BorderPane fx:id="rootPane" maxHeight="600.0" maxWidth="600.0" minHeight="600.0" minWidth="600" prefHeight="600.0" prefWidth="600.0" scaleShape="false" styleClass="bk" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.UserDashboardController">
    <right>
       <VBox prefWidth="160.0" BorderPane.alignment="CENTER">
          <children>
@@ -48,8 +48,8 @@
    <top>
       <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="588.0" BorderPane.alignment="CENTER">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Logged in as: " />
-            <Text fx:id="user_id" strokeType="OUTSIDE" strokeWidth="0.0" text="nobody" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Logged in as: " />
+            <Text fx:id="user_id" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="nobody" />
          </children>
          <BorderPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

@@ -39,5 +39,25 @@
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding></Button>
+      <TextField fx:id="userID" layoutX="304.0" layoutY="261.0" prefHeight="28.0" prefWidth="160.0" styleClass="text">
+         <opaqueInsets>
+            <Insets left="5.0" right="5.0" />
+         </opaqueInsets>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </TextField>
+      <TextField fx:id="copyID" layoutX="478.0" layoutY="261.0" prefHeight="28.0" prefWidth="160.0" styleClass="text">
+         <opaqueInsets>
+            <Insets left="5.0" right="5.0" />
+         </opaqueInsets>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </TextField>
+      <Text fx:id="user" layoutX="304.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="ID of requesting user:" />
+      <Text fx:id="copy" layoutX="478.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="ID of requested copy:" />
+      <Text fx:id="a" layoutX="304.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Create loan form:" />
+      <Text fx:id="incompleteMessage" fill="#ff0404" layoutX="478.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Please fill the form!" />
    </children>
 </Pane>
