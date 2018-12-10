@@ -11,22 +11,48 @@ import org.hibernate.SessionFactory;
 
 import java.util.List;
 
+/**
+ * ViewCopiesController.java
+ * - GNU General Public License 2007
+ * - creation date: 09/12/2018
+ * - last modified: 09/12/2018
+ * @author Alex Moras
+ * @version 1.3
+ * @since 09/12/2018
+ */
+
+/**
+ * The ViewCopiesController class is a subclass of the class Controller and 
+ * is used to by librarians to display all the copies of a resource.
+ */
+
 public class ViewCopiesController {
     @FXML
-    private GridPane rootPane;
+    private GridPane rootPane;	//Creates GridPane for displaying copies information via the GUI.
     @FXML
-    private TextField userIDBox;
+    private TextField userIDBox;	//Creates TextField to contain Librarian ID.
     @FXML
-    private ListView<String> copiesList;
+    private ListView<String> copiesList;	//Creates a list of all the copies of a resource
     @FXML
-    private ImageView resourceImage;
+    private ImageView resourceImage;	//Creates an ImageView to display the image of the resource being viewed.
+    
+    /**
+     * An event that occurs when the user has pressed the done button to leave the "view copies" page.
+     * @param event An event caused by the user pressing the done button.
+     */
     @FXML
     void doneButton(ActionEvent event) {
     }
+    /**
+     * A method that occurs when the user presses the loan button.
+     */
     @FXML
     void loanB(){
         loan();
     }
+    /**
+     * Initialises the GUI for choosing profile images.
+     */
     public void initialize(){
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();
@@ -45,6 +71,9 @@ public class ViewCopiesController {
         }
         session.close();
     }
+    /**
+     * This method loans out a copy of a resource to a user.
+     */
     public void loan(){
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();
