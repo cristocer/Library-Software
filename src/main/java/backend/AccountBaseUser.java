@@ -26,7 +26,7 @@ public abstract class AccountBaseUser {
 	public String username;				//user name of the user or librarian's account.
 	public String firstName;			//first name of the user or librarian.
 	public String lastName;				//last name of the user or librarian.
-	public int telephone;				//telephone number of the user or librarian.
+	public String telephone;				//telephone number of the user or librarian.
 	public String address;				//address of the user or librarian.
 	public String profileImagePath;		//image path of the account's profile picture.
 	
@@ -66,7 +66,7 @@ public abstract class AccountBaseUser {
 	 * Method to get the account's telephone number.
 	 * @return The current account's telephone number.
 	 */
-	public int getTelephone() {
+	public String getTelephone() {
 		return telephone;
 	}
 
@@ -74,7 +74,7 @@ public abstract class AccountBaseUser {
 	 * Method to set the account's telephone number.
 	 * @param telephone The current account's new telephone number.
 	 */
-	public void setTelephone(int telephone) {
+	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
 

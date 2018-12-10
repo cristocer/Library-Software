@@ -31,19 +31,19 @@ public class App
     		
  //   		session.beginTransaction();
     		
-    		Book myBook = new Book ("yeet","a",420,"b","c","d","e","d");
+    		//Book myBook = new Book ("yeet","a",420,"b","c","d","e","d");
     		
     //		session.save(myBook);
     		
-    		Copies myCopyOfMyBook = new Copies(1, 420);
+    		//Copies myCopyOfMyBook = new Copies(1, 420);
 
     //		session.save(myCopyOfMyBook);
     		
-    		User myUser = new User(69, "The big yeeter420", "Ryan", "Williams", 999, "address who?", "SSD");
+    		//User myUser = new User(69, "The big yeeter420", "Ryan", "Williams", 999, "address who?", "SSD");
     		
     //		session.save(myUser);
     		
-    		Librarian myLibrarian = new Librarian("from yesterday","The big yeeter421", "Ryan", "Williams", 999, "address who?", "SSD");
+    		//Librarian myLibrarian = new Librarian("from yesterday","The big yeeter421", "Ryan", "Williams", 999, "address who?", "SSD");
     		
   //  		session.save(myLibrarian);    		
     		
@@ -66,6 +66,6 @@ public class App
   //  		sessionFactory.close();
     		
     		
-	    	System.out.println("NO ERRORS Lmao");
+	    	//System.out.println("NO ERRORS Lmao");
     }
 }

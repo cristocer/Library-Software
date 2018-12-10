@@ -43,7 +43,7 @@ public class Librarian extends AccountBaseUser {
      * @param profileImagePath The file path to the profile image of the employee's account.
 	 */
 	public Librarian(String employmentDate, String username, String firstName, 
-			String lastName, int telephone, String address, String profileImagePath) {
+			String lastName, String telephone, String address, String profileImagePath, int staffID) {
 		
 		this.employmentDate = employmentDate;
 		this.username = username;
@@ -52,6 +52,7 @@ public class Librarian extends AccountBaseUser {
 		this.telephone = telephone;
 		this.address = address;
 		this.profileImagePath = profileImagePath;
+		this.staffID = staffID;
 	}
 		
 	/**

@@ -38,7 +38,7 @@ public class User extends AccountBaseUser {
      * @param address The home address of the user.
      * @param profileImagePath The file path to the profile image of the user's account.
 	 */
-	public User( int balance, String username, String firstName, String lastName, int telephone, String address, 
+	public User( int balance, String username, String firstName, String lastName, String telephone, String address,
 			String profileImagePath) {	
 		this.balance = balance;
 		this.username = username;

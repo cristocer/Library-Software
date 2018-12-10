@@ -1,5 +1,6 @@
 package frontend;
 
+import antlr.StringUtils;
 import backend.HibernateUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +13,9 @@ import backend.Librarian;
 import backend.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+
+import java.util.Date;
+import java.util.Random;
 
 /**
  * CreateUserController.java
@@ -117,11 +121,13 @@ public class CreateUserController extends Controller{
         session.beginTransaction();
         if(librarianCheckbox.isSelected()) {
             // CODE HERE
-            Librarian newLibrarian = new Librarian(employmentField.getText(), userNameField.getText(), firstnameField.getText(), lastnameField.getText(), Integer.parseInt(telephoneField.getText()), addressField.getText(), "");
+            Random rand = new Random();
+            int staffID = rand.nextInt(100000);
+            Librarian newLibrarian = new Librarian(employmentField.getText(), userNameField.getText(), firstnameField.getText(), lastnameField.getText(), telephoneField.getText(), addressField.getText(), "src/main/resources/images/default.png",  staffID);
             session.save(newLibrarian);
         }
         else {
-            User newUser = new User(0, userNameField.getText(), firstnameField.getText(), lastnameField.getText(), Integer.parseInt(telephoneField.getText()), addressField.getText(), "");
+            User newUser = new User(0, userNameField.getText(), firstnameField.getText(), lastnameField.getText(), telephoneField.getText(), addressField.getText(), "src/main/resources/images/default1.png");
             session.save(newUser);
         }
         session.getTransaction().commit();

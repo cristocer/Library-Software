@@ -123,7 +123,7 @@ public class EditProfileController extends Controller{
         AccountBaseUser baseUser = (AccountBaseUser) session.createQuery("From AccountBaseUser Where username = '" + SceneController.USER_USERNAME + "'").uniqueResult();
         if(!firstnameField.getText().isEmpty()){ baseUser.setFirstName(firstnameField.getText()); }
         if(!lastnameField.getText().isEmpty()){ baseUser.setLastName(lastnameField.getText()); }
-        if(!telephoneField.getText().isEmpty()){ baseUser.setTelephone(Integer.parseInt(telephoneField.getText())); }
+        if(!telephoneField.getText().isEmpty()){ baseUser.setTelephone(telephoneField.getText()); }
         if(!addressField.getText().isEmpty()){ baseUser.setAddress(addressField.getText()); }
         session.save(baseUser);
         session.getTransaction().commit();
