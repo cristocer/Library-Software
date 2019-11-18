@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- hibernate configuration file -->
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/tawelib</property> <!-- localhost is the server, then port 3306 for MySQL in this case and the db we want to use -->
+        <property name="hibernate.connection.username">root</property><!-- username of the client to connect to the db ; need password if any -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property><!-- the hibernate dialect for SQL, more updated version MySQL5Dialect -->
+    	<property name="hibernate.hbm2ddl.auto">update</property> <!-- keep the database and just "update"(keyword) with the values added --> <!-- use create to drop the table first-->
+   		<property name="hibernate.cache.use_second_level_cache">true</property>	<!--enables second level caching-->
+   		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>	
+   		<property name="hibernate.cache.use_query_cache">true</property><!--enables caching by queries-->
+   		
+   		<property name="show_sql">true</property> <!-- show in the console the equivalent SQL query -->
+   		
+   		<mapping class="tawelib.TaweGui.Resources"/>
+        <mapping class="tawelib.TaweGui.Book"/>
+        <mapping class="tawelib.TaweGui.Laptop"/>
+        <mapping class="tawelib.TaweGui.DVD"/>
+        <mapping class="tawelib.TaweGui.AccountBaseUser"/>
+        <mapping class="tawelib.TaweGui.User"/>
+        <mapping class="tawelib.TaweGui.Librarian"/>
+        <mapping class="tawelib.TaweGui.Copies"/>
+        <mapping class="tawelib.TaweGui.Request"/>
+    </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,15 @@
+.bk{
+	-fx-background-color:rgb(206,241,255);
+}
+.button{
+	-fx-background-color:rgb(204,204,255);
+	-fx-font-family:garamond;
+	-fx-font-size:16px;
+	
+}
+.text{
+	
+	-fx-font-family:garamond;
+	-fx-font-size:16px;
+	
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="393.0" prefWidth="721.0" styleClass="bk" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tawelib.TaweGui.CreateCopyController">
+   <children>
+      <Button layoutX="385.0" layoutY="354.0" mnemonicParsing="false" onAction="#addButton" text="Add" />
+      <RadioButton fx:id="book" layoutX="381.0" layoutY="43.0" mnemonicParsing="false" onAction="#createBook" onMouseClicked="#createBook" text="Book" />
+      <Text layoutX="381.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Choose a type copy to create:" />
+      <RadioButton fx:id="DVD" layoutX="381.0" layoutY="69.0" mnemonicParsing="false" onMouseClicked="#createDVD" text="DVD" />
+      <RadioButton fx:id="laptop" layoutX="381.0" layoutY="96.0" mnemonicParsing="false" onMouseClicked="#createLaptop" text="Laptop" />
+      <Button layoutX="644.0" layoutY="354.0" mnemonicParsing="false" onAction="#cancelButton" text="Cancel" />
+      <Text fx:id="invalidMessage" fill="#f50404" layoutX="545.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Please select a type." wrappingWidth="84.79998779296875" />
+      <ListView fx:id="listOfCopies" layoutX="14.0" layoutY="16.0" prefHeight="362.0" prefWidth="353.0" />
+      <Text fx:id="incompleteMessage" fill="#f50404" layoutX="545.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Please select resource." wrappingWidth="84.79998779296875" />
+   </children>
+</Pane>
